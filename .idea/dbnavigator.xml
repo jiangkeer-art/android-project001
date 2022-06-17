@@ -28,18 +28,18 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb">
-      <console name="Connection" type="STANDARD" schema="main" session="Main" />
+    <connection id="72b6d548-8eef-4f0f-8128-9052321c221e">
+      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" />
+    <connection id="72b6d548-8eef-4f0f-8128-9052321c221e" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" dataset="main.Flight" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="72b6d548-8eef-4f0f-8128-9052321c221e" dataset="main.Administrators_User" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,9 +70,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" active="true" signed="true">
+      <connection id="72b6d548-8eef-4f0f-8128-9052321c221e" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection 1" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -85,7 +85,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\androidstudio\FlightDataBase.dp" schema="main" />
+            <file path="D:\AndroidStudioCache\FlightDataBase.dp" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

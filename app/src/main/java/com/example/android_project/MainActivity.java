@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,16);
+        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,17);
 
         //创建数据库并向其中添加数据
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -24,14 +24,30 @@ public class MainActivity extends AppCompatActivity {
         addFlightData(db);
         addAdministratorsUserData(db);
         addNormalUserData(db);
+        addPlaneTicketData(db);
         addOrderData(db);
+        addMyAttentionData(db);
+
+    }
+
+    //添加关注相关数据
+    public void addMyAttentionData(SQLiteDatabase db){
+        ContentValues valueMyAttentionData = new ContentValues();
+
+
+    }
+
+    //添加机票数据
+    public void addPlaneTicketData(SQLiteDatabase db){
+        ContentValues valuePlaneTicketData = new ContentValues();
+
+
     }
 
     //添加管理员用户数据函数
     public void addAdministratorsUserData(SQLiteDatabase db){
-        ContentValues valueAdministrators_User=new ContentValues();
+        ContentValues valueAdministrators_User =new ContentValues();
 
-        //管理员表
         valueAdministrators_User.put("phone","18222279903");
         valueAdministrators_User.put("id","Lord");
         db.insert("Administrators_User",null,valueAdministrators_User);
@@ -78,55 +94,23 @@ public class MainActivity extends AppCompatActivity {
     public void addOrderData(SQLiteDatabase db){
         ContentValues valueOrderData = new ContentValues();
 
-        valueOrderData.put("phone","18333378803");
-        valueOrderData.put("flight_number","CA88");
-        valueOrderData.put("takeoff_time","2022-09-17");
-        valueOrderData.put("expired","1");
-        db.insert("My_Order",null,valueOrderData);
     }
 
     //添加航班数据函数
     public void addFlightData(SQLiteDatabase db){
         ContentValues valueFlightData = new ContentValues();
 
-        valueFlightData.put("flight_number","CA88");
-        valueFlightData.put("is_domestic","1"); //1为国内，0为国外
-        valueFlightData.put("takeoff_city","chengdu");
-        valueFlightData.put("landing_city","shanghai");
-        valueFlightData.put("transit_city","null");
-        valueFlightData.put("price","500");
-        valueFlightData.put("takeoff_time","2022-09-17");
-        valueFlightData.put("shipping_space","009-A");
-        valueFlightData.put("punctuality_rate","0.99");
-        valueFlightData.put("is_direct_flight","1");    //1为直飞，0为中转
-        valueFlightData.put("is_share","1");    //1为共享，0为不共享
-        valueFlightData.put("time_period","3h");
-        valueFlightData.put("airline_company","hangkong");
-        valueFlightData.put("food","1");
-        valueFlightData.put("departure_terminal","test1");
-        valueFlightData.put("landing_terminal","test2");
-        db.insert("Flight",null,valueFlightData);
     }
 
     //添加城市数据
     public void addCityData(SQLiteDatabase db){
         ContentValues valueCityData = new ContentValues();
 
-        valueCityData.put("city_name","chengdu");
-        db.insert("City",null,valueCityData);
-
-        valueCityData.put("city_name","shanghai");
-        db.insert("City",null,valueCityData);
-
-        valueCityData.put("city_name","null");
-        db.insert("City",null,valueCityData);
     }
 
     //添加航空公司数据
     public void addCompanyData(SQLiteDatabase db){
         ContentValues valueCompanyData = new ContentValues();
 
-        valueCompanyData.put("company_name","hangkong");
-        db.insert("Airline_Company",null,valueCompanyData);
     }
 }

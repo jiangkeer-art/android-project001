@@ -48,9 +48,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     订单表：
     订单编号（主键）
     用户名（电话号码）
-    航班编号
-    起飞时间
-    状态（是否过期）
+    机票编号
+    状态
     外键用户名连接到用户表的用户名
     外键航班编号连接到航班表的航班编号
     外键起飞时间连接到航班表的起飞时间
@@ -58,12 +57,41 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_MY_ORDER = "Create table My_Order("
             + "order_number integer primary key autoincrement,"
             + "phone varchar(12),"
+            + "plane_ticket_number integer,"
+            + "state varchar(15),"
+            + "foreign key (phone) references User(phone),"
+            + "foreign key (plane_ticket_number) references Plane_Ticket(plane_ticket_number))";
+
+    /*
+    关注表：
+    机票编号（主键）
+    用户名（主键）
+     */
+    public static final String CREATE_MY_ATTENTION = "Create table My_Attention("
+            + "plane_ticket_number integer not null unique,"
+            + "phone varchar(12) not null unique,"
+            + "primary key (plane_ticket_number,phone),"
+            + "foreign key (plane_ticket_number) references Plane_Ticket(plane_ticket_number),"
+            + "foreign key (phone) references User(phone))";
+
+    /*
+    机票表：
+    机票编号（主键）
+    航班号
+    起飞时间
+    价格
+    舱位
+    状态
+     */
+    public static final String CREATE_PLANE_TICKET = "Create table Plane_Ticket("
+            + "plane_ticket_number integer primary key not null,"
             + "flight_number varchar(10),"
             + "takeoff_time datetime,"
-            + "expired BLOB,"
-            + "foreign key (phone) references User(phone),"
-            + "constraint fk_flight_number foreign key (flight_number) references Flight(flight_number),"
-            + "constraint fk_takeoff_time foreign key (takeoff_time) references Flight(takeoff_time))";
+            + "price integer,"
+            + "shipping_space varchar(15),"
+            + "state varchar(15),"
+            + "foreign key (flight_number) references Flight(flight_number),"
+            + "foreign key (takeoff_time) references Flight(takeoff_time))";
 
     /*
     航班表：
@@ -72,9 +100,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     起飞城市
     降落城市
     中专城市
-    价格
     起飞时间
-    舱位
     准点率
     是否直飞
     是否共享
@@ -95,9 +121,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "takeoff_city varchar(15),"
             + "landing_city varchar(15),"
             + "transit_city varchar(15),"
-            + "price integer,"
             + "takeoff_time datetime not null unique,"
-            + "shipping_space varchar(15),"
             + "punctuality_rate real,"
             + "is_direct_flight BLOB,"
             + "is_share BLOB,"
@@ -155,6 +179,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_FLIGHT);
         sqLiteDatabase.execSQL(CREATE_CITY);
         sqLiteDatabase.execSQL(CREATE_AIRLINE_COMPANY);
+        sqLiteDatabase.execSQL(CREATE_MY_ATTENTION);
+        sqLiteDatabase.execSQL(CREATE_PLANE_TICKET);
         //创建成功时发出成功消息
         Toast.makeText(mContext, "DataBase Create Succeeded", Toast.LENGTH_SHORT).show();
     }
@@ -169,6 +195,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop table if exists City");
         sqLiteDatabase.execSQL("drop table if exists Airline_Company");
         sqLiteDatabase.execSQL("drop table if exists Administrators_User");
+        sqLiteDatabase.execSQL("drop table if exists My_Attention");
+        sqLiteDatabase.execSQL("drop table if exists Plane_Ticket");
         onCreate(sqLiteDatabase);
     }
 }
