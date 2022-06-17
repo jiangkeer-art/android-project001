@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,12);
+        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,16);
 
         //创建数据库并向其中添加数据
         SQLiteDatabase db = dbHelper.getWritableDatabase();
