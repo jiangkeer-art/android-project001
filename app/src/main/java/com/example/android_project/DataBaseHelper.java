@@ -93,6 +93,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("drop table if exists User");
+        sqLiteDatabase.execSQL("drop table if exists Normal_User");
+        sqLiteDatabase.execSQL("drop table if exists My_Order");
+        sqLiteDatabase.execSQL("drop table if exists Flight");
+        sqLiteDatabase.execSQL("drop table if exists City");
+        sqLiteDatabase.execSQL("drop table if exists Airline_Company");
+        sqLiteDatabase.execSQL("drop table if exists Administrators_User");
+        onCreate(sqLiteDatabase);
     }
 }
