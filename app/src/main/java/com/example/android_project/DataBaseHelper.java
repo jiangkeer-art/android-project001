@@ -62,7 +62,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "takeoff_time datetime,"
             + "expired BLOB,"
             + "foreign key (phone) references User(phone),"
-            + "foreign key (flight_number,takeoff_time) references Flight(flight_number,takeoff_time))";
+            + "constraint fk_flight_number foreign key (flight_number) references Flight(flight_number),"
+            + "constraint fk_takeoff_time foreign key (takeoff_time) references Flight(takeoff_time))";
 
     /*
     航班表：
@@ -89,14 +90,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     外键航空公司连接到航空公司表的公司名
      */
     public static final String CREATE_FLIGHT = "Create table Flight("
-            + "flight_number varchar(10) not null,"
+            + "flight_number varchar(10) not null unique,"
             + "is_domestic BLOB,"
             + "takeoff_city varchar(15),"
             + "landing_city varchar(15),"
             + "transit_city varchar(15),"
             + "price integer,"
-            + "takeoff_time datetime,"
-            + "shipping_space varchar(255),"
+            + "takeoff_time datetime not null unique,"
+            + "shipping_space varchar(15),"
             + "punctuality_rate real,"
             + "is_direct_flight BLOB,"
             + "is_share BLOB,"
@@ -106,10 +107,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + "departure_terminal varchar(15),"
             + "landing_terminal varchar(15),"
             + "primary key (flight_number,takeoff_time),"
-            + "foreign key (takeoff_city) references City(city_name),"
-            + "foreign key (landing_city) references City(city_name),"
-            + "foreign key (transit_city) references City(city_name),"
-            + "foreign key (airline_company) references Airline_Company(company_name))";
+            + "constraint fk_takeoff_city foreign key (takeoff_city) references City(city_name),"
+            + "constraint fk_landing_city foreign key (landing_city) references City(city_name),"
+            + "constraint fk_transit_city foreign key (transit_city) references City(city_name),"
+            + "constraint fk_airline_company foreign key (airline_company) references Airline_Company(company_name))";
 
     /*
     城市表：
@@ -118,7 +119,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     public static final String CREATE_CITY = "Create table City("
             + "city_number integer primary key autoincrement,"
-            + "city_name varchar(15))";
+            + "city_name varchar(15) not null unique)";
 
     /*
     航空公司表：
@@ -127,7 +128,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     public static final String CREATE_AIRLINE_COMPANY = "Create table Airline_Company("
             + "company_number integer primary key autoincrement,"
-            + "company_name varchar(15))";
+            + "company_name varchar(15) not null unique)";
 
     private Context mContext;
     public DataBaseHelper(Context context,String name,SQLiteDatabase.CursorFactory factory,int version){

@@ -28,7 +28,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c">
+    <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
@@ -36,13 +36,10 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" />
+    <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" dataset="main.Normal_User" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" dataset="main.User" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" dataset="main.Administrators_User" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" dataset="main.Flight" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" dataset="main.Flight" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -73,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="b1d4ca0a-de13-46fc-9415-8ed0fa333d1c" active="true" signed="true">
+      <connection id="993dd29e-1b4d-4ba0-b609-077b9517f9bb" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -88,7 +85,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\AndroidStudioCache\FlightDataBase.dp" schema="main" />
+            <file path="D:\androidstudio\FlightDataBase.dp" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

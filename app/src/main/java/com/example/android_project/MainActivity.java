@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,6);
+        dbHelper = new DataBaseHelper(this,"FlightDataBase.dp",null,12);
 
         //创建数据库并向其中添加数据
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -112,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
     public void addCityData(SQLiteDatabase db){
         ContentValues valueCityData = new ContentValues();
 
-        valueCityData.put("city_name","null");
-        db.insert("City",null,valueCityData);
-
         valueCityData.put("city_name","chengdu");
         db.insert("City",null,valueCityData);
 
         valueCityData.put("city_name","shanghai");
+        db.insert("City",null,valueCityData);
+
+        valueCityData.put("city_name","null");
         db.insert("City",null,valueCityData);
     }
 
