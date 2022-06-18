@@ -10,5 +10,45 @@
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft = "10dp"
+        android:layout_marginRight = "10dp"
+        android:hint="输入手机号"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft = "10dp"
+        android:layout_marginRight = "10dp"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:maxLines="1" />
+    <Button
+        android:id = "@+id/quick_register"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "350dp"
+        android:layout_marginLeft = "20dp"
+        android:text = "快速注册"
+        android:textColor = "#000000"
+        android:background = "#e0000000"/>
+
+    <Button
+        android:id = "@+id/forget_password"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "350dp"
+        android:layout_marginLeft = "275dp"
+        android:text = "忘记密码"
+        android:textColor = "#000000"
+        android:background = "#e0000000"
+        android:maxLines="1"/>
 
 </RelativeLayout>
