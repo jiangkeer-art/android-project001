@@ -6,7 +6,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.android_project"
+        applicationId "com.sapphireStar.android_project"
         minSdk 33
         targetSdk 33
         versionCode 1

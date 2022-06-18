@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android_project.SignInActivity">
+    tools:context="com.sapphireStar.android_project.SignInActivity">
 
-    <com.example.android_project.CustomVideoView
+    <com.sapphireStar.android_project.VideoViewBackground
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
