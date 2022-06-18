@@ -3,6 +3,7 @@ package com.sapphireStar.android_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 public class SignInActivity extends AppCompatActivity {
@@ -20,8 +21,7 @@ public class SignInActivity extends AppCompatActivity {
         //加载视频资源
         videoview = (VideoViewBackground) findViewById(R.id.videoView);
         //设置播放路径
-        videoview.setVideoPath("../../res/raw/wy.mp4");
-        //videoview.setVideoURI(URI.parse("android.resource://" + getPackageName() + "/" + R.raw.video));
+        videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.wy));
         //播放
         videoview.start();
         //循环播放
