@@ -3,13 +3,13 @@ package com.sapphireStar.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Adminstrator implements Serializable {
+public class Administrator implements Serializable {
 
     private static final long serialVersionUID = 2097456524364746460L;
     private String phone;
     private String id;
 
-    public Adminstrator() {
+    public Administrator() {
     }
 
     public String getPhone() {
@@ -28,7 +28,7 @@ public class Adminstrator implements Serializable {
         this.id = id;
     }
 
-    public Adminstrator(String phone, String id) {
+    public Administrator(String phone, String id) {
         this.phone = phone;
         this.id = id;
     }
@@ -41,7 +41,7 @@ public class Adminstrator implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Adminstrator that = (Adminstrator) o;
+        Administrator that = (Administrator) o;
         return Objects.equals(phone, that.phone) && Objects.equals(id, that.id);
     }
 

@@ -1,11 +1,9 @@
-package com.example.android_project;
+package com.sapphireStar.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import java.net.URI;
 
 public class SignInActivity extends AppCompatActivity {
 
