@@ -3,11 +3,12 @@ package com.sapphireStar.android_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 public class SignInActivity extends AppCompatActivity {
 
-    private CustomVideoView videoview;
+    private VideoViewBackground videoview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +19,9 @@ public class SignInActivity extends AppCompatActivity {
 
     private void initView(){
         //加载视频资源
-        videoview = (CustomVideoView) findViewById(R.id.videoView);
+        videoview = (VideoViewBackground) findViewById(R.id.videoView);
         //设置播放路径
-        //videoview.setVideoURI(URI.parse("android.resource://" + getPackageName() + "/" + R.raw.video));
+        videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.wy));
         //播放
         videoview.start();
         //循环播放

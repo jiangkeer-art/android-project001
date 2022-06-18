@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.sapphireStar.android_project.SignInActivity">
 
-    <com.sapphireStar.android_project.CustomVideoView
+    <com.sapphireStar.android_project.VideoViewBackground
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

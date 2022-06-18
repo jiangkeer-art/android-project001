@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
+        <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.5536458333333333" />
         <entry key="..\:/android-project001/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1365" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.27395833333333336" />
       </map>
     </option>

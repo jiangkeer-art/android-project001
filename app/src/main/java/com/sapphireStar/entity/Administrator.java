@@ -12,6 +12,7 @@ public class Administrator implements Serializable {
     public Administrator() {
     }
 
+
     public String getPhone() {
         return phone;
     }
