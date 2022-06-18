@@ -4,6 +4,10 @@
         "source": "com.sapphireStar.android_project.app-main-21:/layout/activity_sign_in.xml"
     },
     {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/raw_testtest.mp4.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/raw/testtest.mp4"
+    },
+    {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "com.sapphireStar.android_project.app-main-21:/mipmap-hdpi/ic_launcher.webp"
     },
@@ -22,6 +26,10 @@
     {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/xml_data_extraction_rules.xml.flat",
         "source": "com.sapphireStar.android_project.app-main-21:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/raw_wy.mp4.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/raw/wy.mp4"
     },
     {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -46,6 +54,10 @@
     {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "com.sapphireStar.android_project.app-main-21:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/raw_wy1.mp4.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/raw/wy1.mp4"
     },
     {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-mdpi_ic_launcher_round.webp.flat",

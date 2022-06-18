@@ -1908,6 +1908,7 @@ id fixed
 id flip
 id floating
 id forever
+id forget_password
 id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
@@ -2021,6 +2022,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id password
 id password_toggle
 id path
 id pathRelative
@@ -2031,6 +2033,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id quick_register
 id radio
 id ratio
 id rectangles
@@ -2151,6 +2154,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id username
 id videoView
 id view_offset_helper
 id view_tree_lifecycle_owner
@@ -2319,6 +2323,9 @@ layout text_view_without_line_height
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw testtest
+raw wy
+raw wy1
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

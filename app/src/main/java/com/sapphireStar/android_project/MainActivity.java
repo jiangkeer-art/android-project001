@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         //加载视频资源
         videoview = (VideoViewBackground) findViewById(R.id.videoView);
         //设置播放路径
-        videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.testtest));
+        videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.wy1));
         //播放
         videoview.start();
         //循环播放
