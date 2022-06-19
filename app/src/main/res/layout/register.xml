@@ -58,10 +58,8 @@
                 android:hint="请输入手机号"
                 android:id="@+id/account1"
                 android:textSize="15dp"
-
                 android:background="@drawable/deleline"
                 />
-            android:background="@drawable/deleline"
         </LinearLayout>
         <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
             android:gravity="center_horizontal"

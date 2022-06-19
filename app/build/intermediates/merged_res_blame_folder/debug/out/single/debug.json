@@ -4,6 +4,10 @@
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_cheek.xml.flat",
+        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\cheek.xml"
+    },
+    {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
@@ -36,8 +40,8 @@
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.android_project.app-merged_res-5:/layout_activity_main.xml.flat",
-        "source": "com.example.android_project.app-main-7:/layout/activity_main.xml"
+        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_allcheek.xml.flat",
+        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\allcheek.xml"
     },
     {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\layout_activity_main.xml.flat",
@@ -56,12 +60,20 @@
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.example.android_project.app-merged_res-5:/layout_register.xml.flat",
+        "source": "com.example.android_project.app-main-7:/layout/register.xml"
+    },
+    {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_deleline.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/deleline.xml"
     },
     {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
@@ -74,5 +86,9 @@
     {
         "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_back.png.flat",
+        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\back.png"
     }
 ]
