@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@drawable/allcreek"
+    android:background="@drawable/allcheek"
     android:gravity="center_horizontal"
     android:layout_height="match_parent">
     <LinearLayout
