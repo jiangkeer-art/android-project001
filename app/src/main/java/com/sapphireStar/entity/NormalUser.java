@@ -8,7 +8,7 @@ public class NormalUser implements Serializable {
     private static final long serialVersionUID = -8526006766764417777L;
     private String phone;
     private String id;
-    private boolean name;
+    private String name;
     private String idNumber;
 
     public NormalUser() {
@@ -30,11 +30,11 @@ public class NormalUser implements Serializable {
         this.id = id;
     }
 
-    public boolean isName() {
+    public String isName() {
         return name;
     }
 
-    public void setName(boolean name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -46,7 +46,7 @@ public class NormalUser implements Serializable {
         this.idNumber = idNumber;
     }
 
-    public NormalUser(String phone, String id, boolean name, String idNumber) {
+    public NormalUser(String phone, String id, String name, String idNumber) {
         this.phone = phone;
         this.id = id;
         this.name = name;

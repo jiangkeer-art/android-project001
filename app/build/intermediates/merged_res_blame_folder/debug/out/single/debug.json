@@ -1,114 +1,102 @@
 [
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/layout_activity_sign_in.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/layout/activity_sign_in.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\xml\\data_extraction_rules.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/xml_backup_rules.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_rectangle.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\rectangle.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_deleline.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\deleline.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_shape_button.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\shape_button.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-hdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_allcreek.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\allcreek.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xxxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\layout\\activity_main.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.sapphireStar.android_project.app-merged_res-19:/layout_registers.xml.flat",
         "source": "com.sapphireStar.android_project.app-main-21:/layout/registers.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\xml\\backup_rules.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_rectangle.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/rectangle.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_allcreek.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/allcreek.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\raw_wy1.mp4.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\raw\\wy1.mp4"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_back.png.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/back.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/raw_wy1.mp4.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/raw/wy1.mp4"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_shape_button.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/shape_button.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\raw_wy.mp4.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\raw\\wy.mp4"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_deleline.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/deleline.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\drawable_back.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\drawable\\back.png"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/xml_data_extraction_rules.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\raw_testtest.mp4.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\raw\\testtest.mp4"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\layout_activity_sign_in.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\layout\\activity_sign_in.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\layout_registers.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\layout\\registers.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-merged_res-19:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\7.3.3\\com.sapphireStar.android_project.app-main-21:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/layout_activity_main.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.sapphireStar.android_project.app-merged_res-19:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.sapphireStar.android_project.app-main-21:/drawable-v24/ic_launcher_foreground.xml"
     }
 ]
