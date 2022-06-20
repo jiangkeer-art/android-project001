@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         addOrderData(db);
         addMyAttentionData(db);
 
+
+
     }
 
     //添加关注相关数据
