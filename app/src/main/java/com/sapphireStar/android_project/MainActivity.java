@@ -11,9 +11,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.NormalUserDao;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
+import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.NormalUser;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
         forget_password.setOnClickListener(onClick);
         sing_in.setOnClickListener(onClick);
 
-        NormalUserDao normalUserDao = new NormalUserDaoImpl(db,dbHelper);
-        NormalUser normalUser = normalUserDao.getUserByPhone("18333378803");
-        Log.d("testDAO", normalUser.toString());
+        MyAttentionDao myAttentionDao=new MyAttentionDaoImpl(db,dbHelper);
+        List<MyAttention> list = myAttentionDao.getMyAttention("13646245963");
+
+        Log.d("TestDAO", list.get(0).toString());
+
     }
 
 
