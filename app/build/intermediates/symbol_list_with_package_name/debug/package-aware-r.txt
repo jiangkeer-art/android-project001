@@ -2086,6 +2086,7 @@ id showCustom
 id showHome
 id showTitle
 id sin
+id sing_in
 id skipCollapsed
 id slide
 id snackbar_action
@@ -2338,8 +2339,6 @@ layout text_view_without_line_height
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
-raw testtest
-raw wy
 raw wy1
 string abc_action_bar_home_description
 string abc_action_bar_up_description

@@ -42,8 +42,8 @@
 26-->E:\android-project001\app\src\main\AndroidManifest.xml:14:9-53
 27        <activity
 27-->E:\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
-28            android:name="com.sapphireStar.android_project.SignInActivity"
-28-->E:\android-project001\app\src\main\AndroidManifest.xml:17:13-75
+28            android:name="com.sapphireStar.android_project.RegisterActivity"
+28-->E:\android-project001\app\src\main\AndroidManifest.xml:17:13-77
 29            android:exported="false" />
 29-->E:\android-project001\app\src\main\AndroidManifest.xml:18:13-37
 30        <activity

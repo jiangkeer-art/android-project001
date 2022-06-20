@@ -88,12 +88,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ad
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:14:9-53
 	android:dataExtractionRules
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:8:9-65
-activity#com.sapphireStar.android_project.SignInActivity
+activity#com.sapphireStar.android_project.RegisterActivity
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
 	android:exported
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:17:13-75
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:17:13-77
 activity#com.sapphireStar.android_project.MainActivity
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:19:9-27:20
 	android:exported

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.sapphireStar.android_project.SignInActivity">
+    tools:context="com.sapphireStar.android_project.RegisterActivity">
 
     <com.sapphireStar.android_project.VideoViewBackground
         android:id="@+id/videoView"

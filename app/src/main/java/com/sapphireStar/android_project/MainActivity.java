@@ -3,15 +3,19 @@ package com.sapphireStar.android_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     private DataBaseHelper dbHelper;
     private VideoViewBackground videoview;
+    private Button quick_register,forget_password,sing_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +36,13 @@ public class MainActivity extends AppCompatActivity {
         addOrderData(db);
         addMyAttentionData(db);
 
-
-
+        quick_register = findViewById(R.id.quick_register);
+        forget_password = findViewById(R.id.forget_password);
+        sing_in = findViewById(R.id.sing_in);
+        OnClick onClick = new OnClick();
+        quick_register.setOnClickListener(onClick);
+        forget_password.setOnClickListener(onClick);
+        sing_in.setOnClickListener(onClick);
     }
 
     //添加关注相关数据
@@ -550,4 +559,23 @@ public class MainActivity extends AppCompatActivity {
         videoview.stopPlayback();
         super.onStop();
     }
+
+    class OnClick implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Intent intent;
+            switch(v.getId()){
+                case R.id.quick_register:
+                    intent=new Intent(MainActivity.this, RegisterActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.forget_password:
+
+                case R.id.sing_in:
+
+            }
+        }
+    }
+
 }

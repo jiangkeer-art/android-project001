@@ -26,6 +26,7 @@ id password
 id password1
 id password2
 id quick_register
+id sing_in
 id username
 id videoView
 layout activity_main
@@ -33,8 +34,6 @@ layout activity_sign_in
 layout registers
 mipmap ic_launcher
 mipmap ic_launcher_round
-raw testtest
-raw wy
 raw wy1
 string app_name
 style Theme.Android_Project

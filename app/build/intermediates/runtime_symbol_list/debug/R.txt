@@ -2085,6 +2085,7 @@ int id showCustom 0x7f080149
 int id showHome 0x7f08014a
 int id showTitle 0x7f08014b
 int id sin 0x7f08014c
+int id sing_in 0x7f0801b5
 int id skipCollapsed 0x7f08014d
 int id slide 0x7f08014e
 int id snackbar_action 0x7f08014f
@@ -2337,8 +2338,6 @@ int layout text_view_without_line_height 0x7f0b0071
 int mipmap ic_launcher 0x7f0c0000
 int mipmap ic_launcher_round 0x7f0c0001
 int plurals mtrl_badge_content_description 0x7f0d0000
-int raw testtest 0x7f0e0000
-int raw wy 0x7f0e0001
 int raw wy1 0x7f0e0002
 int string abc_action_bar_home_description 0x7f0f0000
 int string abc_action_bar_up_description 0x7f0f0001
