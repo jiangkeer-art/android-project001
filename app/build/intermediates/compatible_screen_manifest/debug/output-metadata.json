@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.android_project",
+  "applicationId": "com.sapphireStar.android_project",
   "variantName": "debug",
   "elements": []
 }

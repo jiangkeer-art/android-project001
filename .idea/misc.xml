@@ -3,10 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/allcheek.xml" value="0.179" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/allcreek.xml" value="0.179" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/register.xml" value="0.25364583333333335" />
+        <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
+        <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.5536458333333333" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1365" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/allcreek.xml" value="0.1055" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/rectangle.xml" value="0.1055" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/shap_buttom.xml" value="0.1055" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.27395833333333336" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/allcreek.xml" value="0.2536231884057971" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/deleline.xml" value="0.2536231884057971" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/rectangle.xml" value="0.2536231884057971" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/registers.xml" value="0.2536231884057971" />
       </map>
     </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>

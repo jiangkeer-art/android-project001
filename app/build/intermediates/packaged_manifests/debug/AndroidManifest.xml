@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="33"
-        android:targetSdkVersion="33" />
+        android:minSdkVersion="32"
+        android:targetSdkVersion="32" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -25,7 +25,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Android_Project" >
         <activity
-            android:name="com.sapphireStar.android_project.SignInActivity"
+            android:name="com.sapphireStar.android_project.RegisterActivity"
             android:exported="false" />
         <activity
             android:name="com.sapphireStar.android_project.MainActivity"
