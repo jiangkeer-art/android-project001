@@ -3,7 +3,7 @@ package com.sapphireStar.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-class NormalUser implements Serializable {
+public class NormalUser implements Serializable {
     //版本号
     private static final long serialVersionUID = -8526006766764417777L;
     private String phone;
