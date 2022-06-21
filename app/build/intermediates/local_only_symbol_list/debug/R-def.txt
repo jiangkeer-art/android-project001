@@ -13,6 +13,7 @@ drawable cheek
 drawable deleline
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable rectangle
 id account
 id account1
 id confirm
@@ -27,10 +28,15 @@ id password1
 id password2
 id register
 id signin1
+id videoView
 layout activity_main
+layout activity_sign_in
 layout register
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw testtest
+raw wy
+raw wy1
 string app_name
 style Theme.Android_Project
 xml backup_rules

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         valuePlaneTicketData.put("plane_ticket_number","255");
         valuePlaneTicketData.put("flight_number","0006");
-        valuePlaneTicketData.put("takeoff_time","16:30");
+        valuePlaneTicketData.put("takeoff_time","2022-7-25 16:30:00");
         valuePlaneTicketData.put("price","300");
         valuePlaneTicketData.put("shipping_space","经济舱");
         valuePlaneTicketData.put("state","1");
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         valuePlaneTicketData.put("plane_ticket_number","4008");
         valuePlaneTicketData.put("flight_number","0008");
-        valuePlaneTicketData.put("takeoff_time","20:30");
+        valuePlaneTicketData.put("takeoff_time","2022-7-30 20:30:00");
         valuePlaneTicketData.put("price","200");
         valuePlaneTicketData.put("shipping_space","经济舱");
         valuePlaneTicketData.put("state","1");
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         valuePlaneTicketData.put("plane_ticket_number","5835");
         valuePlaneTicketData.put("flight_number","0001");
-        valuePlaneTicketData.put("takeoff_time","00:01");
+        valuePlaneTicketData.put("takeoff_time","2022-8-5 00:01:00");
         valuePlaneTicketData.put("price","560");
         valuePlaneTicketData.put("shipping_space","头等舱");
         valuePlaneTicketData.put("state","1");
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         valuePlaneTicketData.put("plane_ticket_number","10086");
         valuePlaneTicketData.put("flight_number","0004");
-        valuePlaneTicketData.put("takeoff_time","19:00");
+        valuePlaneTicketData.put("takeoff_time","2022-7-18 19:00:00");
         valuePlaneTicketData.put("price","500");
         valuePlaneTicketData.put("shipping_space","头等舱");
         valuePlaneTicketData.put("state","0");
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         valuePlaneTicketData.put("plane_ticket_number","12138");
         valuePlaneTicketData.put("flight_number","0003");
-        valuePlaneTicketData.put("takeoff_time","21:00");
+        valuePlaneTicketData.put("takeoff_time","2022-7-16 21:00:00");
         valuePlaneTicketData.put("price","180");
         valuePlaneTicketData.put("shipping_space","经济舱");
         valuePlaneTicketData.put("state","0");
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","大连");
         valueFlightData.put("landing_city","鸡西");
         valueFlightData.put("transit_city","长春");
-        valueFlightData.put("takeoff_time","00:01");
+        valueFlightData.put("takeoff_time","2022-8-5 00:01:00");
         valueFlightData.put("punctuality_rate","100.0");
         valueFlightData.put("is_direct_flight","1");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -302,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","成都");
         valueFlightData.put("landing_city","北京");
         valueFlightData.put("transit_city","重庆");
-        valueFlightData.put("takeoff_time","01:00");
+        valueFlightData.put("takeoff_time","2022-7-15 01:00:00");
         valueFlightData.put("punctuality_rate","99.0");
         valueFlightData.put("is_direct_flight","1");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -318,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","西安");
         valueFlightData.put("landing_city","大连");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","21:00");
+        valueFlightData.put("takeoff_time","2022-7-16 21:00:00");
         valueFlightData.put("punctuality_rate","100.0");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","长春");
         valueFlightData.put("landing_city","石家庄");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","19:00");
+        valueFlightData.put("takeoff_time","2022-7-18 19:00:00");
         valueFlightData.put("punctuality_rate","99.8");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -350,7 +350,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","北京");
         valueFlightData.put("landing_city","成都");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","22:00");
+        valueFlightData.put("takeoff_time","2022-7-20 22:00:00");
         valueFlightData.put("punctuality_rate","100.0");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","石家庄");
         valueFlightData.put("landing_city","重庆");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","16:30");
+        valueFlightData.put("takeoff_time","2022-7-25 16:30:00");
         valueFlightData.put("punctuality_rate","98.0");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -382,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","北京");
         valueFlightData.put("landing_city","长春");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","02:00");
+        valueFlightData.put("takeoff_time","2022-7-28 02:00:00");
         valueFlightData.put("punctuality_rate","100.0");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -398,7 +398,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","长春");
         valueFlightData.put("landing_city","天津");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","20:30");
+        valueFlightData.put("takeoff_time","2022-7-30 20:30:00");
         valueFlightData.put("punctuality_rate","98.9");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -414,7 +414,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","天津");
         valueFlightData.put("landing_city","重庆");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","21:30");
+        valueFlightData.put("takeoff_time","2022-7-16 21:30:00");
         valueFlightData.put("punctuality_rate","100.0");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
@@ -430,7 +430,7 @@ public class MainActivity extends AppCompatActivity {
         valueFlightData.put("takeoff_city","重庆");
         valueFlightData.put("landing_city","鸡西");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","18:30");
+        valueFlightData.put("takeoff_time","2022 -7-18 18:30:00");
         valueFlightData.put("punctuality_rate","100");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享

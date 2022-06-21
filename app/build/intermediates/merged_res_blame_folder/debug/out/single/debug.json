@@ -1,94 +1,110 @@
 [
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_cheek.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\cheek.xml"
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_back.png.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/back.png"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "com.example.android_project.app-merged_res-5:/raw_testtest.mp4.flat",
+        "source": "com.example.android_project.app-main-7:/raw/testtest.mp4"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\layout_register.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\layout\\register.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\xml_backup_rules.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\xml\\backup_rules.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_allcheek.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\allcheek.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\layout_activity_main.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\xml_data_extraction_rules.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\xml\\data_extraction_rules.xml"
-    },
-    {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.example.android_project.app-merged_res-5:/layout_register.xml.flat",
         "source": "com.example.android_project.app-main-7:/layout/register.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_cheek.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/cheek.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/raw_wy.mp4.flat",
+        "source": "com.example.android_project.app-main-7:/raw/wy.mp4"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_allcheek.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/allcheek.xml"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/raw_wy1.mp4.flat",
+        "source": "com.example.android_project.app-main-7:/raw/wy1.mp4"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/layout_activity_main.xml.flat",
+        "source": "com.example.android_project.app-main-7:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/xml_backup_rules.xml.flat",
+        "source": "com.example.android_project.app-main-7:/xml/backup_rules.xml"
     },
     {
         "merged": "com.example.android_project.app-merged_res-5:/drawable_deleline.xml.flat",
         "source": "com.example.android_project.app-main-7:/drawable/deleline.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_rectangle.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/rectangle.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.android_project.app-merged_res-5:/layout_activity_sign_in.xml.flat",
+        "source": "com.example.android_project.app-main-7:/layout/activity_sign_in.xml"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-merged_res-5:\\drawable_back.png.flat",
-        "source": "D:\\gradle-responsitory\\daemon\\7.3.3\\com.example.android_project.app-main-7:\\drawable\\back.png"
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.android_project.app-main-7:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.android_project.app-main-7:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.android_project.app-merged_res-5:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.android_project.app-main-7:/drawable/ic_launcher_background.xml"
     }
 ]

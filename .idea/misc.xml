@@ -3,13 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/allcheek.xml" value="0.179" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/allcreek.xml" value="0.179" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/deleline.xml" value="0.1315" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/register.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/activity_main.xml" value="0.11727456940222898" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/register.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
