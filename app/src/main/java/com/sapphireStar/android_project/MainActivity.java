@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void initView(){
         //加载视频资源
         videoview = (VideoViewBackground) findViewById(R.id.videoView);
