@@ -1691,7 +1691,11 @@ int drawable btn_radio_off_mtrl 0x7f07005e
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f07005f
 int drawable btn_radio_on_mtrl 0x7f070060
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070061
+int drawable change 0x7f07009e
+int drawable change_password 0x7f07009f
+int drawable change_phone 0x7f0700a0
 int drawable cheek 0x7f070062
+int drawable complete 0x7f0700a1
 int drawable deleline 0x7f070063
 int drawable design_fab_background 0x7f070064
 int drawable design_ic_visibility 0x7f070065
@@ -1744,13 +1748,16 @@ int drawable notification_template_icon_bg 0x7f070092
 int drawable notification_template_icon_low_bg 0x7f070093
 int drawable notification_tile_bg 0x7f070094
 int drawable notify_panel_notification_icon_bg 0x7f070095
+int drawable real_comfirm 0x7f0700a2
 int drawable rectangle 0x7f070096
-int drawable rili1 0x7f07009c
+int drawable shape 0x7f0700a3
 int drawable shape_button 0x7f070097
 int drawable shoucang 0x7f07009d
 int drawable test_custom_background 0x7f070098
 int drawable tooltip_frame_dark 0x7f070099
 int drawable tooltip_frame_light 0x7f07009a
+int drawable uncomplete 0x7f0700a4
+int drawable yonghu 0x7f0700a5
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -2189,6 +2196,7 @@ int id uniform 0x7f0801ab
 int id unlabeled 0x7f0801ac
 int id up 0x7f0801ad
 int id useLogo 0x7f0801ae
+int id usericon 0x7f0801c3
 int id username 0x7f0801af
 int id videoView 0x7f0801b0
 int id view_offset_helper 0x7f0801b1

@@ -9,7 +9,11 @@ color teal_700
 color white
 drawable allcreek
 drawable back
+drawable change
+drawable change_password
+drawable change_phone
 drawable cheek
+drawable complete
 drawable deleline
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -18,10 +22,13 @@ drawable ic_mine_selected
 drawable ic_schedule_black
 drawable ic_schedule_selected
 drawable jiantou
+drawable real_comfirm
 drawable rectangle
-drawable rili1
+drawable shape
 drawable shape_button
 drawable shoucang
+drawable uncomplete
+drawable yonghu
 id account1
 id all
 id change_password
@@ -50,6 +57,7 @@ id schedule_tab
 id schedule_tab_img
 id sing_in
 id uncomplete
+id usericon
 id username
 id videoView
 layout activity_function
