@@ -10,6 +10,14 @@
         android:layout_height="650dp"
         android:background="#D7E6E6">
 
+        <ImageView
+            android:id="@+id/usericon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yonghu"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="50dp"/>
+
         <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
@@ -34,7 +42,7 @@
             android:layout_marginTop="130dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:background="@color/white">
+            android:background="@drawable/shape">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -48,10 +56,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="50dp"
+                android:background="@android:color/transparent"
                 android:text="关注航班"
-                android:textSize="25sp"
                 android:textColor="@color/black"
-                android:background="@android:color/transparent"/>
+                android:textSize="20sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -60,7 +68,7 @@
             android:layout_marginTop="200dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:background="@color/white">
+            android:background="@drawable/shape">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,12 +141,14 @@
                 android:layout_marginTop="90dp"/>
         </RelativeLayout>
 
-        <RelativeLayout android:layout_width="match_parent"
+        <RelativeLayout
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="330dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:background="@color/white">
+            android:background="@drawable/shape">
 
             <TextView
                 android:layout_width="wrap_content"
