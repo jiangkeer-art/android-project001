@@ -16,7 +16,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_USER = "Create table User("
             + "phone varchar(12) primary key not null,"
             + "password varchar(64),"
-            + "is_administrators BLOB)";
+            + "is_administrators integer)";
 
     /*
     普通用户表：
@@ -117,17 +117,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     public static final String CREATE_FLIGHT = "Create table Flight("
             + "flight_number varchar(10) not null unique,"
-            + "is_domestic BLOB,"
+            + "is_domestic integer,"
             + "takeoff_city varchar(15),"
             + "landing_city varchar(15),"
             + "transit_city varchar(15),"
             + "takeoff_time datetime not null unique,"
             + "punctuality_rate real,"
-            + "is_direct_flight BLOB,"
-            + "is_share BLOB,"
+            + "is_direct_flight integer,"
+            + "is_share integer,"
             + "time_period varchar(8),"
             + "airline_company varchar(15),"
-            + "food BLOB,"
+            + "food integer,"
             + "departure_terminal varchar(15),"
             + "landing_terminal varchar(15),"
             + "primary key (flight_number,takeoff_time),"

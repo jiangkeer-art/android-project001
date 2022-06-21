@@ -10,9 +10,8 @@ import com.sapphireStar.entity.NormalUser;
 public class NormalUserDaoImpl implements NormalUserDao {
     private SQLiteDatabase db;
     //private ContentValues values;
-    public NormalUserDaoImpl(SQLiteDatabase sdb,DataBaseHelper dbHelper){
-        db = sdb;
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+    public NormalUserDaoImpl(DataBaseHelper dbHelper){
+        db = dbHelper.getWritableDatabase();
     }
 
     @Override
@@ -25,7 +24,6 @@ public class NormalUserDaoImpl implements NormalUserDao {
         normalUser.setId(cursor.getString(1));
         normalUser.setName(cursor.getString(2));
         normalUser.setIdNumber(cursor.getString(3));
-        db.close();
         return normalUser;
     }
 }
