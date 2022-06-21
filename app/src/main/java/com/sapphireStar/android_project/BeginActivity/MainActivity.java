@@ -1,4 +1,4 @@
-package com.sapphireStar.android_project;
+package com.sapphireStar.android_project.BeginActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
@@ -13,6 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
+import com.sapphireStar.android_project.R;
+import com.sapphireStar.android_project.Register.RegisterActivity;
+import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.entity.MyAttention;

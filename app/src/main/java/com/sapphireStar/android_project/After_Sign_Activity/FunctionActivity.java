@@ -1,4 +1,4 @@
-package com.sapphireStar.android_project;
+package com.sapphireStar.android_project.After_Sign_Activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.sapphireStar.android_project.R;
 
 import java.util.List;
 

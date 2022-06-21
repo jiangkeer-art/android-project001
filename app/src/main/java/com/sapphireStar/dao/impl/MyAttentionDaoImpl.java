@@ -3,10 +3,9 @@ package com.sapphireStar.dao.impl;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sapphireStar.android_project.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.entity.MyAttention;
-import com.sapphireStar.entity.NormalUser;
 
 import java.util.ArrayList;
 import java.util.List;

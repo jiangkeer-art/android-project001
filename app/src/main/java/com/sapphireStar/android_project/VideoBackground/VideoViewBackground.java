@@ -1,4 +1,4 @@
-package com.sapphireStar.android_project;
+package com.sapphireStar.android_project.VideoBackground;
 
 import android.content.Context;
 import android.media.MediaPlayer;
