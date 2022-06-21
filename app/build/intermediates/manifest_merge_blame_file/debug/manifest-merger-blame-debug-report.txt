@@ -42,14 +42,14 @@
 26-->E:\android-project001\app\src\main\AndroidManifest.xml:14:9-53
 27        <activity
 27-->E:\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
-28            android:name="com.sapphireStar.android_project.RegisterActivity"
-28-->E:\android-project001\app\src\main\AndroidManifest.xml:17:13-77
+28            android:name="com.sapphireStar.android_project.Register.RegisterActivity"
+28-->E:\android-project001\app\src\main\AndroidManifest.xml:17:13-86
 29            android:exported="false" />
 29-->E:\android-project001\app\src\main\AndroidManifest.xml:18:13-37
 30        <activity
 30-->E:\android-project001\app\src\main\AndroidManifest.xml:19:9-27:20
-31            android:name="com.sapphireStar.android_project.MainActivity"
-31-->E:\android-project001\app\src\main\AndroidManifest.xml:20:13-73
+31            android:name="com.sapphireStar.android_project.BeginActivity.MainActivity"
+31-->E:\android-project001\app\src\main\AndroidManifest.xml:20:13-87
 32            android:exported="true" >
 32-->E:\android-project001\app\src\main\AndroidManifest.xml:21:13-36
 33            <intent-filter>
@@ -65,8 +65,8 @@
 38        </activity>
 39        <activity
 39-->E:\android-project001\app\src\main\AndroidManifest.xml:28:9-30:40
-40            android:name="com.sapphireStar.android_project.FunctionActivity"
-40-->E:\android-project001\app\src\main\AndroidManifest.xml:29:13-77
+40            android:name="com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity"
+40-->E:\android-project001\app\src\main\AndroidManifest.xml:29:13-97
 41            android:exported="false" />
 41-->E:\android-project001\app\src\main\AndroidManifest.xml:30:13-37
 42    </application>

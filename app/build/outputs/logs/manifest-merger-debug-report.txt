@@ -88,18 +88,18 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ad
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:14:9-53
 	android:dataExtractionRules
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:8:9-65
-activity#com.sapphireStar.android_project.RegisterActivity
+activity#com.sapphireStar.android_project.Register.RegisterActivity
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
 	android:exported
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:17:13-77
-activity#com.sapphireStar.android_project.MainActivity
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:17:13-86
+activity#com.sapphireStar.android_project.BeginActivity.MainActivity
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:19:9-27:20
 	android:exported
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:20:13-73
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:20:13-87
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
@@ -110,12 +110,12 @@ category#android.intent.category.LAUNCHER
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:25:27-74
-activity#com.sapphireStar.android_project.FunctionActivity
+activity#com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:28:9-30:40
 	android:exported
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:29:13-77
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:29:13-97
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:32:5-79
 	android:name

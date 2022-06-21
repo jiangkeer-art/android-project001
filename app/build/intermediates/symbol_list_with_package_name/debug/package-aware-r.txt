@@ -1711,6 +1711,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_schedule_black
 drawable ic_schedule_selected
+drawable jiantou
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1745,7 +1746,9 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable rectangle
+drawable rili1
 drawable shape_button
+drawable shoucang
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1846,6 +1849,9 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id change_password
+id change_phone
+id changed
 id checkbox
 id checked
 id chip
@@ -1860,6 +1866,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id complete
 id confirm
 id confirm_button
 id congirm
@@ -1939,6 +1946,7 @@ id homeAsUp
 id honorRequest
 id icon
 id icon_group
+id id
 id identify
 id ifRoom
 id ignore
@@ -2058,6 +2066,7 @@ id progress_horizontal
 id quick_register
 id radio
 id ratio
+id real_confirm
 id rectangles
 id reverseSawtooth
 id right
@@ -2176,6 +2185,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id unchecked
+id uncomplete
 id uniform
 id unlabeled
 id up
@@ -2262,7 +2272,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_function
 layout activity_main
-layout activity_sign_in
 layout bottom
 layout custom_dialog
 layout design_bottom_navigation_item

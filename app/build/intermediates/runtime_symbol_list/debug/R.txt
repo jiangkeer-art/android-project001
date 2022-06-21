@@ -1710,6 +1710,7 @@ int drawable ic_mtrl_chip_checked_circle 0x7f070071
 int drawable ic_mtrl_chip_close_circle 0x7f070072
 int drawable ic_schedule_black 0x7f070073
 int drawable ic_schedule_selected 0x7f070074
+int drawable jiantou 0x7f07009b
 int drawable material_cursor_drawable 0x7f070075
 int drawable material_ic_calendar_black_24dp 0x7f070076
 int drawable material_ic_clear_black_24dp 0x7f070077
@@ -1744,7 +1745,9 @@ int drawable notification_template_icon_low_bg 0x7f070093
 int drawable notification_tile_bg 0x7f070094
 int drawable notify_panel_notification_icon_bg 0x7f070095
 int drawable rectangle 0x7f070096
+int drawable rili1 0x7f07009c
 int drawable shape_button 0x7f070097
+int drawable shoucang 0x7f07009d
 int drawable test_custom_background 0x7f070098
 int drawable tooltip_frame_dark 0x7f070099
 int drawable tooltip_frame_light 0x7f07009a
@@ -1845,6 +1848,9 @@ int id center_horizontal 0x7f08005d
 int id center_vertical 0x7f08005e
 int id chain 0x7f08005f
 int id chains 0x7f080060
+int id change_password 0x7f0801bc
+int id change_phone 0x7f0801bd
+int id changed 0x7f0801be
 int id checkbox 0x7f080061
 int id checked 0x7f080062
 int id chip 0x7f080063
@@ -1859,6 +1865,7 @@ int id clip_horizontal 0x7f08006b
 int id clip_vertical 0x7f08006c
 int id clockwise 0x7f08006d
 int id collapseActionView 0x7f08006e
+int id complete 0x7f0801bf
 int id confirm 0x7f08006f
 int id confirm_button 0x7f080070
 int id congirm 0x7f080071
@@ -1938,6 +1945,7 @@ int id homeAsUp 0x7f0800ba
 int id honorRequest 0x7f0800bb
 int id icon 0x7f0800bc
 int id icon_group 0x7f0800bd
+int id id 0x7f0801c0
 int id identify 0x7f0800be
 int id ifRoom 0x7f0800bf
 int id ignore 0x7f0800c0
@@ -2057,6 +2065,7 @@ int id progress_horizontal 0x7f080131
 int id quick_register 0x7f080132
 int id radio 0x7f080133
 int id ratio 0x7f080134
+int id real_confirm 0x7f0801c1
 int id rectangles 0x7f080135
 int id reverseSawtooth 0x7f080136
 int id right 0x7f080137
@@ -2175,6 +2184,7 @@ int id transition_scene_layoutid_cache 0x7f0801a7
 int id transition_transform 0x7f0801a8
 int id triangle 0x7f0801a9
 int id unchecked 0x7f0801aa
+int id uncomplete 0x7f0801c2
 int id uniform 0x7f0801ab
 int id unlabeled 0x7f0801ac
 int id up 0x7f0801ad
@@ -2261,7 +2271,6 @@ int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_function 0x7f0b001c
 int layout activity_main 0x7f0b001d
-int layout activity_sign_in 0x7f0b001e
 int layout bottom 0x7f0b001f
 int layout custom_dialog 0x7f0b0020
 int layout design_bottom_navigation_item 0x7f0b0021

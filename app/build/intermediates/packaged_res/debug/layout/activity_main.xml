@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sapphireStar.android_project.MainActivity">
+    tools:context="com.sapphireStar.android_project.BeginActivity.MainActivity">
 
-    <com.sapphireStar.android_project.VideoViewBackground
+    <com.sapphireStar.android_project.VideoBackground.VideoViewBackground
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

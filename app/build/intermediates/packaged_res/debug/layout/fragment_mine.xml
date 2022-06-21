@@ -4,9 +4,198 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mine_tab">
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mine tab"
-        android:textSize="50dp"/>
+        android:layout_height="650dp"
+        android:background="#D7E6E6">
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textSize="30sp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名：2220191179"
+            android:textSize="20sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginLeft="150dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shoucang"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="50dp"
+                android:text="关注航班"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的订单"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/jiantou"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="317dp"/>
+
+            <Button
+                android:id="@+id/all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="260dp"
+                android:background="@android:color/transparent"
+                android:text="全部"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/complete"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="150dp"
+                android:id="@+id/uncomplete"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="250dp"
+                android:id="@+id/changed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已完成"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未出发"
+                android:layout_marginLeft="152dp"
+                android:layout_marginTop="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退改签"
+                android:layout_marginLeft="252dp"
+                android:layout_marginTop="90dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="330dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="常用功能"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/change_password"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="150dp"
+                android:id="@+id/change_phone"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rili1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="250dp"
+                android:id="@+id/real_confirm"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改密码"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改手机号"
+                android:layout_marginLeft="142dp"
+                android:layout_marginTop="90dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实名认证"
+                android:layout_marginLeft="245dp"
+                android:layout_marginTop="90dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--底部导航栏部分布局文件-->
+    <include layout="@layout/bottom"/>
 </LinearLayout>

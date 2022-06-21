@@ -25,10 +25,10 @@
         android:testOnly="true"
         android:theme="@style/Theme.Android_Project" >
         <activity
-            android:name="com.sapphireStar.android_project.RegisterActivity"
+            android:name="com.sapphireStar.android_project.Register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="com.sapphireStar.android_project.MainActivity"
+            android:name="com.sapphireStar.android_project.BeginActivity.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sapphireStar.android_project.FunctionActivity"
+            android:name="com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity"
             android:exported="false" />
     </application>
 
