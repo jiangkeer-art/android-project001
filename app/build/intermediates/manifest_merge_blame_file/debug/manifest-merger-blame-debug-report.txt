@@ -6,61 +6,61 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="30"
-8-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml
+8-->E:\android-project001\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml
+9-->E:\android-project001\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:29:5-79
-11-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:29:22-77
+11-->E:\android-project001\app\src\main\AndroidManifest.xml:29:5-79
+11-->E:\android-project001\app\src\main\AndroidManifest.xml:29:22-77
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:30:5-80
-12-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:30:22-78
+12-->E:\android-project001\app\src\main\AndroidManifest.xml:30:5-80
+12-->E:\android-project001\app\src\main\AndroidManifest.xml:30:22-78
 13
 14    <application
-14-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:6:5-28:19
+14-->E:\android-project001\app\src\main\AndroidManifest.xml:6:5-28:19
 15        android:allowBackup="true"
-15-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:7:9-35
+15-->E:\android-project001\app\src\main\AndroidManifest.xml:7:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.5.0] D:\Environment\gradle\gradle-7.3.3\repo\caches\transforms-3\4cb2d3ae910a25e4d3b75b6b0d8d1b11\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+16-->[androidx.core:core:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-3\4cb2d3ae910a25e4d3b75b6b0d8d1b11\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
 17        android:dataExtractionRules="@xml/data_extraction_rules"
-17-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:8:9-65
+17-->E:\android-project001\app\src\main\AndroidManifest.xml:8:9-65
 18        android:debuggable="true"
 19        android:extractNativeLibs="false"
 20        android:fullBackupContent="@xml/backup_rules"
-20-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:9:9-54
+20-->E:\android-project001\app\src\main\AndroidManifest.xml:9:9-54
 21        android:icon="@mipmap/ic_launcher"
-21-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:10:9-43
+21-->E:\android-project001\app\src\main\AndroidManifest.xml:10:9-43
 22        android:label="@string/app_name"
-22-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:11:9-41
+22-->E:\android-project001\app\src\main\AndroidManifest.xml:11:9-41
 23        android:roundIcon="@mipmap/ic_launcher_round"
-23-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:12:9-54
+23-->E:\android-project001\app\src\main\AndroidManifest.xml:12:9-54
 24        android:supportsRtl="true"
-24-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:13:9-35
+24-->E:\android-project001\app\src\main\AndroidManifest.xml:13:9-35
 25        android:testOnly="true"
 26        android:theme="@style/Theme.Android_Project" >
-26-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:14:9-53
+26-->E:\android-project001\app\src\main\AndroidManifest.xml:14:9-53
 27        <activity
-27-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
+27-->E:\android-project001\app\src\main\AndroidManifest.xml:16:9-18:40
 28            android:name="com.sapphireStar.android_project.RegisterActivity"
-28-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:17:13-77
+28-->E:\android-project001\app\src\main\AndroidManifest.xml:17:13-77
 29            android:exported="false" />
-29-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:18:13-37
+29-->E:\android-project001\app\src\main\AndroidManifest.xml:18:13-37
 30        <activity
-30-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:19:9-27:20
+30-->E:\android-project001\app\src\main\AndroidManifest.xml:19:9-27:20
 31            android:name="com.sapphireStar.android_project.MainActivity"
-31-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:20:13-73
+31-->E:\android-project001\app\src\main\AndroidManifest.xml:20:13-73
 32            android:exported="true" >
-32-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:21:13-36
+32-->E:\android-project001\app\src\main\AndroidManifest.xml:21:13-36
 33            <intent-filter>
-33-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:22:13-26:29
+33-->E:\android-project001\app\src\main\AndroidManifest.xml:22:13-26:29
 34                <action android:name="android.intent.action.MAIN" />
-34-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:23:17-69
-34-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:23:25-66
+34-->E:\android-project001\app\src\main\AndroidManifest.xml:23:17-69
+34-->E:\android-project001\app\src\main\AndroidManifest.xml:23:25-66
 35
 36                <category android:name="android.intent.category.LAUNCHER" />
-36-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:25:17-77
-36-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:25:27-74
+36-->E:\android-project001\app\src\main\AndroidManifest.xml:25:17-77
+36-->E:\android-project001\app\src\main\AndroidManifest.xml:25:27-74
 37            </intent-filter>
 38        </activity>
 39    </application>

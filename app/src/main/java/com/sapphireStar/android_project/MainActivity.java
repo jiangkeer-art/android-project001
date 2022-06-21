@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.NormalUserDao;
@@ -17,6 +18,7 @@ import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.NormalUser;
+import com.sapphireStar.util.InsertTestData;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,12 +34,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.db",null,18);
+        dbHelper = new DataBaseHelper(this,"FlightDataBase.db",null,20);
 
         //创建数据库并向其中添加数据
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //new InsertTestData(db);
+        if(dbHelper.versionControl==1){
+            new InsertTestData(db);
+            //Toast.makeText(MainActivity.this, "Data Insert Succeeded", Toast.LENGTH_SHORT).show();
+        }
 
+        //对布局界面按钮添加监听事件
         quick_register = findViewById(R.id.quick_register);
         forget_password = findViewById(R.id.forget_password);
         sing_in = findViewById(R.id.sing_in);
@@ -85,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    //button点击事件
     class OnClick implements View.OnClickListener{
 
         @Override

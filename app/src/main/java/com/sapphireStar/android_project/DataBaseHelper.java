@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
+    public int versionControl=0;
+
     /*
     用户表：
     用户名（电话号码）（主键）
@@ -16,7 +18,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_USER = "Create table User("
             + "phone varchar(12) primary key not null,"
             + "password varchar(64),"
-            + "is_administrators BLOB)";
+            + "is_administrators integer)";
 
     /*
     普通用户表：
@@ -117,17 +119,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     public static final String CREATE_FLIGHT = "Create table Flight("
             + "flight_number varchar(10) not null unique,"
-            + "is_domestic BLOB,"
+            + "is_domestic integer,"
             + "takeoff_city varchar(15),"
             + "landing_city varchar(15),"
             + "transit_city varchar(15),"
             + "takeoff_time datetime not null unique,"
             + "punctuality_rate real,"
-            + "is_direct_flight BLOB,"
-            + "is_share BLOB,"
+            + "is_direct_flight integer,"
+            + "is_share integer,"
             + "time_period varchar(8),"
             + "airline_company varchar(15),"
-            + "food BLOB,"
+            + "food integer,"
             + "departure_terminal varchar(15),"
             + "landing_terminal varchar(15),"
             + "primary key (flight_number,takeoff_time),"
@@ -181,8 +183,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_AIRLINE_COMPANY);
         sqLiteDatabase.execSQL(CREATE_MY_ATTENTION);
         sqLiteDatabase.execSQL(CREATE_PLANE_TICKET);
-        //创建成功时发出成功消息
-        Toast.makeText(mContext, "DataBase Create Succeeded", Toast.LENGTH_SHORT).show();
     }
 
     //数据库更新时的代码
@@ -197,6 +197,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop table if exists Administrators_User");
         sqLiteDatabase.execSQL("drop table if exists My_Attention");
         sqLiteDatabase.execSQL("drop table if exists Plane_Ticket");
+        versionControl=1;
         onCreate(sqLiteDatabase);
     }
 }
