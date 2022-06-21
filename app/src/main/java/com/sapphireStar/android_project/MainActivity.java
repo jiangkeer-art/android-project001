@@ -2,7 +2,9 @@ package com.sapphireStar.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sapphireStar.dao.MyAttentionDao;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private DataBaseHelper dbHelper;
     private VideoViewBackground videoview;
     private Button quick_register,forget_password,sing_in;
+    public String password="",username="",Password="",UserName="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
     //button点击事件
     class OnClick implements View.OnClickListener{
 
+        @SuppressLint("Range")
         @Override
         public void onClick(View v) {
             Intent intent;
@@ -105,7 +111,26 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.forget_password:
 
                 case R.id.sing_in:
-
+                    EditText editText1 = (EditText) findViewById(R.id.username);
+                    EditText editText2 = (EditText) findViewById(R.id.password);
+                    username = editText1.getText().toString();
+                    password = editText2.getText().toString();
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    Cursor cursor = db.query("User",null,null,null,null,null,null);
+                    if(cursor.moveToFirst()){
+                        do{
+                            UserName = cursor.getString(cursor.getColumnIndex("phone"));
+                            if(UserName.equals(username)){
+                                Password = cursor.getString(cursor.getColumnIndex("password"));
+                                if(Password.equals(password)){
+                                    Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }while(cursor.moveToNext());
+                        Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                    }
+                    cursor.close();
+                    break;
             }
         }
     }
