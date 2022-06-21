@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
+ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\35c69b59585be5ab8e4b75884f21579b\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Administrator\.gradle\caches\transforms-3\269e4029f92be0f4884805b72f00e70b\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-3\28fd1c29d8271204d6ab96725f4f82b0\transformed\appcompat-1.3.0\AndroidManifest.xml:17:1-24:12
@@ -39,27 +39,27 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Administrator\.g
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\daafd13ed6472e5d90ee94a442cae491\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\bd2b858bc6569916fd0b165974e7ef03\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\9f60b1f42e8b864cc2a6229748027403\transformed\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
 	package
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:4:5-47
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:6:5-28:19
+ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:6:5-31:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\35c69b59585be5ab8e4b75884f21579b\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\35c69b59585be5ab8e4b75884f21579b\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Administrator\.gradle\caches\transforms-3\269e4029f92be0f4884805b72f00e70b\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -110,14 +110,20 @@ category#android.intent.category.LAUNCHER
 ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
 		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:25:27-74
+activity#com.sapphireStar.android_project.FunctionActivity
+ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:28:9-30:40
+	android:exported
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:29:13-77
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:29:5-79
+ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:32:5-79
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:29:22-77
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:32:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:30:5-80
+ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:33:5-80
 	android:name
-		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:30:22-78
+		ADDED from E:\android-project001\app\src\main\AndroidManifest.xml:33:22-78
 uses-sdk
 INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\android-project001\app\src\main\AndroidManifest.xml

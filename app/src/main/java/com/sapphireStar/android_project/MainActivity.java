@@ -1,7 +1,6 @@
 package com.sapphireStar.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,17 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.sapphireStar.dao.MyAttentionDao;
-import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
-import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.MyAttention;
-import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.util.InsertTestData;
-
-import java.util.Arrays;
 import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private VideoViewBackground videoview;
     private Button quick_register,forget_password,sing_in;
     public String password="",username="",Password="",UserName="";
-
+    public int a=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,10 +116,16 @@ public class MainActivity extends AppCompatActivity {
                                 Password = cursor.getString(cursor.getColumnIndex("password"));
                                 if(Password.equals(password)){
                                     Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
+                                    intent=new Intent(MainActivity.this, FunctionActivity.class);
+                                    startActivity(intent);
+                                    a=1;
+                                    break;
                                 }
                             }
                         }while(cursor.moveToNext());
-                        Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                        if(a==0){
+                            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     cursor.close();
                     break;
