@@ -2,6 +2,8 @@ package com.sapphireStar.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,12 +12,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private DataBaseHelper dbHelper;
     private VideoViewBackground videoview;
     private Button quick_register,forget_password,sing_in;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -573,7 +578,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.forget_password:
 
                 case R.id.sing_in:
-
+                    intent=new Intent(MainActivity.this, FunctionActivity.class);
+                    startActivity(intent);
             }
         }
     }
