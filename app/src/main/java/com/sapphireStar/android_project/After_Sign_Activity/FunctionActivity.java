@@ -1,7 +1,9 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -11,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.R;
 
 
@@ -60,6 +63,7 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         //先将两个ImageButton置为灰色
         resetImgs();
         switch (view.getId()){
@@ -90,6 +94,7 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
                 transaction.replace(R.id.content,mine_tab);
                 break;
         }
+        transaction.commit();
     }
 
     @Override

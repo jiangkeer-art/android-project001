@@ -11,6 +11,7 @@
         <entry key="..\:/android-project001/app/src/main/res/drawable/shap_buttom.xml" value="0.1055" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/shape.xml" value="0.2685" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/shape_button.xml" value="0.105" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_change_password.xml" value="0.2" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_function.xml" value="0.27355072463768115" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.27395833333333336" />
@@ -20,7 +21,7 @@
         <entry key="..\:/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/fragment_search.xml" value="0.27355072463768115" />
         <entry key="..\:/android-project001/app/src/main/res/layout/rectangle.xml" value="0.2536231884057971" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/register.xml" value="0.27355072463768115" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/register.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/registers.xml" value="0.2536231884057971" />
       </map>
     </option>

@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //button点击事件
-    class OnClick implements View.OnClickListener{
+    private class OnClick implements View.OnClickListener{
 
         @SuppressLint("Range")
         @Override
