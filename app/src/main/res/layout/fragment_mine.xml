@@ -8,7 +8,7 @@
     <!--底部导航栏部分布局文件-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="match_parent"
         android:background="#D7E6E6">
 
         <ImageView
@@ -207,5 +207,4 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/bottom"/>
 </LinearLayout>
