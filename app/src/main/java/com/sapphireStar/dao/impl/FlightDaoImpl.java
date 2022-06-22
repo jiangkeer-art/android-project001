@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.sapphireStar.android_project.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.entity.Flight;
 

@@ -3,7 +3,7 @@ package com.sapphireStar.dao.impl;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sapphireStar.android_project.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.entity.Administrator;
 
