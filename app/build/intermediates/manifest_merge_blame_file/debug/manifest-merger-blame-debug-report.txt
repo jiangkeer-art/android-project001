@@ -30,25 +30,26 @@
 20-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:12:9-54
 21        android:supportsRtl="true"
 21-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:13:9-35
-22        android:theme="@style/Theme.Android_Project" >
-22-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:14:9-53
-23        <activity
-23-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:16:9-24:20
-24            android:name="com.example.android_project.MainActivity"
-24-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:17:13-41
-25            android:exported="true" >
-25-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:18:13-36
-26            <intent-filter>
-26-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:19:13-23:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:20:17-69
-27-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:20:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:22:17-77
-29-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:22:27-74
-30            </intent-filter>
-31        </activity>
-32    </application>
-33
-34</manifest>
+22        android:testOnly="true"
+23        android:theme="@style/Theme.Android_Project" >
+23-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:14:9-53
+24        <activity
+24-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:16:9-24:20
+25            android:name="com.example.android_project.MainActivity"
+25-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:17:13-41
+26            android:exported="true" >
+26-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:18:13-36
+27            <intent-filter>
+27-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:19:13-23:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:20:17-69
+28-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:20:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:22:17-77
+30-->C:\Users\20769\android-project001\app\src\main\AndroidManifest.xml:22:27-74
+31            </intent-filter>
+32        </activity>
+33    </application>
+34
+35</manifest>

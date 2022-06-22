@@ -16,8 +16,8 @@ drawable ic_launcher_foreground
 drawable rectangle
 id account
 id account1
+id checkbox
 id confirm
-id congirm
 id forget
 id identify
 id login

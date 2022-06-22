@@ -1858,7 +1858,6 @@ id clockwise
 id collapseActionView
 id confirm
 id confirm_button
-id congirm
 id container
 id content
 id contentPanel

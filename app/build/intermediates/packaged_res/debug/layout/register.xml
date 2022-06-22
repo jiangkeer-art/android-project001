@@ -203,7 +203,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/congirm"
+            android:id="@+id/checkbox"
             android:text="阅读并同意XX协议"
             />
     </LinearLayout>

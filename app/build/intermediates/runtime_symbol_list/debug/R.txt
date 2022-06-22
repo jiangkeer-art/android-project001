@@ -1857,7 +1857,6 @@ int id clockwise 0x7f08006e
 int id collapseActionView 0x7f08006f
 int id confirm 0x7f080070
 int id confirm_button 0x7f080071
-int id congirm 0x7f080072
 int id container 0x7f080073
 int id content 0x7f080074
 int id contentPanel 0x7f080075
