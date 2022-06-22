@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +24,25 @@ import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.util.InsertTestData;
+
+import com.sapphireStar.dao.FlightDao;
+import com.sapphireStar.dao.MyAttentionDao;
+import com.sapphireStar.dao.MyOrderDao;
+import com.sapphireStar.dao.NormalUserDao;
+import com.sapphireStar.dao.PlaneTicketDao;
+import com.sapphireStar.dao.impl.FlightDaoImpl;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
+import com.sapphireStar.dao.impl.MyOrderDaoImpl;
+import com.sapphireStar.dao.impl.NormalUserDaoImpl;
+import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
+import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyAttention;
+import com.sapphireStar.entity.MyOrder;
+import com.sapphireStar.entity.NormalUser;
+import com.sapphireStar.entity.PlaneTicket;
+
+import java.util.Arrays;
+
 import java.util.List;
 
 
@@ -57,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         forget_password.setOnClickListener(onClick);
         sing_in.setOnClickListener(onClick);
 
-        MyAttentionDao myAttentionDao=new MyAttentionDaoImpl(db,dbHelper);
-        List<MyAttention> list = myAttentionDao.getMyAttention("13646245963");
 
-        Log.d("TestDAO", list.get(0).toString());
+        NormalUserDao normalUserDao = new NormalUserDaoImpl(dbHelper);
+        Log.d("testDAO", normalUserDao.getUserByPhone("15589725630").toString());
+
 
     }
 

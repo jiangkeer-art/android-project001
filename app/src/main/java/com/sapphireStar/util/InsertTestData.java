@@ -77,6 +77,7 @@ public class InsertTestData {
         valuePlaneTicketData.put("shipping_space","经济舱");
         valuePlaneTicketData.put("state","0");
         db.insert("Plane_Ticket",null,valuePlaneTicketData);
+
     }
 
     //添加管理员用户数据函数
@@ -424,6 +425,7 @@ public class InsertTestData {
         valueFlightData.put("food","1");
         valueFlightData.put("departure_terminal","重庆江北国际机场");
         valueFlightData.put("landing_terminal","鸡西兴凯湖机场");
+
         db.insert("Flight",null,valueFlightData);
 
     }
