@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.db",null,20);
+        dbHelper = new DataBaseHelper(this,"FlightDataBase.db",null,22);
 
         //创建数据库并向其中添加数据
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         NormalUserDao normalUserDao = new NormalUserDaoImpl(dbHelper);
         Log.d("testDAO", normalUserDao.getUserByPhone("15589725630").toString());
-
+        FlightDao flightDao = new FlightDaoImpl(dbHelper);
+        Log.d("testDAO",flightDao.GetFlights(null,null,null).toString());
 
     }
 
