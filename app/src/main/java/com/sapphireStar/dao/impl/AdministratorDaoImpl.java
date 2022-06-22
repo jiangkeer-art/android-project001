@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.sapphireStar.android_project.DataBaseHelper;
 import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.entity.Administrator;
-import com.sapphireStar.entity.NormalUser;
 
 public class AdministratorDaoImpl implements AdministratorDao {
     private SQLiteDatabase db;

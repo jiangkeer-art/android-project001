@@ -34,7 +34,7 @@ public class FlightDaoImpl implements FlightDao {
             flight.setTransit_city(cursor.getString(4));
             Date date = null;
             String str = cursor.getString(5);
-            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 date = (Date)format.parse(str);
             } catch (ParseException e) {

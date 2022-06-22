@@ -32,7 +32,7 @@ public class PlaneTicketDaoImpl implements PlaneTicketDao {
             planeTicket.setFlight_number(cursor.getString(1));
             Date date = null;
             String str = cursor.getString(2);
-            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 date = (Date)format.parse(str);
             } catch (ParseException e) {
