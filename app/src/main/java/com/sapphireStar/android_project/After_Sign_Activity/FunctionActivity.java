@@ -1,9 +1,11 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,8 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
     private LinearLayout schedule_btn,mine_btn;
     //两个Tab对应的ImageButton
     private ImageButton schedule_ibt,mine_ibt;
+    //两个Tab对应的ImageButton下的说明文字
+    private TextView schedule_text,mine_text;
     //两个Tab对应的Fragment
     private Fragment schedule_tab = new SearchFragment();
     private Fragment mine_tab = new MineFragment();
@@ -42,6 +46,9 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
 
         schedule_ibt = (ImageButton) findViewById(R.id.schedule_tab_img);
         mine_ibt = (ImageButton) findViewById(R.id.mine_tab_img);
+
+        schedule_text = findViewById(R.id.schedule_text);
+        mine_text = findViewById(R.id.mine_text);
     }
 
     private void initEvents(){
@@ -83,13 +90,18 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
         switch (i) {
             case 0:
                 schedule_ibt.setImageResource(R.drawable.ic_schedule_selected);
+                schedule_text.setTextColor(Color.parseColor("#3399FF"));
+                mine_text.setTextColor(Color.parseColor("#000000"));
                 transaction.replace(R.id.content,schedule_tab);
                 break;
             case 1:
                 mine_ibt.setImageResource(R.drawable.ic_mine_selected);
+                mine_text.setTextColor(Color.parseColor("#3399FF"));
+                schedule_text.setTextColor(Color.parseColor("#000000"));
                 transaction.replace(R.id.content,mine_tab);
                 break;
         }
+        transaction.commit();
     }
 
     @Override
