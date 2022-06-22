@@ -13,19 +13,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.sapphireStar.android_project.R;
 
-import java.util.List;
 
 public class FunctionActivity extends FragmentActivity implements View.OnClickListener{
 
-    //装载Fragment的集合
-    private List<Fragment> mFragments;
     //两个Tab对应的按钮布局
     private LinearLayout schedule_btn,mine_btn;
     //两个Tab对应的ImageButton
     private ImageButton schedule_ibt,mine_ibt;
     //两个Tab对应的Fragment
-    private Fragment schedule_tab = new Fragment();
-    private Fragment mine_tab = new Fragment();
+    private Fragment schedule_tab = new SearchFragment();
+    private Fragment mine_tab = new MineFragment();
 
     FragmentManager fm;
 
