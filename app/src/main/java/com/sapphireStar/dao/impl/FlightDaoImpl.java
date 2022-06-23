@@ -21,7 +21,7 @@ public class FlightDaoImpl implements FlightDao {
     }
 
     @Override
-    public List<Flight> GetFlights() {
+    public List<Flight> GetFlights(String dateFind, String takeoff_city, String landing_city) {
         Cursor cursor = db.query("Flight",new String[]{"*"},null,null,null,null,null);
         Flight flight = null;
         List<Flight> list = new ArrayList<Flight>();
@@ -30,10 +30,16 @@ public class FlightDaoImpl implements FlightDao {
             flight.setFlight_number(cursor.getString(0));
             flight.setIs_domestic(cursor.getInt(1));
             flight.setTakeoff_city(cursor.getString(2));
+            if(takeoff_city==null||takeoff_city.equals(flight.getTakeoff_city())){}else
+                continue;
             flight.setLanding_city(cursor.getString(3));
+            if(landing_city==null||landing_city.equals(flight.getLanding_city())){}else
+                continue;
             flight.setTransit_city(cursor.getString(4));
             Date date = null;
             String str = cursor.getString(5);
+            if(dateFind==null||str.equals(dateFind)){}else
+                continue;
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 date = (Date)format.parse(str);

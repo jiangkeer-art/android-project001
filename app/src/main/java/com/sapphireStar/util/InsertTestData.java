@@ -416,7 +416,7 @@ public class InsertTestData {
         valueFlightData.put("takeoff_city","重庆");
         valueFlightData.put("landing_city","鸡西");
         valueFlightData.put("transit_city","null");
-        valueFlightData.put("takeoff_time","2022 -7-18 18:30:00");
+        valueFlightData.put("takeoff_time","2022-7-18 18:30:00");
         valueFlightData.put("punctuality_rate","100");
         valueFlightData.put("is_direct_flight","0");//1为需要中转，0为直飞
         valueFlightData.put("is_share","0");//0为不共享，1为共享
