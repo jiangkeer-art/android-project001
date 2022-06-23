@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.entity.User;
@@ -73,10 +74,15 @@ public class NormalUserDaoImpl implements NormalUserDao {
     }
 
     @Override
-    public NormalUser Login(String phone, String password) {
+    public Object Login(String phone, String password) {
         Cursor cursor = db.query("User",new String[]{"*"},"phone = " + "'" + phone + "'" + " and password = " + "'" + password + "'",null,null,null,null);
         if(cursor.getCount() <= 0){
             return null;
+        }
+        cursor.moveToFirst();
+        if(cursor.getInt(cursor.getColumnIndexOrThrow("is_administrators")) == 1){
+            AdministratorDao administratorDao = new AdministratorDaoImpl(db);
+            return administratorDao.getAdministratorByPhone(phone);
         }
         return getUserByPhone(phone);
     }

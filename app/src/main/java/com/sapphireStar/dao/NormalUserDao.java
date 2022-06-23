@@ -8,5 +8,5 @@ public interface NormalUserDao {
     int addUser(User user);
     int addNormalUSer(NormalUser normalUser);
     int modifyPassword(String phone, String newPassword,String reNewPassword,String oldPassword);
-    NormalUser Login(String phone,String password);
+    Object Login(String phone,String password);
 }

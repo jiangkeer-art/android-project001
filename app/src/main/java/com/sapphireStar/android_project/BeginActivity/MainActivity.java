@@ -20,6 +20,7 @@ import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
+import com.sapphireStar.entity.Administrator;
 import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
@@ -113,14 +114,20 @@ public class MainActivity extends AppCompatActivity {
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
 
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
-                    NormalUser normalUser = normalUserDao.Login(username,password);
-                    if(normalUser == null){
+                    Object obj = normalUserDao.Login(username,password);
+                    if(obj == null){
                         Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
                         intent=new Intent(MainActivity.this, FunctionActivity.class);
                         intent.putExtra("phone",UserName);
+                        if(obj.getClass().getSimpleName().equals("Administrator")){
+                            intent.putExtra("Administrator",(Administrator)obj);
+                        }
+                        else {
+                            intent.putExtra("Administrator",(NormalUser)obj);
+                        }
                         startActivity(intent);
                         break;
                     }

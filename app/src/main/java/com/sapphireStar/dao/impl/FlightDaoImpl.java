@@ -78,6 +78,7 @@ public class FlightDaoImpl implements FlightDao {
                 " and is_direct_flight" + IDF +
                 " and f.flight_number = p.flight_number" +
                 " and f.takeoff_time = p.takeoff_time",null,null,null,null);
+
         if(cursor.getCount()<=0){
             return null;
         }
