@@ -1,4 +1,4 @@
-package com.sapphireStar.entity;
+package com.sapphireStar.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

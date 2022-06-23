@@ -8,43 +8,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
-import com.sapphireStar.dao.MyAttentionDao;
-import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
-import com.sapphireStar.entity.CommonDB;
-import com.sapphireStar.entity.MyAttention;
+import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
-
-import com.sapphireStar.dao.FlightDao;
-import com.sapphireStar.dao.MyAttentionDao;
-import com.sapphireStar.dao.MyOrderDao;
-import com.sapphireStar.dao.NormalUserDao;
-import com.sapphireStar.dao.PlaneTicketDao;
-import com.sapphireStar.dao.impl.FlightDaoImpl;
-import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
-import com.sapphireStar.dao.impl.MyOrderDaoImpl;
-import com.sapphireStar.dao.impl.NormalUserDaoImpl;
-import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
-import com.sapphireStar.entity.Flight;
-import com.sapphireStar.entity.MyAttention;
-import com.sapphireStar.entity.MyOrder;
-import com.sapphireStar.entity.NormalUser;
-import com.sapphireStar.entity.PlaneTicket;
-
-import java.util.Arrays;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {

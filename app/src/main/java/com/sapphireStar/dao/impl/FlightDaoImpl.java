@@ -16,8 +16,8 @@ import java.util.List;
 
 public class FlightDaoImpl implements FlightDao {
     private SQLiteDatabase db;
-    public FlightDaoImpl(DataBaseHelper dataBaseHelper){
-        db = dataBaseHelper.getWritableDatabase();
+    public FlightDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
 
     @Override
@@ -57,6 +57,7 @@ public class FlightDaoImpl implements FlightDao {
             flight.setLanding_terminal(cursor.getString(13));
             list.add(flight);
         }
+        cursor.close();
         return list;
     }
 }

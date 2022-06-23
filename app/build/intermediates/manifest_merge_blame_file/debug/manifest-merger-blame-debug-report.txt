@@ -1,0 +1,80 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sapphireStar.android_project"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="30"
+8-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:6:5-80
+11-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:6:22-77
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:7:5-81
+12-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:7:22-78
+13
+14    <application
+14-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:9:5-37:19
+15        android:allowBackup="true"
+15-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:10:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.5.0] D:\Environment\gradle\gradle-7.3.3\repo\caches\transforms-3\4cb2d3ae910a25e4d3b75b6b0d8d1b11\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+17        android:dataExtractionRules="@xml/data_extraction_rules"
+17-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:11:9-65
+18        android:debuggable="true"
+19        android:extractNativeLibs="false"
+20        android:fullBackupContent="@xml/backup_rules"
+20-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:12:9-54
+21        android:icon="@mipmap/ic_launcher"
+21-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:13:9-43
+22        android:label="@string/app_name"
+22-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:14:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:15:9-54
+24        android:supportsRtl="true"
+24-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:16:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.Android_Project" >
+26-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:17:9-53
+27        <activity
+27-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:19:9-21:40
+28            android:name="com.sapphireStar.android_project.MineActivity.Change_Password"
+28-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:20:13-57
+29            android:exported="false" />
+29-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:21:13-37
+30        <activity
+30-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:22:9-24:40
+31            android:name="com.sapphireStar.android_project.Register.RegisterActivity"
+31-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:23:13-86
+32            android:exported="false" />
+32-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:24:13-37
+33        <activity
+33-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:25:9-33:20
+34            android:name="com.sapphireStar.android_project.BeginActivity.MainActivity"
+34-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:26:13-87
+35            android:exported="true" >
+35-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:27:13-36
+36            <intent-filter>
+36-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:28:13-32:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:29:17-69
+37-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:29:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:31:17-77
+39-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:31:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:34:9-36:40
+43            android:name="com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity"
+43-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:35:13-97
+44            android:exported="false" />
+44-->D:\Project\Android\android-project001\app\src\main\AndroidManifest.xml:36:13-37
+45    </application>
+46
+47</manifest>

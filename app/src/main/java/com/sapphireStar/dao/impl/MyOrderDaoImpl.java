@@ -12,8 +12,8 @@ import java.util.List;
 
 public class MyOrderDaoImpl implements MyOrderDao {
     private SQLiteDatabase db;
-    public MyOrderDaoImpl(DataBaseHelper dataBaseHelper){
-        db = dataBaseHelper.getWritableDatabase();
+    public MyOrderDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
     @Override
     public List<MyOrder> getMyOrderByPhone(String phone) {
@@ -28,6 +28,7 @@ public class MyOrderDaoImpl implements MyOrderDao {
             myOrder.setState(cursor.getString(3));
             list.add(myOrder);
         }
+        cursor.close();
         return list;
     }
 }

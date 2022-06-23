@@ -13,8 +13,8 @@ import java.util.List;
 public class MyAttentionDaoImpl implements MyAttentionDao {
     private SQLiteDatabase db;
     //private ContentValues values;
-    public MyAttentionDaoImpl(DataBaseHelper dbHelper){
-        db = dbHelper.getWritableDatabase();
+    public MyAttentionDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
     @Override
     public List<MyAttention> getMyAttention(String phone) {
@@ -27,6 +27,7 @@ public class MyAttentionDaoImpl implements MyAttentionDao {
             myAttention.setPhone(cursor.getString(1));
             list.add(myAttention);
         }
+        cursor.close();
         return list;
     }
 }

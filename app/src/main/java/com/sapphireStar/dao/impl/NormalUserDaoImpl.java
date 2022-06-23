@@ -12,8 +12,8 @@ import com.sapphireStar.entity.User;
 public class NormalUserDaoImpl implements NormalUserDao {
     private SQLiteDatabase db;
     //private ContentValues values;
-    public NormalUserDaoImpl(DataBaseHelper dbHelper){
-        db = dbHelper.getWritableDatabase();
+    public NormalUserDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
 
     @Override
@@ -26,6 +26,7 @@ public class NormalUserDaoImpl implements NormalUserDao {
         normalUser.setId(cursor.getString(1));
         normalUser.setName(cursor.getString(2));
         normalUser.setIdNumber(cursor.getString(3));
+        cursor.close();
         return normalUser;
     }
 
@@ -37,6 +38,27 @@ public class NormalUserDaoImpl implements NormalUserDao {
         valueUser.put("password",user.getPassword());
         valueUser.put("is_administrators","0"); //1为管理员，0为普通用户
         db.insert("User",null,valueUser);
+
+        return 0;
+    }
+
+    @Override
+    public int modifyPassword(String phone, String newPassword,String reNewPassword,String oldPassword) {
+        Cursor cursor = db.query("User",null,null,null,null,null,null);
+        if(cursor.moveToFirst()){
+            do{
+                if(phone.equals(cursor.getString(0))){
+                    if(oldPassword.equals(cursor.getString(1))){
+                        if(newPassword.equals(reNewPassword)){
+                            ContentValues values = new ContentValues();
+                            values.put("password",newPassword);
+                            db.update("User",values,"phone="+phone,null);
+                        }
+                    }
+                }
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
         return 0;
     }
 }

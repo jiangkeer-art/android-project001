@@ -9,10 +9,9 @@ import com.sapphireStar.entity.Administrator;
 
 public class AdministratorDaoImpl implements AdministratorDao {
     private SQLiteDatabase db;
-    public AdministratorDaoImpl(DataBaseHelper dbHelper){
-        db = dbHelper.getWritableDatabase();
+    public AdministratorDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
-
     @Override
     public Administrator getAdministratorByPhone(String phone) {
         Administrator administrator = null;
@@ -21,6 +20,7 @@ public class AdministratorDaoImpl implements AdministratorDao {
         cursor.moveToFirst();
         administrator.setPhone(cursor.getString(0));
         administrator.setId(cursor.getString(1));
+        cursor.close();
         return administrator;
     }
 }

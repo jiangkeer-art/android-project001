@@ -16,11 +16,9 @@ import java.util.List;
 
 public class PlaneTicketDaoImpl implements PlaneTicketDao {
     private SQLiteDatabase db;
-    public PlaneTicketDaoImpl(DataBaseHelper dbHelper){
-        db = dbHelper.getWritableDatabase();
+    public PlaneTicketDaoImpl(SQLiteDatabase sdb){
+        db = sdb;
     }
-
-
     @Override
     public List<PlaneTicket> getPlaneTicketByFlight(String flight) {
         List<PlaneTicket> list = new ArrayList<PlaneTicket>();
@@ -44,6 +42,7 @@ public class PlaneTicketDaoImpl implements PlaneTicketDao {
             planeTicket.setState(cursor.getString(5));
             list.add(planeTicket);
         }
+        cursor.close();
         return list;
     }
 }
