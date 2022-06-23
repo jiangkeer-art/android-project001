@@ -22,6 +22,7 @@ import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
+import com.sapphireStar.entity.CommonDB;
 import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.util.InsertTestData;
 
@@ -48,7 +49,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DataBaseHelper dbHelper;
     private VideoViewBackground videoview;
     private Button quick_register,forget_password,sing_in;
     public String password="",username="",Password="",UserName="";
@@ -59,13 +59,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        dbHelper = new DataBaseHelper(this,"FlightDataBase.db",null,22);
+
 
         //创建数据库并向其中添加数据
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        if(dbHelper.versionControl==1){
-            new InsertTestData(db);
-            //Toast.makeText(MainActivity.this, "Data Insert Succeeded", Toast.LENGTH_SHORT).show();
+        CommonDB db = new CommonDB();
+        SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
+        int version = db.getVersionControl();
+        //Toast.makeText(MainActivity.this, String.valueOf(version), Toast.LENGTH_SHORT).show();
+        if(version==1){
+            new InsertTestData(sqlite);
+            //Toast.makeText(MainActivity.this, version, Toast.LENGTH_SHORT).show();
         }
 
         //对布局界面按钮添加监听事件
@@ -76,12 +79,6 @@ public class MainActivity extends AppCompatActivity {
         quick_register.setOnClickListener(onClick);
         forget_password.setOnClickListener(onClick);
         sing_in.setOnClickListener(onClick);
-
-
-        NormalUserDao normalUserDao = new NormalUserDaoImpl(dbHelper);
-        Log.d("testDAO", normalUserDao.getUserByPhone("15589725630").toString());
-        FlightDao flightDao = new FlightDaoImpl(dbHelper);
-        Log.d("testDAO",flightDao.GetFlights(null,null,null).toString());
 
     }
 
@@ -134,8 +131,9 @@ public class MainActivity extends AppCompatActivity {
                     EditText editText2 = (EditText) findViewById(R.id.password);
                     username = editText1.getText().toString();
                     password = editText2.getText().toString();
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
-                    Cursor cursor = db.query("User",null,null,null,null,null,null);
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
+                    Cursor cursor = sqlite.query("User",null,null,null,null,null,null);
                     if(cursor.moveToFirst()){
                         do{
                             UserName = cursor.getString(cursor.getColumnIndex("phone"));
@@ -144,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                                 if(Password.equals(password)){
                                     Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
                                     intent=new Intent(MainActivity.this, FunctionActivity.class);
+                                    intent.putExtra("phone",UserName);
                                     startActivity(intent);
                                     a=1;
                                     break;

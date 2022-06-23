@@ -19,6 +19,7 @@ public class MineFragment extends Fragment {
 
     public Button all;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
+    public String phone="";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,8 @@ public class MineFragment extends Fragment {
 
                 case R.id.change_password:
                     intent = new Intent(getActivity(), Change_Password.class);
+                    phone = getActivity().getIntent().getStringExtra("phone");
+                    intent.putExtra("phone",phone);
                     startActivity(intent);
                     break;
                 case R.id.change_phone:
