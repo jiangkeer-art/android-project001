@@ -5,7 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.dao.MyAttentionDao;
+import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyAttention;
+import com.sapphireStar.entity.PlaneTicket;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,5 +31,15 @@ public class MyAttentionDaoImpl implements MyAttentionDao {
         }
         cursor.close();
         return list;
+    }
+
+    @Override
+    public Object[] addMyAttention(Flight flight, PlaneTicket planeTicket, String phone) {
+        return new Object[0];
+    }
+
+    @Override
+    public void removeMyAttention(Flight flight, PlaneTicket planeTicket, String phone) {
+
     }
 }
