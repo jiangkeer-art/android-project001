@@ -63,7 +63,7 @@ public class FlightDaoImpl implements FlightDao {
         ,"f.is_share"
         ,"f.time_period"
         ,"f.airline_company"
-        ,"f.food integer"
+        ,"f.food"
         ,"f.departure_terminal"
         ,"f.landing_terminal"
         ,"p.plane_ticket_number"
@@ -78,6 +78,9 @@ public class FlightDaoImpl implements FlightDao {
                 " and is_direct_flight" + IDF +
                 " and f.flight_number = p.flight_number" +
                 " and f.takeoff_time = p.takeoff_time",null,null,null,null);
+        if(cursor.getCount()<=0){
+            return null;
+        }
         Flight flight = null;
         PlaneTicket planeTicket = null;
         List<Object[]> list= new ArrayList<Object[]>();
