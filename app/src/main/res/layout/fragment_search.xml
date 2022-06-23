@@ -70,7 +70,7 @@
                                 android:layout_marginRight="20dp"
                                 android:id="@+id/place1"
                                 android:textStyle="bold"
-                                android:text="厦门" />
+                                android:text="西安" />
 
                             <ImageView
                                 android:layout_width="100dp"

@@ -27,13 +27,13 @@ public class SearchFragment extends Fragment {
     public EditText place1,place2,day1;
     public String takeoff_time="",takeoff_city="",landing_city="";
     public RadioButton is_eco,is_bus;
-    public int eco=0,bus=0,direct=0,share=0,domestic=0;
+    public String eco="0",bus="0",direct="0",share="0",domestic="0";
     public CheckBox is_direct,is_share;
     public Button search_buttonn;
     public EditText place11,place22,day11;
     public String takeoff_timee="",takeoff_cityy="",landing_cityy="";
     public RadioButton is_ecoo,is_buss;
-    public int ecoo=0,buss=0,directt=0,sharee=0,domesticc=1;
+    public String ecoo="0",buss="0",directt="0",sharee="0",domesticc="1";
     public CheckBox is_directt,is_sharee;
 
     @Nullable
@@ -103,22 +103,22 @@ public class SearchFragment extends Fragment {
                     intent.putExtra("is_direct",direct);
                     intent.putExtra("is_share",share);
                     intent.putExtra("is_domestic",domestic);
-                    Toast.makeText(getActivity(), takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     break;
                 case R.id.is_eco:
-                    eco=1;
-                    bus=0;
+                    eco="1";
+                    bus="0";
                     break;
                 case R.id.is_bus:
-                    bus=1;
-                    eco=0;
+                    bus="1";
+                    eco="0";
                     break;
                 case R.id.is_direct:
-                    direct=1;
+                    direct="1";
                     break;
                 case R.id.is_share:
-                    share=1;
+                    share="1";
                     break;
                 case R.id.search_buttonn:
                     takeoff_cityy = place11.getText().toString();
@@ -136,18 +136,18 @@ public class SearchFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.is_ecoo:
-                    ecoo=1;
-                    buss=0;
+                    ecoo="1";
+                    buss="0";
                     break;
                 case R.id.is_buss:
-                    buss=1;
-                    ecoo=0;
+                    buss="1";
+                    ecoo="0";
                     break;
                 case R.id.is_directt:
-                    directt=1;
+                    directt="1";
                     break;
                 case R.id.is_sharee:
-                    sharee=1;
+                    sharee="1";
                     break;
             }
         }
