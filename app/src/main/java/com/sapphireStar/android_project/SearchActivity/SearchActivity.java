@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
@@ -36,10 +38,10 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter = new FlightAdapter(flightList);
         recyclerView.setAdapter(adapter);
-
     }
 
     private void initFlight(){
+        flightList = new ArrayList<Flight>();
         takeoff_city = getIntent().getStringExtra("takeoff_city");
         takeoff_time = getIntent().getStringExtra("takeoff_time");
         landing_city = getIntent().getStringExtra("landing_city");
@@ -57,7 +59,12 @@ public class SearchActivity extends AppCompatActivity {
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
-        Object[] objects = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share).get(0);
-        flightList.add(((Flight) objects[0]));
+        List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
+        Log.d("test", String.valueOf(list.size()));
+        Object[] objects = list.get(0);
+        Log.d("test", objects[0].getClass().getSimpleName());
+        ObjectMapper objectMapper = new ObjectMapper();
+        Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+        flightList.add(flight);
     }
 }
