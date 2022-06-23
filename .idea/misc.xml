@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/allcheek.xml" value="0.126" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/direct.xml" value="0.126" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/searchs.xml" value="0.126" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/drawable/stuff.xml" value="0.126" />
         <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.24114583333333334" />
+        <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/fragment_search.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/20769/android-project001/app/src/main/res/layout/register.xml" value="0.1" />
       </map>
     </option>
