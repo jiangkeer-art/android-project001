@@ -3,6 +3,7 @@ package com.sapphireStar.android_project.DataBase;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -101,7 +102,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     国内/国际
     起飞城市
     降落城市
-    中专城市
+    中转城市
     起飞时间
     准点率
     是否直飞

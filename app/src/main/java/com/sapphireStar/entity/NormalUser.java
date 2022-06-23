@@ -22,6 +22,10 @@ public class NormalUser implements Serializable {
         this.phone = phone;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getId() {
         return id;
     }

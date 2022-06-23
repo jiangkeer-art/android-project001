@@ -6,21 +6,25 @@
         <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
         <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.5536458333333333" />
         <entry key="..\:/android-project001/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1365" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/allcheek.xml" value="0.1835" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/allcreek.xml" value="0.1055" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/rectangle.xml" value="0.1055" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/searchs.xml" value="0.1835" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/shap_buttom.xml" value="0.1055" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/shape.xml" value="0.2685" />
         <entry key="..\:/android-project001/app/src/main/res/drawable/shape_button.xml" value="0.105" />
+        <entry key="..\:/android-project001/app/src/main/res/drawable/stuff.xml" value="0.1835" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_change_password.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_function.xml" value="0.27355072463768115" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.27395833333333336" />
         <entry key="..\:/android-project001/app/src/main/res/layout/allcreek.xml" value="0.2536231884057971" />
         <entry key="..\:/android-project001/app/src/main/res/layout/bottom.xml" value="0.27355072463768115" />
         <entry key="..\:/android-project001/app/src/main/res/layout/deleline.xml" value="0.2536231884057971" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.264" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/fragment_search.xml" value="0.27355072463768115" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.1" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/rectangle.xml" value="0.2536231884057971" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/register.xml" value="0.27355072463768115" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/register.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/registers.xml" value="0.2536231884057971" />
       </map>
     </option>
