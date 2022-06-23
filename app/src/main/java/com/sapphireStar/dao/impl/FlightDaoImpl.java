@@ -32,7 +32,7 @@ public class FlightDaoImpl implements FlightDao {
             shipping_space = "经济舱";
         }
         else if(is_eco == 0 && is_business==1){
-            shipping_space = "商务舱";
+            shipping_space = "头等舱";
         }
         else{
             shipping_space = "%";
@@ -93,6 +93,16 @@ public class FlightDaoImpl implements FlightDao {
                         " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
                         " and Plane_Ticket.shipping_space like ?"
                 ,new String[]{"%"+dateFind+"%",landing_city,takeoff_city,String.valueOf(is_domestic),ISH,IDF,shipping_space});
+        Log.d("test",
+                "\nWHERE Flight.takeoff_time like "+ "%"+dateFind+"%" +"\n"+
+                " and landing_city = " + landing_city +"\n"+
+                " and takeoff_city = " + takeoff_city +"\n"+
+                " and is_domestic = " + String.valueOf(is_domestic) +"\n"+
+                " and is_share like " + ISH +"\n"+
+                " and is_direct_flight like " + IDF +"\n"+
+                " and Flight.flight_number = Plane_Ticket.flight_number" +"\n"+
+                " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +"\n"+
+                " and Plane_Ticket.shipping_space like "+ shipping_space );
         if(cursor.getCount()<=0){
             return null;
         }
