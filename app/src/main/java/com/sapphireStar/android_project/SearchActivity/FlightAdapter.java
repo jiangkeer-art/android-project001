@@ -5,8 +5,6 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sapphireStar.entity.Flight;
-
 import java.util.List;
 
 
