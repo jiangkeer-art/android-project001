@@ -38,7 +38,17 @@ public class NormalUserDaoImpl implements NormalUserDao {
         valueUser.put("password",user.getPassword());
         valueUser.put("is_administrators","0"); //1为管理员，0为普通用户
         db.insert("User",null,valueUser);
+        return 0;
+    }
 
+    @Override
+    public int addNormalUSer(NormalUser normalUser) {
+        ContentValues valueNormal_User=new ContentValues();
+        valueNormal_User.put("phone",normalUser.getPhone());
+        valueNormal_User.put("id",normalUser.getId());
+        valueNormal_User.put("name",normalUser.getName());
+        valueNormal_User.put("id_number",normalUser.getIdNumber());
+        db.insert("Normal_User",null,valueNormal_User);
         return 0;
     }
 
