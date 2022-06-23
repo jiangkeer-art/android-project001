@@ -71,4 +71,13 @@ public class NormalUserDaoImpl implements NormalUserDao {
         cursor.close();
         return 0;
     }
+
+    @Override
+    public NormalUser Login(String phone, String password) {
+        Cursor cursor = db.query("User",new String[]{"*"},"phone = " + "'" + phone + "'" + " and password = " + "'" + password + "'",null,null,null,null);
+        if(cursor.getCount() <= 0){
+            return null;
+        }
+        return getUserByPhone(phone);
+    }
 }

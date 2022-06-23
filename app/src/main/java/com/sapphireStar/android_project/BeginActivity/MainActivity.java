@@ -18,6 +18,9 @@ import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
+import com.sapphireStar.dao.NormalUserDao;
+import com.sapphireStar.dao.impl.NormalUserDaoImpl;
+import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
 
@@ -108,27 +111,40 @@ public class MainActivity extends AppCompatActivity {
                     password = editText2.getText().toString();
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
-                    Cursor cursor = sqlite.query("User",null,null,null,null,null,null);
-                    if(cursor.moveToFirst()){
-                        do{
-                            UserName = cursor.getString(cursor.getColumnIndex("phone"));
-                            if(UserName.equals(username)){
-                                Password = cursor.getString(cursor.getColumnIndex("password"));
-                                if(Password.equals(password)){
-                                    Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
-                                    intent=new Intent(MainActivity.this, FunctionActivity.class);
-                                    intent.putExtra("phone",UserName);
-                                    startActivity(intent);
-                                    a=1;
-                                    break;
-                                }
-                            }
-                        }while(cursor.moveToNext());
-                        if(a==0){
-                            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-                        }
+
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    NormalUser normalUser = normalUserDao.Login(username,password);
+                    if(normalUser == null){
+                        Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }
-                    cursor.close();
+                    else{
+                        Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
+                        intent=new Intent(MainActivity.this, FunctionActivity.class);
+                        intent.putExtra("phone",UserName);
+                        startActivity(intent);
+                        break;
+                    }
+//                    Cursor cursor = sqlite.query("User",null,null,null,null,null,null);
+//                    if(cursor.moveToFirst()){
+//                        do{
+//                            UserName = cursor.getString(cursor.getColumnIndex("phone"));
+//                            if(UserName.equals(username)){
+//                                Password = cursor.getString(cursor.getColumnIndex("password"));
+//                                if(Password.equals(password)){
+//                                    Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
+//                                    intent=new Intent(MainActivity.this, FunctionActivity.class);
+//                                    intent.putExtra("phone",UserName);
+//                                    startActivity(intent);
+//                                    a=1;
+//                                    break;
+//                                }
+//                            }
+//                        }while(cursor.moveToNext());
+//                        if(a==0){
+//                            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                    cursor.close();
                     break;
             }
         }
