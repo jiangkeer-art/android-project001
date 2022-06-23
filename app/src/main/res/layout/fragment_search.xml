@@ -13,7 +13,7 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="75dp"
         android:background="@color/white"/>
 
     <LinearLayout
@@ -26,16 +26,15 @@
         android:layout_marginRight="10dp"
         android:id="@+id/allgraif">
 
-
         <TabHost
             android:id="@android:id/tabhost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:background="@drawable/searchs">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <!-- TabWidget组件id值不可变-->
                 <TabWidget
                     android:id="@android:id/tabs"
@@ -67,14 +66,15 @@
                                 android:layout_width="90dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="40dp"
-                                android:layout_marginRight="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="30dp"
                                 android:id="@+id/place1"
                                 android:textStyle="bold"
                                 android:text="西安" />
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="52dp"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
                                 android:background="@drawable/direct" />
 
                             <EditText
@@ -82,15 +82,18 @@
                                 android:layout_height="wrap_content"
                                 android:text="大连"
                                 android:textStyle="bold"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginLeft="30dp"
                                 android:id="@+id/place2"
-                                android:textSize="40dp" />
+                                android:textSize="40dp"
+                                android:background="@drawable/deleline"/>
                         </LinearLayout>
                         <View
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/black">
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#4A000000">
                         </View>
                         <LinearLayout
                             android:id="@+id/day"
@@ -103,35 +106,43 @@
                                 android:id="@+id/day1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
-                                android:textSize="25dp"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="30dp"
                                 android:textStyle="bold"
-                                android:text="X月X日(今天)      " />
+                                android:text="X月X日(今天)      "
+                                android:background="@drawable/deleline"/>
 
                         </LinearLayout>
                         <View
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/black">
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#4A000000">
                         </View>
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
                             <RadioGroup
-                                android:layout_width="190dp"
+                                android:layout_width="wrap_content"
                                 android:orientation="horizontal"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp">
                                 <RadioButton
                                     android:id="@+id/is_eco"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="经济舱" />
+                                    android:text="经济舱"
+                                    android:textSize="14sp"/>
                                 <RadioButton
                                     android:id="@+id/is_bus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="公务/头等舱" />
+                                    android:text="公务/头等舱"
+                                    android:textSize="14sp"/>
                             </RadioGroup>
 
                             <CheckBox
@@ -147,12 +158,14 @@
                         </LinearLayout>
                         <Button
                             android:id="@+id/search_button"
-                            android:layout_width="200dp"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:text="查询"
                             android:textSize="20dp"
-                            android:backgroundTint="#5D8AFB" />
+                            android:backgroundTint="#00a0ff"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
 
                     <!-- 第二个tab的布局 -->
@@ -175,14 +188,16 @@
                                 android:layout_width="90dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="40dp"
-                                android:layout_marginRight="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="30dp"
                                 android:id="@+id/place11"
                                 android:textStyle="bold"
-                                android:text="厦门" />
+                                android:text="厦门"
+                                android:background="@drawable/deleline"/>
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="52dp"
+                                android:layout_width="80dp"
+                                android:layout_height="30dp"
                                 android:background="@drawable/direct" />
 
                             <EditText
@@ -190,15 +205,18 @@
                                 android:layout_height="wrap_content"
                                 android:text="巴黎"
                                 android:textStyle="bold"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginLeft="30dp"
                                 android:id="@+id/place22"
-                                android:textSize="40dp" />
+                                android:textSize="40dp"
+                                android:background="@drawable/deleline"/>
                         </LinearLayout>
                         <View
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/black">
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#4A000000">
                         </View>
                         <LinearLayout
                             android:id="@+id/dayy"
@@ -211,35 +229,43 @@
                                 android:id="@+id/day11"
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
-                                android:textSize="25dp"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="30dp"
                                 android:textStyle="bold"
-                                android:text="X月X日(今天)      " />
+                                android:text="X月X日(今天)      "
+                                android:background="@drawable/deleline"/>
 
                         </LinearLayout>
                         <View
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/black">
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#4A000000">
                         </View>
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
                             <RadioGroup
-                                android:layout_width="190dp"
+                                android:layout_width="wrap_content"
                                 android:orientation="horizontal"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp">
                                 <RadioButton
                                     android:id="@+id/is_ecoo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="经济舱" />
+                                    android:text="经济舱"
+                                    android:textSize="14sp"/>
                                 <RadioButton
                                     android:id="@+id/is_buss"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="公务/头等舱" />
+                                    android:text="公务/头等舱"
+                                    android:textSize="14sp"/>
                             </RadioGroup>
 
                             <CheckBox
@@ -255,12 +281,14 @@
                         </LinearLayout>
                         <Button
                             android:id="@+id/search_buttonn"
-                            android:layout_width="200dp"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
                             android:text="查询"
                             android:textSize="20dp"
-                            android:backgroundTint="#5D8AFB" />
+                            android:backgroundTint="#00a0ff"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </FrameLayout>
             </LinearLayout>

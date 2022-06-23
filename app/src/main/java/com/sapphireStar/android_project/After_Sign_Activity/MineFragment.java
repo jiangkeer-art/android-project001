@@ -31,11 +31,11 @@ public class MineFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
         all = view.findViewById(R.id.all);
         complete = view.findViewById(R.id.complete);
-        uncomplete = view.findViewById(R.id.uncomplete);
+        uncomplete = view.findViewById(R.id.incomplete);
         changed = view.findViewById(R.id.changed);
         change_password = view.findViewById(R.id.change_password);
         change_phone = view.findViewById(R.id.change_phone);
-        real_confirm = view.findViewById(R.id.real_confirm);
+        real_confirm = view.findViewById(R.id.identity_confirm);
         OnClick onClick = new OnClick();
         all.setOnClickListener(onClick);
         complete.setOnClickListener(onClick);
@@ -57,7 +57,7 @@ public class MineFragment extends Fragment {
 
                 case R.id.complete:
 
-                case R.id.uncomplete:
+                case R.id.incomplete:
 
                 case R.id.changed:
 
@@ -69,7 +69,7 @@ public class MineFragment extends Fragment {
                     break;
                 case R.id.change_phone:
 
-                case R.id.real_confirm:
+                case R.id.identity_confirm:
             }
         }
     }

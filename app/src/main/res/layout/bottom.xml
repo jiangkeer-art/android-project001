@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="85dp">
     <LinearLayout
         android:id="@+id/schedule_btn"
         android:layout_width="0dp"
@@ -10,10 +10,11 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="10dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="55dp">
+            android:layout_height="50dp">
             <ImageButton
                 android:id="@+id/schedule_tab_img"
                 android:clickable="false"
@@ -24,10 +25,11 @@
                 android:scaleType="centerInside" />
         </LinearLayout>
         <TextView
+            android:id="@+id/schedule_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="@string/schedule"/>
     </LinearLayout>
     <LinearLayout
@@ -36,10 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="55dp">
+            android:layout_height="50dp">
             <ImageButton
                 android:id="@+id/mine_tab_img"
                 android:clickable="false"
@@ -50,10 +53,11 @@
                 android:scaleType="centerInside" />
         </LinearLayout>
         <TextView
+            android:id="@+id/mine_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="@string/mine"/>
     </LinearLayout>
 </LinearLayout>

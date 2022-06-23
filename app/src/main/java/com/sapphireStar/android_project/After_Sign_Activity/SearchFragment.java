@@ -35,6 +35,7 @@ public class SearchFragment extends Fragment {
     public RadioButton is_ecoo,is_buss;
     public String ecoo="0",buss="0",directt="0",sharee="0",domesticc="1";
     public CheckBox is_directt,is_sharee;
+    FunctionActivity functionActivity;
 
     @Nullable
     @Override
@@ -43,11 +44,16 @@ public class SearchFragment extends Fragment {
         TabHost tab = view.findViewById(android.R.id.tabhost);
         TabHost tab1 = view.findViewById(android.R.id.tabhost);
 
+        //为自定义TabHost样式抓取选项卡布局
+        functionActivity = (FunctionActivity) getActivity();
+        View domestic = LayoutInflater.from(functionActivity).inflate(R.layout.tabmini,null);
+        View international = LayoutInflater.from(functionActivity).inflate(R.layout.tabmini1,null);
+
         //初始化TabHost容器
         tab.setup();
         //在TabHost创建标签，然后设置：标题／图标／标签页布局
-        tab.addTab(tab.newTabSpec("国内").setIndicator("国内" , null).setContent(R.id.国内));
-        tab1.addTab(tab.newTabSpec("国际").setIndicator("国际" , null).setContent(R.id.国际));
+        tab.addTab(tab.newTabSpec("国内").setIndicator(domestic).setContent(R.id.国内));
+        tab1.addTab(tab.newTabSpec("国际").setIndicator(international).setContent(R.id.国际));
 
         place1 =view.findViewById(R.id.place1);
         place2 = view.findViewById(R.id.place2);
