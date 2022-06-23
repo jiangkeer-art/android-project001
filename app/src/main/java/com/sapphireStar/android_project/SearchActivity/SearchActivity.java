@@ -50,7 +50,6 @@ public class SearchActivity extends AppCompatActivity {
         direct = getIntent().getStringExtra("is_direct");
         share = getIntent().getStringExtra("is_share");
         domestic = getIntent().getStringExtra("is_domestic");
-        Toast.makeText(SearchActivity.this, takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
         is_eco = Integer.valueOf(eco).intValue();
         is_bus = Integer.valueOf(bus).intValue();
         is_direct = Integer.valueOf(direct).intValue();
@@ -59,19 +58,12 @@ public class SearchActivity extends AppCompatActivity {
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
-        //获取检索出的航班以及机票信息 返回值为 List<Object[]> list, object[0]是Flight，object[1]是Airplane_Ticket
         List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
-        Log.d("test", String.valueOf(list.size()));
-        //如何遍历list？
-        //for(int i = 0;i < list.size; i++){
-        //      list.get(i);
-        // }
-        Object[] objects = list.get(0);//比如这里，就拿到的list的第一个数据
-        Log.d("test", objects[0].getClass().getSimpleName());
-        //将object转为子对象
+        //Log.d("test", String.valueOf(list.size()));
+        Object[] objects = list.get(0);
+        //Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
         Flight flight = objectMapper.convertValue(objects[0], Flight.class);
-        //要拿机票对象 就是Airplane airplane = objectMapper.convertValue(objects[1], Airplane.class);
         flightList.add(flight);
     }
 }
