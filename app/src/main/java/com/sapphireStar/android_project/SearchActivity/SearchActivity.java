@@ -50,7 +50,6 @@ public class SearchActivity extends AppCompatActivity {
         direct = getIntent().getStringExtra("is_direct");
         share = getIntent().getStringExtra("is_share");
         domestic = getIntent().getStringExtra("is_domestic");
-        Toast.makeText(SearchActivity.this, takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
         is_eco = Integer.valueOf(eco).intValue();
         is_bus = Integer.valueOf(bus).intValue();
         is_direct = Integer.valueOf(direct).intValue();
@@ -60,9 +59,9 @@ public class SearchActivity extends AppCompatActivity {
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
         List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
-        Log.d("test", String.valueOf(list.size()));
+        //Log.d("test", String.valueOf(list.size()));
         Object[] objects = list.get(0);
-        Log.d("test", objects[0].getClass().getSimpleName());
+        //Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
         Flight flight = objectMapper.convertValue(objects[0], Flight.class);
         flightList.add(flight);
