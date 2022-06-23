@@ -70,12 +70,12 @@ public class FlightDaoImpl implements FlightDao {
         ,"p.price"
         ,"p.shipping_space"
         ,"p.state"}
-                ,"takeoff_time = " + dateFind +
+                ,"takeoff_time = " + "'"+dateFind + "'"+
                 " and landing_city = " + landing_city +
                 " and takeoff_city = "+ takeoff_city +
                 " and is_domestic = " + is_domestic +
                 " and is_share = " + ISH +
-                " and is_direct_flight" + IDF +
+                " and is_direct_flight = " + IDF +
                 " and f.flight_number = p.flight_number" +
                 " and f.takeoff_time = p.takeoff_time",null,null,null,null);
 

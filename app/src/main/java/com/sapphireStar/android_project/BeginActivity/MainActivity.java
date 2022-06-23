@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtra("Administrator",(Administrator)obj);
                         }
                         else {
-                            intent.putExtra("Administrator",(NormalUser)obj);
+                            intent.putExtra("NormalUser",(NormalUser)obj);
                         }
                         startActivity(intent);
                         break;
