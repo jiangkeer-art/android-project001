@@ -145,7 +145,7 @@ public class FlightDaoImpl implements FlightDao {
             objects[0] = flight;
             objects[1] = planeTicket;
 
-            Log.d("test", flight.getFlight_number());
+            Log.d("testtest", flight.getFlight_number());
             list.add(objects);
         }
         cursor.close();

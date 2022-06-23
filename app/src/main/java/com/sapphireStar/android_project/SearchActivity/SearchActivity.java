@@ -24,7 +24,7 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
     public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="";
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0;
-    private List<Object[]> flightList = new ArrayList<>();
+    public List<Flight> flightList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class SearchActivity extends AppCompatActivity {
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
-        flightList = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
+        Object[] objects = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share).get(0);
+        flightList.add(((Flight) objects[0]));
     }
 }
