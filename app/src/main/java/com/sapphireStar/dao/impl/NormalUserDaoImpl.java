@@ -1,5 +1,7 @@
 package com.sapphireStar.dao.impl;
 
+import static android.icu.text.MessagePattern.ArgType.SELECT;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,6 +23,7 @@ public class NormalUserDaoImpl implements NormalUserDao {
     public NormalUser getUserByPhone(String phone) {
         NormalUser normalUser = null;
         Cursor cursor = db.query("Normal_User",new String[]{"*"},"phone = "+ phone,null,null,null,null );
+
         normalUser = new NormalUser();
         cursor.moveToFirst();
         normalUser.setPhone(cursor.getString(0));
