@@ -26,7 +26,7 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
     public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="";
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0;
-    public List<Flight> flightList;
+    public List<Flight> flightList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

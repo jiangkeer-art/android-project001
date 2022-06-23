@@ -19,12 +19,14 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
     private List<Flight> mFlightList;
 
-    public FlightAdapter(List<Flight> flightlist){
-        mFlightList=flightlist;
+    public FlightAdapter(List<Flight> flightList){
+        mFlightList=flightList;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.flight_item,parent,false));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.flight_item,parent,false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mFlightList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
