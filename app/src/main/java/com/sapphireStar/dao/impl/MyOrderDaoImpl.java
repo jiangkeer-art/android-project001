@@ -37,7 +37,6 @@ public class MyOrderDaoImpl implements MyOrderDao {
         }
 
         cursor.close();
-
         return list;
     }
 }
