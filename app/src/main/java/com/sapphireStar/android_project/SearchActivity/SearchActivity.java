@@ -33,7 +33,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         initFlight();
-        RecyclerView recyclerView = findViewById(R.id.recycle_view);
+        RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter = new FlightAdapter(flightList);

@@ -13,7 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.sapphireStar.android_project.MineActivity.Change_Password;
+import com.sapphireStar.android_project.OrderActivity.OrderActivity;
 import com.sapphireStar.android_project.R;
+import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
@@ -54,7 +56,11 @@ public class MineFragment extends Fragment {
             Intent intent;
             switch (v.getId()){
                 case R.id.all:
-
+                    intent = new Intent(getActivity(), OrderActivity.class);
+                    phone = getActivity().getIntent().getStringExtra("phone");
+                    intent.putExtra("phone",phone);
+                    startActivity(intent);
+                    break;
                 case R.id.complete:
 
                 case R.id.incomplete:
