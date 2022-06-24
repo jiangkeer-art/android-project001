@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.R;
@@ -42,6 +43,7 @@ public class OrderActivity extends AppCompatActivity {
         SQLiteDatabase sqLite = db.getSqliteObject(OrderActivity.this,"FlightDataBase.db");
         MyOrderDao orderDao = new MyOrderDaoImpl(sqLite);
         phone = getIntent().getStringExtra("phone");
+        Log.d("test", phone);
         List<Object[]> list = orderDao.getMyOrderByPhone(phone);
         Object[] objects = list.get(0);
         ObjectMapper objectMapper = new ObjectMapper();

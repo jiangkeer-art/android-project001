@@ -2114,7 +2114,7 @@ id quick_register
 id radio
 id ratio
 id rectangles
-id recycle_view
+id recycle_view_search
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2326,6 +2326,7 @@ layout abc_tooltip
 layout activity_change_password
 layout activity_function
 layout activity_main
+layout activity_order
 layout activity_search
 layout bottom
 layout custom_dialog
@@ -2396,6 +2397,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout order_item
 layout register
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

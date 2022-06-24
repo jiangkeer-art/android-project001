@@ -25,6 +25,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Android_Project" >
         <activity
+            android:name="com.sapphireStar.android_project.OrderActivity.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name="com.sapphireStar.android_project.SearchActivity.SearchActivity"
             android:exported="false" />
         <activity

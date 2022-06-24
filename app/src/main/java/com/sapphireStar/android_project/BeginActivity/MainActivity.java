@@ -8,12 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.Register.RegisterActivity;
@@ -21,7 +23,9 @@ import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Administrator;
+import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.NormalUser;
+import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
 
@@ -121,13 +125,18 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
                         intent=new Intent(MainActivity.this, FunctionActivity.class);
-                        intent.putExtra("phone",UserName);
-                        if(obj.getClass().getSimpleName().equals("Administrator")){
-                            intent.putExtra("Administrator",(Administrator)obj);
-                        }
-                        else {
-                            intent.putExtra("NormalUser",(NormalUser)obj);
-                        }
+                        intent.putExtra("phone",username);
+                        Log.d("test", username);
+                        ObjectMapper objectMapper = new ObjectMapper();
+
+//                        if(obj.getClass().getSimpleName().equals("Administrator")){
+//                            Administrator administrator = objectMapper.convertValue(obj, Administrator.class);
+//                            intent.putExtra("Administrator",administrator);
+//                        }
+//                        else {
+//                            NormalUser normalUser = objectMapper.convertValue(obj, NormalUser.class);
+//                            intent.putExtra("NormalUser",normalUser);
+//                        }
                         startActivity(intent);
                         break;
                     }
