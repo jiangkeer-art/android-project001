@@ -41,7 +41,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void initFlight(){
-        flightList = new ArrayList<Flight>();
         takeoff_city = getIntent().getStringExtra("takeoff_city");
         takeoff_time = getIntent().getStringExtra("takeoff_time");
         landing_city = getIntent().getStringExtra("landing_city");
@@ -55,13 +54,14 @@ public class SearchActivity extends AppCompatActivity {
         is_direct = Integer.valueOf(direct).intValue();
         is_share = Integer.valueOf(share).intValue();
         is_domestic = Integer.valueOf(domestic).intValue();
+        Log.d("test",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
         List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
-        //Log.d("test", String.valueOf(list.size()));
+        Log.d("test", String.valueOf(list.size()));
         Object[] objects = list.get(0);
-        //Log.d("test", objects[0].getClass().getSimpleName());
+        Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
         Flight flight = objectMapper.convertValue(objects[0], Flight.class);
         flightList.add(flight);
