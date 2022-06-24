@@ -166,6 +166,7 @@ public class FlightDaoImpl implements FlightDao {
             return null;
         }
         List<Object[]> list= new ArrayList<Object[]>();
+        cursor.moveToFirst();
         objects = new Object[2];
         flight = new Flight();
         planeTicket = new PlaneTicket();
@@ -178,7 +179,7 @@ public class FlightDaoImpl implements FlightDao {
         String str = cursor.getString(5);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
-            date = (Date)format.parse(str);
+            date = (Date) format.parse(str);
         } catch (ParseException e) {
             e.printStackTrace();
         }

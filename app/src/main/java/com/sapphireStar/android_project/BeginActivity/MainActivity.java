@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
                         intent=new Intent(MainActivity.this, FunctionActivity.class);
-                        intent.putExtra("phone",UserName);
+                        intent.putExtra("phone",username);
                         if(obj.getClass().getSimpleName().equals("Administrator")){
                             intent.putExtra("Administrator",(Administrator)obj);
                         }

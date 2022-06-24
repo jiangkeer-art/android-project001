@@ -109,7 +109,7 @@
                                 android:layout_marginLeft="20dp"
                                 android:textSize="30dp"
                                 android:textStyle="bold"
-                                android:text="X月X日(今天)      "
+                                android:text="X月X日(今天)"
                                 android:background="@drawable/deleline"/>
 
                         </LinearLayout>
