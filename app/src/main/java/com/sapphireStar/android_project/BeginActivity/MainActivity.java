@@ -25,6 +25,8 @@ import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
 
+import java.sql.SQLException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -114,7 +116,12 @@ public class MainActivity extends AppCompatActivity {
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
 
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
-                    Object obj = normalUserDao.Login(username,password);
+                    Object obj = null;
+                    try {
+                        obj = normalUserDao.Login(username,password);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     if(obj == null){
                         Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }

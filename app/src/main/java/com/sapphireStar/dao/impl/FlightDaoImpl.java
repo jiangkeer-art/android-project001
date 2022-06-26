@@ -191,7 +191,6 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         rs.beforeFirst();
         rs.next();
         List<Object[]> list= new ArrayList<Object[]>();
-        cursor.moveToFirst();
         objects = new Object[2];
         flight = new Flight();
         planeTicket = new PlaneTicket();
