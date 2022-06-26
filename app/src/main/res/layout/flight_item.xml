@@ -16,13 +16,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:id="@+id/air_company"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:id="@+id/flight_number"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"/>
         <View
             android:id="@+id/grey_view1"
             android:layout_width="match_parent"
@@ -53,6 +55,21 @@
             android:textSize="10sp"
             android:id="@+id/departure_terminal"
             android:layout_marginLeft="70dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_below="@id/grey_view1"
+            android:background="@drawable/right"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_below="@id/grey_view1"
+            android:textSize="10sp"
+            android:id="@+id/is_direct"
+            android:layout_marginTop="40dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,11 +89,42 @@
         <View
             android:id="@+id/grey_view2"
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_below="@+id/departure_terminal"
-            android:layout_marginTop="20dp"
+            android:layout_height="2px"
+            android:layout_marginTop="120dp"
             android:layout_marginBottom="10dp"
             android:background="#000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/grey_view2"
+            android:textSize="15sp"
+            android:id="@+id/is_share"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/grey_view2"
+            android:textSize="15sp"
+            android:id="@+id/food"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/grey_view2"
+            android:textSize="15sp"
+            android:id="@+id/punctuality_rate"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/grey_view2"
+            android:textSize="15sp"
+            android:id="@+id/time_period"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
 

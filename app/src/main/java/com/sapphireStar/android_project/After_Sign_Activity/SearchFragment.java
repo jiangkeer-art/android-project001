@@ -1,15 +1,21 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,10 +27,11 @@ import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment{
 
-    public Button search_button;
-    public EditText place1,place2,day1;
+    public Button search_button,day1;
+    public TextView day2;
+    public Spinner place1,place2;
     public String takeoff_time="",takeoff_city="",landing_city="";
     public RadioButton is_eco,is_bus;
     public String eco="0",bus="0",direct="0",share="0",domestic="0";
@@ -57,7 +64,89 @@ public class SearchFragment extends Fragment {
 
         place1 =view.findViewById(R.id.place1);
         place2 = view.findViewById(R.id.place2);
+        place1.setSelection(0);
+        place2.setSelection(1);
+
+        place1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        takeoff_city = "大连";
+                        break;
+                    case 1:
+                        takeoff_city = "鸡西";
+                        break;
+                    case 2:
+                        takeoff_city = "长春";
+                        break;
+                    case 3:
+                        takeoff_city = "北京";
+                        break;
+                    case 4:
+                        takeoff_city = "成都";
+                        break;
+                    case 5:
+                        takeoff_city = "重庆";
+                        break;
+                    case 6:
+                        takeoff_city = "石家庄";
+                        break;
+                    case 7:
+                        takeoff_city = "天津";
+                        break;
+                    case 8:
+                        takeoff_city = "西安";
+                        break;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        place2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        landing_city = "大连";
+                        break;
+                    case 1:
+                        landing_city = "鸡西";
+                        break;
+                    case 2:
+                        landing_city = "长春";
+                        break;
+                    case 3:
+                        landing_city = "北京";
+                        break;
+                    case 4:
+                        landing_city = "成都";
+                        break;
+                    case 5:
+                        landing_city = "重庆";
+                        break;
+                    case 6:
+                        landing_city = "石家庄";
+                        break;
+                    case 7:
+                        landing_city = "天津";
+                        break;
+                    case 8:
+                        landing_city = "西安";
+                        break;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         day1 = view.findViewById(R.id.day1);
+        day2 = view.findViewById(R.id.day2);
 
         is_direct = view.findViewById(R.id.is_direct);
         is_share = view.findViewById(R.id.is_share);
@@ -86,9 +175,11 @@ public class SearchFragment extends Fragment {
         is_buss.setOnClickListener(onClick);
         is_directt.setOnClickListener(onClick);
         is_sharee.setOnClickListener(onClick);
+        day1.setOnClickListener(onClick);
 
         return view;
     }
+
 
     private class OnClick implements View.OnClickListener{
 
@@ -97,9 +188,6 @@ public class SearchFragment extends Fragment {
             Intent intent;
             switch(v.getId()){
                 case R.id.search_button:
-                    takeoff_city = place1.getText().toString();
-                    landing_city = place2.getText().toString();
-                    takeoff_time = day1.getText().toString();
                     intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("takeoff_city",takeoff_city);
                     intent.putExtra("landing_city",landing_city);
@@ -154,6 +242,18 @@ public class SearchFragment extends Fragment {
                     break;
                 case R.id.is_sharee:
                     sharee="1";
+                    break;
+                case R.id.day1:
+                    DatePickerDialog pickerDialog = new DatePickerDialog(getActivity(),
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                    String date = String.format("%d-%d-%d", year, month+1, dayOfMonth);
+                                    day2.setText(date);
+                                    takeoff_time = date;
+                                }
+                            }, 2018, 11, 11);
+                    pickerDialog.show();
                     break;
             }
         }

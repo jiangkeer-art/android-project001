@@ -65,6 +65,24 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
         }
         holder.landing_time.setText(all);
 
+        if(flight.getIs_direct_flight()==1){
+            holder.is_direct.setText(flight.getTransit_city());
+        }
+        else{
+            holder.is_direct.setText("直飞");
+        }
+        if(flight.getIs_share()==1){
+            holder.is_share.setText("共享航班");
+        }
+        else
+            holder.is_share.setText("私密航班");
+        if(flight.getFood()==1){
+            holder.food.setText("有餐食");
+        }else
+            holder.food.setText("无餐食");
+
+        holder.punctuality_rate.setText(String.valueOf((int)flight.getPunctuality_rate())+"%准点率");
+        holder.time_period.setText("共计"+flight.getTime_period()+"分钟");
     }
 
     @Override
@@ -73,7 +91,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time;
+        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period;
         public ViewHolder(View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);
@@ -82,7 +100,11 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             departure_terminal = itemView.findViewById(R.id.departure_terminal);
             landing_terminal = itemView.findViewById(R.id.landing_terminal);
             landing_time = itemView.findViewById(R.id.landing_time);
-
+            is_direct = itemView.findViewById(R.id.is_direct);
+            is_share = itemView.findViewById(R.id.is_share);
+            food = itemView.findViewById(R.id.food);
+            punctuality_rate = itemView.findViewById(R.id.punctuality_rate);
+            time_period = itemView.findViewById(R.id.time_period);
         }
     }
 }

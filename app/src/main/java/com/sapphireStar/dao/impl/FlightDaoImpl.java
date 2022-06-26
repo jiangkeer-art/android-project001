@@ -191,6 +191,7 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         rs.beforeFirst();
         rs.next();
         List<Object[]> list= new ArrayList<Object[]>();
+        cursor.moveToFirst();
         objects = new Object[2];
         flight = new Flight();
         planeTicket = new PlaneTicket();
@@ -203,7 +204,7 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         String str = rs.getString("Flight.takeoff_time");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
-            date = (Date)format.parse(str);
+            date = (Date) format.parse(str);
         } catch (ParseException e) {
             e.printStackTrace();
         }

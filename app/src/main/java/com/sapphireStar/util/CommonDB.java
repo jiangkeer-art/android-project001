@@ -13,7 +13,7 @@ public class CommonDB {
     private DataBaseHelper dbHelper;
     private SQLiteDatabase sqlite;
     public SQLiteDatabase getSqliteObject(Context context,String db_name){
-        dbHelper = new DataBaseHelper(context,db_name,null,24);
+        dbHelper = new DataBaseHelper(context,db_name,null,25);
         sqlite = dbHelper.getWritableDatabase();
         versionControl=dbHelper.versionControl;
         return sqlite;
