@@ -20,6 +20,8 @@ import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.entity.User;
 import com.sapphireStar.util.CommonDB;
 
+import java.sql.SQLException;
+
 public class RegisterActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,11 @@ public class RegisterActivity extends AppCompatActivity {
                                             User user = new User();
                                             user.setPhone(editText1.getText().toString());
                                             user.setPassword(editText2.getText().toString());
-                                            normalUserDao.addUser(user);
+                                            try {
+                                                normalUserDao.addUser(user);
+                                            } catch (SQLException e) {
+                                                e.printStackTrace();
+                                            }
 
 
                                             NormalUser normalUser = new NormalUser();
@@ -90,7 +96,11 @@ public class RegisterActivity extends AppCompatActivity {
                                             normalUser.setId(editText4.getText().toString());
                                             normalUser.setName(editText5.getText().toString());
                                             normalUser.setIdNumber(editText6.getText().toString());
-                                            normalUserDao.addNormalUSer(normalUser);
+                                            try {
+                                                normalUserDao.addNormalUSer(normalUser);
+                                            } catch (SQLException e) {
+                                                e.printStackTrace();
+                                            }
 
                                             Intent intent = new Intent();
                                             intent.setClass(RegisterActivity.this, MainActivity.class);

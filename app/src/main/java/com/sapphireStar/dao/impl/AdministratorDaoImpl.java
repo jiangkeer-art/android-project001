@@ -4,23 +4,33 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.MySqlHelper;
 import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.entity.Administrator;
 
-public class AdministratorDaoImpl implements AdministratorDao {
+import java.sql.SQLException;
+
+public class AdministratorDaoImpl extends MySqlHelper implements AdministratorDao {
     private SQLiteDatabase db;
     public AdministratorDaoImpl(SQLiteDatabase sdb){
         db = sdb;
     }
+
+
     @Override
-    public Administrator getAdministratorByPhone(String phone) {
+    public Administrator getAdministratorByPhone(String phone) throws SQLException {
+        getDatabase();
+        String sql = "select * from administrators_user where phone = " + phone;
+        preparedStatement = connection.prepareStatement(sql);
+        cursor = preparedStatement.executeQuery();
         Administrator administrator = null;
-        Cursor cursor = db.query("Administrators_User",new String[]{"*"},"phone = "+ phone,null,null,null,null );
+        //Cursor cursor = db.query("Administrators_User",new String[]{"*"},"phone = "+ phone,null,null,null,null );
         administrator = new Administrator();
-        cursor.moveToFirst();
-        administrator.setPhone(cursor.getString(0));
-        administrator.setId(cursor.getString(1));
-        cursor.close();
+        cursor.beforeFirst();
+        cursor.next();
+        administrator.setPhone(cursor.getString("phone"));
+        administrator.setId(cursor.getString("id"));
+        closeDatabase();
         return administrator;
     }
 }

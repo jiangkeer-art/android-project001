@@ -20,6 +20,7 @@ import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.util.CommonDB;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,11 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        initFlight();
+        try {
+            initFlight();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
         recyclerView.setLayoutManager(layoutManager);
@@ -40,7 +45,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initFlight(){
+    private void initFlight() throws SQLException {
         flightList = new ArrayList<Flight>();
         takeoff_city = getIntent().getStringExtra("takeoff_city");
         takeoff_time = getIntent().getStringExtra("takeoff_time");

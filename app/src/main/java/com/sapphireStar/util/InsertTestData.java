@@ -434,7 +434,7 @@ public class InsertTestData {
     public void addCityData(SQLiteDatabase db){
         ContentValues valueCityData = new ContentValues();
 
-        valueCityData.put("city_name","null");
+        valueCityData.put("city_name","哈尔滨");
         db.insert("City",null,valueCityData);
 
         valueCityData.put("city_name","大连");

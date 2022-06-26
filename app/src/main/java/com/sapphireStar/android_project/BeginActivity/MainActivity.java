@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
+import com.sapphireStar.android_project.DataBase.MySqlHelper;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
@@ -28,6 +30,8 @@ import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 import com.sapphireStar.util.InsertTestData;
+
+import java.sql.SQLException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         initView();
-
-
         //创建数据库并向其中添加数据
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
@@ -114,11 +120,19 @@ public class MainActivity extends AppCompatActivity {
                     EditText editText2 = (EditText) findViewById(R.id.password);
                     username = editText1.getText().toString();
                     password = editText2.getText().toString();
+                    Log.d("test", "onClick: ");
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
 
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
-                    Object obj = normalUserDao.Login(username,password);
+                    Object obj = null;
+                    try {
+                        obj = normalUserDao.Login(username,password);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("test", "onClick: ");
+
                     if(obj == null){
                         Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }
@@ -129,38 +143,10 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("test", username);
                         ObjectMapper objectMapper = new ObjectMapper();
 
-//                        if(obj.getClass().getSimpleName().equals("Administrator")){
-//                            Administrator administrator = objectMapper.convertValue(obj, Administrator.class);
-//                            intent.putExtra("Administrator",administrator);
-//                        }
-//                        else {
-//                            NormalUser normalUser = objectMapper.convertValue(obj, NormalUser.class);
-//                            intent.putExtra("NormalUser",normalUser);
-//                        }
+
                         startActivity(intent);
                         break;
                     }
-//                    Cursor cursor = sqlite.query("User",null,null,null,null,null,null);
-//                    if(cursor.moveToFirst()){
-//                        do{
-//                            UserName = cursor.getString(cursor.getColumnIndex("phone"));
-//                            if(UserName.equals(username)){
-//                                Password = cursor.getString(cursor.getColumnIndex("password"));
-//                                if(Password.equals(password)){
-//                                    Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
-//                                    intent=new Intent(MainActivity.this, FunctionActivity.class);
-//                                    intent.putExtra("phone",UserName);
-//                                    startActivity(intent);
-//                                    a=1;
-//                                    break;
-//                                }
-//                            }
-//                        }while(cursor.moveToNext());
-//                        if(a==0){
-//                            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    cursor.close();
                     break;
             }
         }

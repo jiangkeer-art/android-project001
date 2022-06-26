@@ -17,6 +17,7 @@ import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.util.CommonDB;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,11 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-        initFlight();
+        try {
+            initFlight();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(OrderActivity.this);
         recyclerView.setLayoutManager(layoutManager);
@@ -38,16 +43,18 @@ public class OrderActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initFlight(){
+    private void initFlight() throws SQLException {
         CommonDB db = new CommonDB();
         SQLiteDatabase sqLite = db.getSqliteObject(OrderActivity.this,"FlightDataBase.db");
         MyOrderDao orderDao = new MyOrderDaoImpl(sqLite);
         phone = getIntent().getStringExtra("phone");
         Log.d("test", phone);
         List<Object[]> list = orderDao.getMyOrderByPhone(phone);
-        Object[] objects = list.get(0);
-        ObjectMapper objectMapper = new ObjectMapper();
-        Flight flight = objectMapper.convertValue(objects[0],Flight.class);
-        flightList.add(flight);
+        if(list.size()>0) {
+            Object[] objects = list.get(0);
+            ObjectMapper objectMapper = new ObjectMapper();
+            Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+            flightList.add(flight);
+        }
     }
 }

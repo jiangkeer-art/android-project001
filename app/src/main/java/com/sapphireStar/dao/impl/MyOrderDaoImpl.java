@@ -4,39 +4,50 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.MySqlHelper;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyOrderDao;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyOrder;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyOrderDaoImpl implements MyOrderDao {
+public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
     private SQLiteDatabase db;
     public MyOrderDaoImpl(SQLiteDatabase sdb){
         db = sdb;
     }
     @Override
-    public List<Object[]> getMyOrderByPhone(String phone) {
+    public List<Object[]> getMyOrderByPhone(String phone) throws SQLException {
         Object[] objects = null;
+        getDatabase();
+
+        String sql = "select * from my_order where phone = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,phone);
+        cursor = preparedStatement.executeQuery();
+
+
         List<MyOrder> orderList = new ArrayList<MyOrder>();
         List<Object[]> list = new ArrayList<Object[]>();
         FlightDao flightDao = new FlightDaoImpl(db);
-        Cursor cursor = db.query("My_Order",new String[]{"*"},"phone = " + phone,null,null,null,null);
+
+        //Cursor cursor = db.query("My_Order",new String[]{"*"},"phone = " + phone,null,null,null,null);
         MyOrder myOrder = null;
-        while(cursor.moveToNext()){
+        while(cursor.next()){
             objects = new Object[2];
             myOrder = new MyOrder();
-            myOrder.setOrder_number(cursor.getInt(0));
-            myOrder.setPhone(cursor.getString(1));
-            myOrder.setPlane_ticket_number(cursor.getInt(2));
-            myOrder.setState(cursor.getString(3));
+            myOrder.setOrder_number(cursor.getInt("order_number"));
+            myOrder.setPhone(cursor.getString("phone"));
+            myOrder.setPlane_ticket_number(cursor.getInt("plane_ticket_number"));
+            myOrder.setState(cursor.getString("state"));
             objects = flightDao.GetFlightsByPT(String.valueOf(myOrder.getPlane_ticket_number()));
             list.add(objects);
         }
 
-        cursor.close();
+        closeDatabase();
         return list;
     }
 }

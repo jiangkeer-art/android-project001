@@ -19,6 +19,8 @@ import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.util.CommonDB;
 
+import java.sql.SQLException;
+
 public class Change_Password extends AppCompatActivity {
 
     public String phone="";
@@ -53,7 +55,11 @@ public class Change_Password extends AppCompatActivity {
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(Change_Password.this,"FlightDataBase.db");
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
-                    normalUserDao.modifyPassword(phone,newPassword,reNewPassword,oldPassword);
+                    try {
+                        normalUserDao.modifyPassword(phone,newPassword,reNewPassword,oldPassword);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     intent = new Intent(Change_Password.this, MainActivity.class);
                     startActivity(intent);
                     break;
