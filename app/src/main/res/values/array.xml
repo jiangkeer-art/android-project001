@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerCity">
+        <item>大连</item>
+        <item>鸡西</item>
+        <item>长春</item>
+        <item>北京</item>
+        <item>成都</item>
+        <item>重庆</item>
+        <item>石家庄</item>
+        <item>天津</item>
+        <item>西安</item>
+    </string-array>
+</resources>
