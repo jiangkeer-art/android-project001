@@ -292,6 +292,17 @@
             </RelativeLayout>
         </LinearLayout>
 
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginRight="50dp"
+            android:backgroundTint="#E64B4B"
+            android:text="退出登录"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
 
     </RelativeLayout>
 
