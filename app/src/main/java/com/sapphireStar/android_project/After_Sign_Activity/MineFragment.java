@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.OrderActivity.OrderActivity;
 import com.sapphireStar.android_project.R;
@@ -19,7 +20,7 @@ import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
-    public Button all;
+    public Button all,exit;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
     public String phone="";
     @Override
@@ -32,6 +33,7 @@ public class MineFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
         all = view.findViewById(R.id.all);
+        exit = view.findViewById(R.id.exit);
         complete = view.findViewById(R.id.complete);
         uncomplete = view.findViewById(R.id.incomplete);
         changed = view.findViewById(R.id.changed);
@@ -40,6 +42,7 @@ public class MineFragment extends Fragment {
         real_confirm = view.findViewById(R.id.identity_confirm);
         OnClick onClick = new OnClick();
         all.setOnClickListener(onClick);
+        exit.setOnClickListener(onClick);
         complete.setOnClickListener(onClick);
         uncomplete.setOnClickListener(onClick);
         changed.setOnClickListener(onClick);
@@ -61,11 +64,11 @@ public class MineFragment extends Fragment {
                     intent.putExtra("phone",phone);
                     startActivity(intent);
                     break;
-                case R.id.complete:
+                case R.id.complete:break;
 
-                case R.id.incomplete:
+                case R.id.incomplete:break;
 
-                case R.id.changed:
+                case R.id.changed:break;
 
                 case R.id.change_password:
                     intent = new Intent(getActivity(), Change_Password.class);
@@ -73,9 +76,14 @@ public class MineFragment extends Fragment {
                     intent.putExtra("phone",phone);
                     startActivity(intent);
                     break;
-                case R.id.change_phone:
+                case R.id.change_phone:break;
 
-                case R.id.identity_confirm:
+                case R.id.identity_confirm:break;
+
+                case R.id.exit:
+                    intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     }
