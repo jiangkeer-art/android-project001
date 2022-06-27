@@ -2,6 +2,7 @@ package com.sapphireStar.android_project.After_Sign_Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.SearchActivity.SearchActivity;
@@ -29,9 +31,8 @@ import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class SearchFragment extends Fragment{
 
-    public Button search_button,day1;
-    public TextView day2;
-    public Spinner place1,place2;
+    public Button search_button;
+    public TextView day,place1,place2;
     public String takeoff_time="",takeoff_city="",landing_city="";
     public RadioButton is_eco,is_bus;
     public String eco="0",bus="0",direct="0",share="0",domestic="0";
@@ -42,12 +43,21 @@ public class SearchFragment extends Fragment{
     public RadioButton is_ecoo,is_buss;
     public String ecoo="0",buss="0",directt="0",sharee="0",domesticc="1";
     public CheckBox is_directt,is_sharee;
+    private Button dalian,jixi,changchun,beijing,chengdu,chongqing,shijiazhuang,tianjin,xian;
+    private Integer place1_selection,place2_selection;
+    private String str_place;
+
+    //城市选择底部上滑窗口
+    private View city_selection;
+    private BottomSheetDialog bottomSheetDialog;
+
     FunctionActivity functionActivity;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search,container,false);
+
         TabHost tab = view.findViewById(android.R.id.tabhost);
         TabHost tab1 = view.findViewById(android.R.id.tabhost);
 
@@ -62,91 +72,15 @@ public class SearchFragment extends Fragment{
         tab.addTab(tab.newTabSpec("国内").setIndicator(domestic).setContent(R.id.国内));
         tab1.addTab(tab.newTabSpec("国际").setIndicator(international).setContent(R.id.国际));
 
+        //为选择城市弹窗绑定布局
+        city_selection = LayoutInflater.from(getActivity()).inflate(R.layout.city_selection,null);
+        bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog.setContentView(city_selection);
+
         place1 =view.findViewById(R.id.place1);
         place2 = view.findViewById(R.id.place2);
-        place1.setSelection(0);
-        place2.setSelection(1);
 
-        place1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0:
-                        takeoff_city = "大连";
-                        break;
-                    case 1:
-                        takeoff_city = "鸡西";
-                        break;
-                    case 2:
-                        takeoff_city = "长春";
-                        break;
-                    case 3:
-                        takeoff_city = "北京";
-                        break;
-                    case 4:
-                        takeoff_city = "成都";
-                        break;
-                    case 5:
-                        takeoff_city = "重庆";
-                        break;
-                    case 6:
-                        takeoff_city = "石家庄";
-                        break;
-                    case 7:
-                        takeoff_city = "天津";
-                        break;
-                    case 8:
-                        takeoff_city = "西安";
-                        break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        place2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0:
-                        landing_city = "大连";
-                        break;
-                    case 1:
-                        landing_city = "鸡西";
-                        break;
-                    case 2:
-                        landing_city = "长春";
-                        break;
-                    case 3:
-                        landing_city = "北京";
-                        break;
-                    case 4:
-                        landing_city = "成都";
-                        break;
-                    case 5:
-                        landing_city = "重庆";
-                        break;
-                    case 6:
-                        landing_city = "石家庄";
-                        break;
-                    case 7:
-                        landing_city = "天津";
-                        break;
-                    case 8:
-                        landing_city = "西安";
-                        break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        day1 = view.findViewById(R.id.day1);
-        day2 = view.findViewById(R.id.day2);
+        day = view.findViewById(R.id.day);
 
         is_direct = view.findViewById(R.id.is_direct);
         is_share = view.findViewById(R.id.is_share);
@@ -164,6 +98,17 @@ public class SearchFragment extends Fragment{
         is_ecoo = view.findViewById(R.id.is_ecoo);
         is_buss = view.findViewById(R.id.is_buss);
         search_buttonn = view.findViewById(R.id.search_buttonn);
+
+        dalian = city_selection.findViewById(R.id.大连);
+        jixi = city_selection.findViewById(R.id.鸡西);
+        changchun = city_selection.findViewById(R.id.长春);
+        beijing = city_selection.findViewById(R.id.北京);
+        chengdu = city_selection.findViewById(R.id.成都);
+        chongqing = city_selection.findViewById(R.id.重庆);
+        shijiazhuang = city_selection.findViewById(R.id.石家庄);
+        tianjin = city_selection.findViewById(R.id.天津);
+        xian = city_selection.findViewById(R.id.西安);
+
         OnClick onClick = new OnClick();
         search_button.setOnClickListener(onClick);
         is_eco.setOnClickListener(onClick);
@@ -175,7 +120,22 @@ public class SearchFragment extends Fragment{
         is_buss.setOnClickListener(onClick);
         is_directt.setOnClickListener(onClick);
         is_sharee.setOnClickListener(onClick);
-        day1.setOnClickListener(onClick);
+        day.setOnClickListener(onClick);
+        place1.setOnClickListener(onClick);
+        place2.setOnClickListener(onClick);
+
+        dalian.setOnClickListener(onClick);
+        jixi.setOnClickListener(onClick);
+        changchun.setOnClickListener(onClick);
+        beijing.setOnClickListener(onClick);
+        chengdu.setOnClickListener(onClick);
+        chongqing.setOnClickListener(onClick);
+        shijiazhuang.setOnClickListener(onClick);
+        tianjin.setOnClickListener(onClick);
+        xian.setOnClickListener(onClick);
+
+        place1_selection=0;
+        place2_selection=0;
 
         return view;
     }
@@ -187,6 +147,14 @@ public class SearchFragment extends Fragment{
         public void onClick(View v) {
             Intent intent;
             switch(v.getId()){
+                case R.id.place1:
+                    place1_selection = 1;
+                    bottomSheetDialog.show();
+                    break;
+                case R.id.place2:
+                    place2_selection = 1;
+                    bottomSheetDialog.show();
+                    break;
                 case R.id.search_button:
                     intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("takeoff_city",takeoff_city);
@@ -243,17 +211,135 @@ public class SearchFragment extends Fragment{
                 case R.id.is_sharee:
                     sharee="1";
                     break;
-                case R.id.day1:
+                case R.id.day:
                     DatePickerDialog pickerDialog = new DatePickerDialog(getActivity(),
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                     String date = String.format("%d-%d-%d", year, month+1, dayOfMonth);
-                                    day2.setText(date);
+                                    day.setText(date);
+                                    day.setTextColor(Color.parseColor("#000000"));
                                     takeoff_time = date;
                                 }
                             }, 2018, 11, 11);
                     pickerDialog.show();
+                    break;
+                case R.id.大连:
+                    str_place = "大连";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.鸡西:
+                    str_place = "鸡西";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.长春:
+                    str_place = "长春";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.北京:
+                    str_place = "北京";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.成都:
+                    str_place = "成都";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.重庆:
+                    str_place = "重庆";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.石家庄:
+                    str_place = "石家庄";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.天津:
+                    str_place = "天津";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
+                    break;
+                case R.id.西安:
+                    str_place = "西安";
+                    if (place1_selection==1){
+                        takeoff_city = str_place;
+                        place1.setText(str_place);
+                        place1_selection = 0;
+                    }else{
+                        landing_city = str_place;
+                        place2.setText(str_place);
+                        place2_selection = 0;
+                    }
+                    bottomSheetDialog.hide();
                     break;
             }
         }

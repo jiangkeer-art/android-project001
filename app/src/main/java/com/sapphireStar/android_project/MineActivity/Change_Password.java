@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
+import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
@@ -27,17 +29,21 @@ public class Change_Password extends AppCompatActivity {
     public EditText password1,password2,password3;
     public Button confirm;
     public String oldPassword="",newPassword="",reNewPassword="";
+    private ImageButton back_to_mine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+        back_to_mine = findViewById(R.id.back_to_mine);
         password1 = findViewById(R.id.password1);
         password2 = findViewById(R.id.password2);
         password3 = findViewById(R.id.password3);
         confirm = findViewById(R.id.confirm);
+        phone = getIntent().getStringExtra("phone");
         OnClick onClick = new OnClick();
         confirm.setOnClickListener(onClick);
+        back_to_mine.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener {
@@ -47,11 +53,16 @@ public class Change_Password extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent;
             switch (v.getId()){
+                case R.id.back_to_mine:
+                    intent = new Intent(Change_Password.this, FunctionActivity.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("frag",1);
+                    startActivity(intent);
+                    break;
                 case R.id.confirm:
                     oldPassword = password1.getText().toString();
                     newPassword = password2.getText().toString();
                     reNewPassword = password3.getText().toString();
-                    phone = getIntent().getStringExtra("phone");
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(Change_Password.this,"FlightDataBase.db");
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);

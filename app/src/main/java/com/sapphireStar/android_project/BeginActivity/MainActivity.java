@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     intent=new Intent(MainActivity.this, RegisterActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.forget_password:
+                case R.id.forget_password:break;
 
                 case R.id.sing_in:
                     EditText editText1 = (EditText) findViewById(R.id.username);
