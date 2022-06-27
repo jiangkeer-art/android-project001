@@ -96,7 +96,7 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
                 " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
                 " and Plane_Ticket.shipping_space like ?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,dateFind);
+        preparedStatement.setString(1,"%"+dateFind+"%");
         preparedStatement.setString(2,landing_city);
         preparedStatement.setString(3,takeoff_city);
         preparedStatement.setString(4,String.valueOf(is_domestic));
