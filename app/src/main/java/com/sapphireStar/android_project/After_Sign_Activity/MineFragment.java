@@ -1,5 +1,7 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -81,8 +83,18 @@ public class MineFragment extends Fragment {
                 case R.id.identity_confirm:break;
 
                 case R.id.exit:
-                    intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                    dialog.setTitle("确定要退出当前账号吗？");
+                    dialog.setCancelable(false);
+                    dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    dialog.setNegativeButton("取消",null);
+                    dialog.show();
                     break;
             }
         }
