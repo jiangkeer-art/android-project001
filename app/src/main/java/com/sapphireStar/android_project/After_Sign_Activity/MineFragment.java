@@ -61,11 +61,11 @@ public class MineFragment extends Fragment {
                     intent.putExtra("phone",phone);
                     startActivity(intent);
                     break;
-                case R.id.complete:
+                case R.id.complete:break;
 
-                case R.id.incomplete:
+                case R.id.incomplete:break;
 
-                case R.id.changed:
+                case R.id.changed:break;
 
                 case R.id.change_password:
                     intent = new Intent(getActivity(), Change_Password.class);

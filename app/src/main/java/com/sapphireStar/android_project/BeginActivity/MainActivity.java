@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 
@@ -40,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
 
         //创建数据库并向其中添加数据
@@ -105,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     intent=new Intent(MainActivity.this, RegisterActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.forget_password:
+                case R.id.forget_password:break;
 
                 case R.id.sing_in:
                     EditText editText1 = (EditText) findViewById(R.id.username);

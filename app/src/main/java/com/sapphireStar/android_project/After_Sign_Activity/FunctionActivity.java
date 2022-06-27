@@ -1,5 +1,6 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
     private Fragment schedule_tab = new SearchFragment();
     private Fragment mine_tab = new MineFragment();
 
+    private int frag;
+
     FragmentManager fm;
 
     @Override
@@ -36,7 +39,14 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
         setContentView(R.layout.activity_function);
         initViews();//初始化控件
         initFragment();//初始化碎片
-        selectTab(0);//初始页面为主页面
+        frag=0;
+        frag = getIntent().getIntExtra("frag",frag);
+        if (frag==1){
+            selectTab(1);
+            frag=0;
+        }else{
+            selectTab(0);//初始页面为主页面
+        }
         initEvents();//初始化事件
     }
     //初始化控件
