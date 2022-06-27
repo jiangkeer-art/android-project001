@@ -1855,6 +1855,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back_to_mine
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1903,9 +1904,7 @@ id customPanel
 id cut
 id date_picker_actions
 id day
-id day1
 id day11
-id day2
 id dayy
 id decelerate
 id decelerateAndComplete
@@ -1942,6 +1941,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id exit
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2260,8 +2260,17 @@ id withinBounds
 id wrap
 id wrap_content
 id zero_corner_chip
+id 北京
 id 国内
 id 国际
+id 大连
+id 天津
+id 成都
+id 石家庄
+id 西安
+id 重庆
+id 长春
+id 鸡西
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -2335,6 +2344,7 @@ layout activity_main
 layout activity_order
 layout activity_search
 layout bottom
+layout city_selection
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

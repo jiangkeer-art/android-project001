@@ -33,7 +33,7 @@ public class SearchFragment extends Fragment{
 
     public Button search_button;
     public TextView day,place1,place2;
-    public String takeoff_time="",takeoff_city="",landing_city="";
+    public String takeoff_time="",takeoff_city="西安",landing_city="大连";
     public RadioButton is_eco,is_bus;
     public String eco="0",bus="0",direct="0",share="0",domestic="0";
     public CheckBox is_direct,is_share;

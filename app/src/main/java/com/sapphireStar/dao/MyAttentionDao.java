@@ -4,10 +4,11 @@ import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.PlaneTicket;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface MyAttentionDao {
-    List<MyAttention> getMyAttention(String phone);
-    Object[] addMyAttention(Flight flight, PlaneTicket planeTicket,String phone);
-    void removeMyAttention(Flight flight, PlaneTicket planeTicket,String phone);
+    List<Object[]> getMyAttention(String phone) throws SQLException;
+    void addMyAttention(PlaneTicket planeTicket,String phone) throws SQLException;
+    void removeMyAttention(PlaneTicket planeTicket,String phone) throws SQLException;
 }

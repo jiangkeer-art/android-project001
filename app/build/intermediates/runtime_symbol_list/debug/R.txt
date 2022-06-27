@@ -1854,6 +1854,7 @@ int id auto 0x7f090050
 int id autoComplete 0x7f090051
 int id autoCompleteToEnd 0x7f090052
 int id autoCompleteToStart 0x7f090053
+int id back_to_mine 0x7f0901eb
 int id barrier 0x7f090054
 int id baseline 0x7f090055
 int id beginOnFirstDraw 0x7f090056
@@ -1902,9 +1903,7 @@ int id customPanel 0x7f090080
 int id cut 0x7f090081
 int id date_picker_actions 0x7f090082
 int id day 0x7f090083
-int id day1 0x7f090084
 int id day11 0x7f090085
-int id day2 0x7f090086
 int id dayy 0x7f090087
 int id decelerate 0x7f090088
 int id decelerateAndComplete 0x7f090089
@@ -1941,6 +1940,7 @@ int id end 0x7f0900a7
 int id endToStart 0x7f0900a8
 int id enterAlways 0x7f0900a9
 int id enterAlwaysCollapsed 0x7f0900aa
+int id exit 0x7f0901ec
 int id exitUntilCollapsed 0x7f0900ab
 int id expand_activities_button 0x7f0900ac
 int id expanded_menu 0x7f0900ad
@@ -2259,8 +2259,17 @@ int id withinBounds 0x7f0901e5
 int id wrap 0x7f0901e6
 int id wrap_content 0x7f0901e7
 int id zero_corner_chip 0x7f0901e8
+int id 北京 0x7f0901ed
 int id 国内 0x7f0901e9
 int id 国际 0x7f0901ea
+int id 大连 0x7f0901ee
+int id 天津 0x7f0901ef
+int id 成都 0x7f0901f0
+int id 石家庄 0x7f0901f1
+int id 西安 0x7f0901f2
+int id 重庆 0x7f0901f3
+int id 长春 0x7f0901f4
+int id 鸡西 0x7f0901f5
 int integer abc_config_activityDefaultDur 0x7f0a0000
 int integer abc_config_activityShortDur 0x7f0a0001
 int integer app_bar_elevation_anim_duration 0x7f0a0002
@@ -2334,6 +2343,7 @@ int layout activity_main 0x7f0c001e
 int layout activity_order 0x7f0c001f
 int layout activity_search 0x7f0c0020
 int layout bottom 0x7f0c0021
+int layout city_selection 0x7f0c007d
 int layout custom_dialog 0x7f0c0022
 int layout design_bottom_navigation_item 0x7f0c0023
 int layout design_bottom_sheet_dialog 0x7f0c0024
