@@ -28,6 +28,9 @@ import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 
 public class SearchFragment extends Fragment{
 
@@ -46,6 +49,8 @@ public class SearchFragment extends Fragment{
     private Button dalian,jixi,changchun,beijing,chengdu,chongqing,shijiazhuang,tianjin,xian;
     private Integer place1_selection,place2_selection;
     private String str_place;
+    private int year,month,day_of_month;
+    private Calendar mCalendar;
 
     //城市选择底部上滑窗口
     private View city_selection;
@@ -212,6 +217,10 @@ public class SearchFragment extends Fragment{
                     sharee="1";
                     break;
                 case R.id.day:
+                    mCalendar = Calendar.getInstance(Locale.CHINA);
+                    year = mCalendar.get(Calendar.YEAR);
+                    month = mCalendar.get(Calendar.MONTH);
+                    day_of_month = mCalendar.get(Calendar.DAY_OF_MONTH);
                     DatePickerDialog pickerDialog = new DatePickerDialog(getActivity(),
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
@@ -221,7 +230,7 @@ public class SearchFragment extends Fragment{
                                     day.setTextColor(Color.parseColor("#000000"));
                                     takeoff_time = date;
                                 }
-                            }, 2018, 11, 11);
+                            }, year, month, day_of_month);
                     pickerDialog.show();
                     break;
                 case R.id.大连:
