@@ -7,7 +7,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 
@@ -40,17 +42,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         //创建数据库并向其中添加数据
-        CommonDB db = new CommonDB();
-        SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
-        int version = db.getVersionControl();
-        //Toast.makeText(MainActivity.this, String.valueOf(version), Toast.LENGTH_SHORT).show();
-        if(version==1){
-            new InsertTestData(sqlite);
-            //Toast.makeText(MainActivity.this, version, Toast.LENGTH_SHORT).show();
-        }
+        //CommonDB db = new CommonDB();
+        //SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
+//        int version = db.getVersionControl();
+//        //Toast.makeText(MainActivity.this, String.valueOf(version), Toast.LENGTH_SHORT).show();
+//        if(version==1){
+//            new InsertTestData(sqlite);
+//            //Toast.makeText(MainActivity.this, version, Toast.LENGTH_SHORT).show();
+//        }
 
         //对布局界面按钮添加监听事件
         quick_register = findViewById(R.id.quick_register);
