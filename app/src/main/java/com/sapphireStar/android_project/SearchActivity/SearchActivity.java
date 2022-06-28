@@ -18,6 +18,7 @@ import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.FlightDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class SearchActivity extends AppCompatActivity {
     public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="";
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0;
     public List<Flight> flightList = new ArrayList<>();
+    public List<PlaneTicket> planeTicketList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class SearchActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-        FlightAdapter adapter = new FlightAdapter(flightList);
+        FlightAdapter adapter = new FlightAdapter(flightList,planeTicketList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -70,5 +72,7 @@ public class SearchActivity extends AppCompatActivity {
         ObjectMapper objectMapper = new ObjectMapper();
         Flight flight = objectMapper.convertValue(objects[0], Flight.class);
         flightList.add(flight);
+        PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
+        planeTicketList.add(planeTicket);
     }
 }

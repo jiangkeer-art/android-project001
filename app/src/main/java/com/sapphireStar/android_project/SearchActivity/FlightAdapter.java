@@ -1,5 +1,7 @@
 package com.sapphireStar.android_project.SearchActivity;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +10,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
+import com.sapphireStar.dao.PlaneTicketDao;
+import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.PlaneTicket;
+import com.sapphireStar.util.CommonDB;
 
 import org.w3c.dom.Text;
 
@@ -19,9 +26,11 @@ import java.util.List;
 public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder> {
 
     private List<Flight> mFlightList;
+    private List<PlaneTicket> mPlaneTicket;
 
-    public FlightAdapter(List<Flight> flightList){
+    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket){
         mFlightList=flightList;
+        mPlaneTicket=planeTicket;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,7 +42,11 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Flight flight = mFlightList.get(position);
-        holder.flight_number.setText(flight.getFlight_number());
+        PlaneTicket planeTicket = mPlaneTicket.get(position);
+
+
+
+        holder.flight_number.setText(flight.getFlight_number()+"航班号");
         holder.air_company.setText(flight.getAirline_company());
         String takeoff_time_string = flight.getTakeoff_time().toString();
         char[] time = takeoff_time_string.toCharArray();
@@ -83,6 +96,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
         holder.punctuality_rate.setText(String.valueOf((int)flight.getPunctuality_rate())+"%准点率");
         holder.time_period.setText("共计"+flight.getTime_period()+"分钟");
+
+        holder.is_bus.setText(planeTicket.getShipping_space());
     }
 
     @Override
@@ -91,7 +106,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period;
+        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus;
         public ViewHolder(View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);
@@ -105,6 +120,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             food = itemView.findViewById(R.id.food);
             punctuality_rate = itemView.findViewById(R.id.punctuality_rate);
             time_period = itemView.findViewById(R.id.time_period);
+            is_bus = itemView.findViewById(R.id.is_bus);
         }
     }
 }
