@@ -91,6 +91,7 @@
             android:textSize="10sp"
             android:id="@+id/landing_terminal"
             android:layout_marginLeft="190dp"/>
+
         <View
             android:id="@+id/grey_view2"
             android:layout_width="match_parent"
@@ -140,6 +141,7 @@
             android:id="@+id/is_bus"
             android:layout_marginLeft="280dp"
             android:layout_marginTop="10dp"/>
+
 
     </RelativeLayout>
 
