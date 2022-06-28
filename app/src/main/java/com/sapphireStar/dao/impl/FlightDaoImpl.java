@@ -86,23 +86,24 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         getDatabase();
         String sql = "SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
                 "FROM Flight,Plane_Ticket " +
-                "WHERE Flight.takeoff_time like ?"+
-                " and landing_city = ?" +
-                " and takeoff_city = ?" +
-                " and is_domestic = ?" +
-                " and is_share like ?" +
-                " and is_direct_flight like ?" +
+                "WHERE Flight.takeoff_time like '"+ dateFind +"'"+
+                " and landing_city = '" + landing_city + "'" +
+                " and takeoff_city = '"+ takeoff_city +"'" +
+                " and is_domestic = "+ is_domestic +"" +
+                " and is_share like '" + ISH + "'" +
+                " and is_direct_flight like '" + IDF + "'" +
                 " and Flight.flight_number = Plane_Ticket.flight_number" +
                 " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
-                " and Plane_Ticket.shipping_space like ?";
+                " and Plane_Ticket.shipping_space like '" + shipping_space + "'";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,dateFind);
-        preparedStatement.setString(2,landing_city);
-        preparedStatement.setString(3,takeoff_city);
-        preparedStatement.setString(4,String.valueOf(is_domestic));
-        preparedStatement.setString(5,ISH);
-        preparedStatement.setString(6,IDF);
-        preparedStatement.setString(7,shipping_space);
+//        preparedStatement.setString(1,dateFind);
+//        preparedStatement.setString(2,landing_city);
+//        preparedStatement.setString(3,takeoff_city);
+//        preparedStatement.setString(4,String.valueOf(is_domestic));
+//        preparedStatement.setString(5,ISH);
+//        preparedStatement.setString(6,IDF);
+//        preparedStatement.setString(7,shipping_space);
+        Log.d("sql", sql);
         cursor = preparedStatement.executeQuery();
 //        Cursor cursor = db.rawQuery("SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
 //                        "FROM Flight,Plane_Ticket " +
