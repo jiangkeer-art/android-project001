@@ -22,7 +22,7 @@ import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
-    public Button all,exit;
+    public Button exit;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
     public String phone="";
     @Override
@@ -34,7 +34,6 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
-        all = view.findViewById(R.id.all);
         exit = view.findViewById(R.id.exit);
         complete = view.findViewById(R.id.complete);
         uncomplete = view.findViewById(R.id.incomplete);
@@ -43,7 +42,6 @@ public class MineFragment extends Fragment {
         change_phone = view.findViewById(R.id.change_phone);
         real_confirm = view.findViewById(R.id.identity_confirm);
         OnClick onClick = new OnClick();
-        all.setOnClickListener(onClick);
         exit.setOnClickListener(onClick);
         complete.setOnClickListener(onClick);
         uncomplete.setOnClickListener(onClick);
@@ -60,12 +58,6 @@ public class MineFragment extends Fragment {
         public void onClick(View v) {
             Intent intent;
             switch (v.getId()){
-                case R.id.all:
-                    intent = new Intent(getActivity(), OrderActivity.class);
-                    phone = getActivity().getIntent().getStringExtra("phone");
-                    intent.putExtra("phone",phone);
-                    startActivity(intent);
-                    break;
                 case R.id.complete:break;
 
                 case R.id.incomplete:break;

@@ -50,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/shoucang" />
+                android:background="@drawable/shoucang"
+                android:layout_centerVertical="true"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -65,7 +66,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="270dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="200dp"
             android:layout_marginRight="30dp"
@@ -75,30 +76,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:text="我的订单"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="317dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/jiantou" />
-
-                <Button
-                    android:id="@+id/all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="260dp"
-                    android:background="@android:color/transparent"
-                    android:text="全部"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -130,7 +117,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="已完成" />
+                            android:text="已完成"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -156,7 +145,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="未出发" />
+                            android:text="未出发"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -182,7 +173,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="退改签" />
+                            android:text="退改签"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
 
                     </LinearLayout>
 
@@ -199,7 +192,9 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:text="常用功能"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -231,7 +226,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="修改密码" />
+                            android:text="修改密码"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -257,7 +254,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="修改手机号" />
+                            android:text="修改手机号"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -283,7 +282,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="实名认证" />
+                            android:text="实名认证"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
