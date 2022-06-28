@@ -131,7 +131,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.removeMyAttention(planeTicket,mPhone);
+                        myAttention.removeMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -143,7 +143,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.addMyAttention(planeTicket,mPhone);
+                        myAttention.addMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

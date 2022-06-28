@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MineActivity.Change_Password"
     android:background="@drawable/allcreek"
     android:orientation="vertical">
 
@@ -27,7 +24,7 @@
             android:layout_width="340dp"
             android:layout_height="70dp"
             android:gravity="center_vertical"
-            android:text="           修改密码"
+            android:text="          修改手机号"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold"/>
@@ -40,12 +37,11 @@
         android:background="@drawable/cheek"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp">
-        <!-- android:background="@drawable/rectangle"-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="旧密码："
+            android:text="新手机号："
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black"
@@ -53,13 +49,12 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入密码"
-            android:id="@+id/password1"
+            android:hint="请输入新手机号"
+            android:id="@+id/new_phone"
             android:textSize="15dp"
-            android:paddingTop="10dp"
+            android:textColor="@color/black"
             android:background="@drawable/deleline"
             />
-        <!--        android:background="@drawable/deleline"-->
     </LinearLayout>
 
     <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,12 +63,11 @@
         android:background="@drawable/cheek"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp">
-        <!--        android:background="@drawable/rectangle"-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="新密码："
+            android:text="密码："
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black"
@@ -83,10 +77,10 @@
             android:layout_height="wrap_content"
             android:hint="请输入密码"
             android:textSize="15dp"
-            android:id="@+id/password2"
+            android:textColor="@color/black"
+            android:id="@+id/password"
             android:background="@drawable/deleline"
             />
-        <!--        android:background="@drawable/deleline"-->
     </LinearLayout>
 
     <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -95,25 +89,30 @@
         android:background="@drawable/cheek"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp">
-        <!--        android:background="@drawable/rectangle"-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="新密码："
+            android:text="验证码："
             android:paddingLeft="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black"
             />
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="请再次输入密码"
+            android:hint="请输入验证码"
             android:textSize="15dp"
-            android:id="@+id/password3"
-            android:background="@drawable/deleline"
-            />
-        <!--        android:background="@drawable/deleline"-->
+            android:textColor="@color/black"
+            android:id="@+id/verification_code"
+            android:background="@drawable/deleline" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="发送验证码"
+            android:textColor="@color/black"
+            android:backgroundTint="#2FFFFFFF"
+            android:layout_gravity="right"/>
     </LinearLayout>
 
     <Button

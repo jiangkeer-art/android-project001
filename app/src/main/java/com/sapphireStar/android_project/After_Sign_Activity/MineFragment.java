@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,15 +17,18 @@ import androidx.fragment.app.Fragment;
 
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
+import com.sapphireStar.android_project.MineActivity.Change_Phone;
+import com.sapphireStar.android_project.MineActivity.Identity_Confirm;
 import com.sapphireStar.android_project.OrderActivity.OrderActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
-    public Button all,exit;
+    public Button exit;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
-    public String phone="";
+    private TextView id,username;
+    public String phone="",ID="",userName="";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,8 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
-        all = view.findViewById(R.id.all);
+        id = view.findViewById(R.id.id);
+        username= view.findViewById(R.id.username);
         exit = view.findViewById(R.id.exit);
         complete = view.findViewById(R.id.complete);
         uncomplete = view.findViewById(R.id.incomplete);
@@ -43,7 +48,6 @@ public class MineFragment extends Fragment {
         change_phone = view.findViewById(R.id.change_phone);
         real_confirm = view.findViewById(R.id.identity_confirm);
         OnClick onClick = new OnClick();
-        all.setOnClickListener(onClick);
         exit.setOnClickListener(onClick);
         complete.setOnClickListener(onClick);
         uncomplete.setOnClickListener(onClick);
@@ -51,6 +55,13 @@ public class MineFragment extends Fragment {
         change_password.setOnClickListener(onClick);
         change_phone.setOnClickListener(onClick);
         real_confirm.setOnClickListener(onClick);
+
+        ID = getActivity().getIntent().getStringExtra("id");
+        phone = getActivity().getIntent().getStringExtra("phone");
+        userName = "用户名："+phone;
+        id.setText(ID);
+        username.setText(userName);
+
         return view;
     }
 
@@ -60,12 +71,6 @@ public class MineFragment extends Fragment {
         public void onClick(View v) {
             Intent intent;
             switch (v.getId()){
-                case R.id.all:
-                    intent = new Intent(getActivity(), OrderActivity.class);
-                    phone = getActivity().getIntent().getStringExtra("phone");
-                    intent.putExtra("phone",phone);
-                    startActivity(intent);
-                    break;
                 case R.id.complete:break;
 
                 case R.id.incomplete:break;
@@ -74,13 +79,23 @@ public class MineFragment extends Fragment {
 
                 case R.id.change_password:
                     intent = new Intent(getActivity(), Change_Password.class);
-                    phone = getActivity().getIntent().getStringExtra("phone");
                     intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
                     startActivity(intent);
                     break;
-                case R.id.change_phone:break;
+                case R.id.change_phone:
+                    intent = new Intent(getActivity(), Change_Phone.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    startActivity(intent);
+                    break;
 
-                case R.id.identity_confirm:break;
+                case R.id.identity_confirm:
+                    intent = new Intent(getActivity(), Identity_Confirm.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    startActivity(intent);
+                    break;
 
                 case R.id.exit:
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
