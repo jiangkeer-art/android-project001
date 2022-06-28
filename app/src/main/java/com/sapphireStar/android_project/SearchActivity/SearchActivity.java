@@ -14,10 +14,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
+import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.FlightDaoImpl;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
@@ -26,10 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="";
+    public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="",phone="";
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0;
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
+    public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class SearchActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-        FlightAdapter adapter = new FlightAdapter(flightList,planeTicketList);
+        FlightAdapter adapter = new FlightAdapter(flightList,planeTicketList,SearchActivity.this,myAttentionsPlaneTicketList,getIntent().getStringExtra("phone"));
         recyclerView.setAdapter(adapter);
     }
 
@@ -51,6 +55,7 @@ public class SearchActivity extends AppCompatActivity {
         takeoff_city = getIntent().getStringExtra("takeoff_city");
         takeoff_time = getIntent().getStringExtra("takeoff_time");
         landing_city = getIntent().getStringExtra("landing_city");
+        phone = getIntent().getStringExtra("phone");
         eco = getIntent().getStringExtra("is_eco");
         bus = getIntent().getStringExtra("is_bus");
         direct = getIntent().getStringExtra("is_direct");
@@ -62,6 +67,7 @@ public class SearchActivity extends AppCompatActivity {
         is_share = Integer.valueOf(share).intValue();
         is_domestic = Integer.valueOf(domestic).intValue();
         Log.d("test",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
+
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
@@ -74,5 +80,21 @@ public class SearchActivity extends AppCompatActivity {
         flightList.add(flight);
         PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
         planeTicketList.add(planeTicket);
+
+        MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+        if(myAttention.getMyAttention(phone)==null){
+            myAttentionsPlaneTicketList=null;
+        }
+        else{
+            List<Object[]> list1 = myAttention.getMyAttention(phone);
+            Object[] objects1;
+            PlaneTicket myAttentionPlaneTicket;
+            for(int i=0;i<list1.size();i++) {
+                objects1 = list1.get(i);
+                myAttentionPlaneTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
+                myAttentionsPlaneTicketList.add(myAttentionPlaneTicket);
+            }
+        }
+
     }
 }

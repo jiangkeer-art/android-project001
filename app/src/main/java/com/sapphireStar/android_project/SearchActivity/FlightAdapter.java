@@ -2,6 +2,7 @@ package com.sapphireStar.android_project.SearchActivity;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
+import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.PlaneTicketDao;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
 import org.w3c.dom.Text;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,10 +33,16 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
     private List<Flight> mFlightList;
     private List<PlaneTicket> mPlaneTicket;
+    private Context mContext;
+    private List<PlaneTicket> mmyAttentions;
+    private String mPhone="";
 
-    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket){
+    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone){
+        mContext=context;
         mFlightList=flightList;
         mPlaneTicket=planeTicket;
+        mmyAttentions=myAttentions;
+        mPhone=phone;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -102,6 +113,44 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
         holder.price.setText("¥:"+planeTicket.getPrice());
 
 
+        for(int i=0;i<mmyAttentions.size();i++){
+            if(planeTicket==mmyAttentions.get(i)){
+                holder.is_attentiond=1;
+                holder.attention.setImageResource(R.drawable.shoucang2);
+            }
+        }
+
+
+        holder.attention.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.is_attentiond==1){
+                    holder.attention.setImageResource(R.drawable.shoucang);
+                    holder.is_attentiond=0;
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    try {
+                        myAttention.removeMyAttention(planeTicket,mPhone);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+                    holder.attention.setImageResource(R.drawable.shoucang2);
+                    holder.is_attentiond=1;
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    try {
+                        myAttention.addMyAttention(planeTicket,mPhone);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
     }
 
     @Override
@@ -112,6 +161,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus,price;
         public ImageButton attention,order;
+        public int is_attentiond=0;
         public ViewHolder(View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);
