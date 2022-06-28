@@ -25,7 +25,7 @@ import java.sql.SQLException;
 
 public class Change_Password extends AppCompatActivity {
 
-    public String phone="";
+    public String phone="",ID="";
     public EditText password1,password2,password3;
     public Button confirm;
     public String oldPassword="",newPassword="",reNewPassword="";
@@ -41,6 +41,7 @@ public class Change_Password extends AppCompatActivity {
         password3 = findViewById(R.id.password3);
         confirm = findViewById(R.id.confirm);
         phone = getIntent().getStringExtra("phone");
+        ID = getIntent().getStringExtra("id");
         OnClick onClick = new OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
@@ -56,6 +57,7 @@ public class Change_Password extends AppCompatActivity {
                 case R.id.back_to_mine:
                     intent = new Intent(Change_Password.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
                     intent.putExtra("frag",1);
                     startActivity(intent);
                     break;

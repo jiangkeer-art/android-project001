@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入姓名"
-            android:id="@+id/new_phone"
+            android:id="@+id/name"
             android:textSize="15dp"
             android:textColor="@color/black"
             android:background="@drawable/deleline"
@@ -76,6 +76,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="请输入身份证号"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/id_number"
+            android:background="@drawable/deleline"
+            />
+    </LinearLayout>
+
+    <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/cheek"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:text="密码："
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
             android:textSize="15dp"
             android:textColor="@color/black"
             android:id="@+id/password"

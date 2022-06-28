@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +23,7 @@ import java.sql.SQLException;
 
 public class Change_Phone extends AppCompatActivity {
 
-    public String phone="";
+    public String phone="",ID="";
     public EditText new_phone,password;
     public Button confirm;
     public String newPhone="",Password="";
@@ -37,6 +38,7 @@ public class Change_Phone extends AppCompatActivity {
         password = findViewById(R.id.password);
         confirm = findViewById(R.id.confirm);
         phone = getIntent().getStringExtra("phone");
+        ID = getIntent().getStringExtra("id");
         Change_Phone.OnClick onClick = new Change_Phone.OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
@@ -52,6 +54,7 @@ public class Change_Phone extends AppCompatActivity {
                 case R.id.back_to_mine:
                     intent = new Intent(Change_Phone.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
                     intent.putExtra("frag",1);
                     startActivity(intent);
                     break;
@@ -61,11 +64,11 @@ public class Change_Phone extends AppCompatActivity {
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(Change_Phone.this,"FlightDataBase.db");
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
-//                    try {
-//                        normalUserDao.modifyPassword(phone,newPassword,reNewPassword,oldPassword);
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+                        normalUserDao.modifyPhone(phone,newPhone,Password);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     intent = new Intent(Change_Phone.this, MainActivity.class);
                     startActivity(intent);
                     break;

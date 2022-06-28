@@ -11,4 +11,6 @@ public interface NormalUserDao {
     int addNormalUSer(NormalUser normalUser) throws SQLException;
     int modifyPassword(String phone, String newPassword,String reNewPassword,String oldPassword) throws SQLException;
     Object Login(String phone,String password) throws SQLException;
+    int modifyPhone(String oldPhone,String newPhone,String password) throws SQLException;
+    int modifyIdNumber(String phone,String password,String IdNumber,String name) throws SQLException;
 }

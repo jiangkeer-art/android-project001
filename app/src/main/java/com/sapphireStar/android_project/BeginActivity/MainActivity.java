@@ -20,7 +20,9 @@ import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.Register.RegisterActivity;
 import com.sapphireStar.android_project.VideoBackground.VideoViewBackground;
+import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.dao.NormalUserDao;
+import com.sapphireStar.dao.impl.AdministratorDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Administrator;
 import com.sapphireStar.entity.NormalUser;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private VideoViewBackground videoview;
     private Button quick_register,forget_password,sing_in;
-    public String password="",username="",Password="",UserName="";
+    public String password="",username="",id="";
     public int a=0;
 
     @Override
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     password = editText2.getText().toString();
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
-
+                    AdministratorDao administratorDao = new AdministratorDaoImpl(sqlite);
                     NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
                     Object obj = null;
                     try {
@@ -133,9 +135,25 @@ public class MainActivity extends AppCompatActivity {
                         intent=new Intent(MainActivity.this, FunctionActivity.class);
                         intent.putExtra("phone",username);
                         if(obj.getClass().getSimpleName().equals("Administrator")){
+                            Administrator user_info = null;
+                            try {
+                                user_info = administratorDao.getAdministratorByPhone(username);
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            id = user_info.getId();
+                            intent.putExtra("id",id);
                             intent.putExtra("Administrator",(Administrator)obj);
                         }
                         else {
+                            NormalUser user_info = null;
+                            try {
+                                user_info = normalUserDao.getUserByPhone(username);
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            id = user_info.getId();
+                            intent.putExtra("id",id);
                             intent.putExtra("NormalUser",(NormalUser)obj);
                         }
                         startActivity(intent);
