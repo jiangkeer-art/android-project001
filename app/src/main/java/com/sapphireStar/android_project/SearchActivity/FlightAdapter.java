@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -98,6 +99,9 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
         holder.time_period.setText("共计"+flight.getTime_period()+"分钟");
 
         holder.is_bus.setText(planeTicket.getShipping_space());
+        holder.price.setText("¥:"+planeTicket.getPrice());
+
+
     }
 
     @Override
@@ -106,7 +110,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus;
+        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus,price;
+        public ImageButton attention,order;
         public ViewHolder(View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);
@@ -121,6 +126,9 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             punctuality_rate = itemView.findViewById(R.id.punctuality_rate);
             time_period = itemView.findViewById(R.id.time_period);
             is_bus = itemView.findViewById(R.id.is_bus);
+            price = itemView.findViewById(R.id.price);
+            attention = itemView.findViewById(R.id.attention);
+            order = itemView.findViewById(R.id.order);
         }
     }
 }
