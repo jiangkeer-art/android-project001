@@ -1,6 +1,5 @@
 package com.sapphireStar.android_project.After_Sign_Activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +44,7 @@ public class FunctionActivity extends FragmentActivity implements View.OnClickLi
             selectTab(1);
             frag=0;
         }else{
-            selectTab(0);//初始页面为主页面
+            selectTab(0);//初始页面为查询页面
         }
         initEvents();//初始化事件
     }
