@@ -48,15 +48,15 @@ public class MyAttentionDaoImpl extends MySqlHelper implements MyAttentionDao {
     }
 
     @Override
-    public void addMyAttention(PlaneTicket planeTicket, String phone) throws SQLException {
-        String sql = "insert into my_attention(plane_ticket_number,phone) values ("+planeTicket+","+phone+")";
+    public void addMyAttention(int plane_ticket_number, String phone) throws SQLException {
+        String sql = "insert into my_attention(plane_ticket_number,phone) values ("+ plane_ticket_number +","+phone+")";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
     }
 
     @Override
-    public void removeMyAttention(PlaneTicket planeTicket, String phone) throws SQLException {
-        String sql = "delete from my_attention where phone = " +phone +" and plane_ticket_number = " + planeTicket;
+    public void removeMyAttention(int plane_ticket_number, String phone) throws SQLException {
+        String sql = "delete from my_attention where phone = " +phone +" and plane_ticket_number = " + plane_ticket_number;
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
     }

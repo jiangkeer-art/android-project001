@@ -87,7 +87,10 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         if(cursor.getString("phone").equals(phone) && cursor.getString("password").equals(oldPassword)){
             if(newPassword.equals(reNewPassword)){
                 String update = "update `user` set password = "+ newPassword + " where phone = "+ phone;
-                preparedStatement.execute(update);
+                if(preparedStatement.executeUpdate(update)<1){
+                    //受影响的行数为0，表示未更新成功，表单数据有误
+                    return 1;
+                }
             }
         }
 //        if(cursor.moveToFirst()){
@@ -126,5 +129,34 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         }
         closeDatabase();
         return getUserByPhone(phone);
+    }
+
+    @Override
+    public int modifyPhone(String oldPhone, String newPhone, String password) throws SQLException {
+        getDatabase();
+        String sql = "update `user`,normal_user set `user`.phone = '"+ newPhone +"' where `user`.password = '"+ password +"' and `user`.phone = '"+ oldPhone +"' and normal_user.phone = '"+ oldPhone +"'" ;
+
+        preparedStatement = connection.prepareStatement(sql);
+        if(preparedStatement.executeUpdate() == 0){
+            //受影响的行数为0，表示未更新成功，表单数据有误
+            return 1;
+        }
+
+        closeDatabase();
+        return 0;
+    }
+
+    @Override
+    public int modifyIdNumber(String phone, String password, String IdNumber, String name) throws SQLException {
+        getDatabase();
+
+        String sql = "update normal_user,user set normal_user.name = '"+ name +"',normal_user.id_number = '" + IdNumber + "' where `user`.password = '" + password + "' and `user`.phone = '" + phone + "' and `user`.phone = normal_user.phone" ;
+        preparedStatement = connection.prepareStatement(sql);
+        if(preparedStatement.executeUpdate() < 0 ){
+            return 1;
+        }
+        closeDatabase();
+
+        return 0;
     }
 }

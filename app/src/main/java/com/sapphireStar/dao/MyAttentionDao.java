@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface MyAttentionDao {
     List<Object[]> getMyAttention(String phone) throws SQLException;
-    void addMyAttention(PlaneTicket planeTicket,String phone) throws SQLException;
-    void removeMyAttention(PlaneTicket planeTicket,String phone) throws SQLException;
+    void addMyAttention(int plane_ticket_number,String phone) throws SQLException;
+    void removeMyAttention(int plane_ticket_number,String phone) throws SQLException;
 }
