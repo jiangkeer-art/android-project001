@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
+import com.sapphireStar.android_project.MineActivity.MyAttention;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
@@ -23,7 +24,6 @@ import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
 import com.sapphireStar.entity.Flight;
-import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
@@ -118,8 +118,11 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
         holder.price.setText("¥"+planeTicket.getPrice());
 
         if(mmyAttentions!=null) {
+            //Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
+            PlaneTicket planeTicket1;
             for (int i = 0; i < mmyAttentions.size(); i++) {
-                if (planeTicket == mmyAttentions.get(i)) {
+                planeTicket1=mmyAttentions.get(i);
+                if (planeTicket.getPlane_ticket_number() == planeTicket1.getPlane_ticket_number()) {
                     holder.is_attentiond = 1;
                     holder.attention.setImageResource(R.drawable.shoucang2);
                 }
