@@ -56,7 +56,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
         PlaneTicket planeTicket = mPlaneTicket.get(position);
 
         if(mmyAttentions!=null) {
-            Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
             PlaneTicket planeTicket1;
             for (int i = 0; i < mmyAttentions.size(); i++) {
                 planeTicket1 = mmyAttentions.get(i);
@@ -170,7 +170,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
 
     @Override
     public int getItemCount() {
-        return mmyAttentions.size();
+        return mFlightList.size();
     }
     static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus,price;

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,16 +21,15 @@ import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.MineActivity.Change_Phone;
 import com.sapphireStar.android_project.MineActivity.Identity_Confirm;
 import com.sapphireStar.android_project.MineActivity.MyAttention;
-import com.sapphireStar.android_project.OrderActivity.OrderActivity;
+import com.sapphireStar.android_project.MineActivity.MyOrderActivity;
 import com.sapphireStar.android_project.R;
-import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
     public Button exit,attention;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
     private TextView id,username;
-    public String phone="",ID="",userName="";
+    public String phone="",ID="",userName="",state="";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +74,34 @@ public class MineFragment extends Fragment {
         public void onClick(View v) {
             Intent intent;
             switch (v.getId()){
-                case R.id.complete:break;
+                case R.id.complete:
+                    state="1";
+                    intent = new Intent(getActivity(), MyOrderActivity.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    intent.putExtra("state",state);
+                    startActivity(intent);
+                    break;
 
-                case R.id.incomplete:break;
+                case R.id.incomplete:
+                    state="0";
+                    //Toast.makeText(getActivity(), "addssdasdasdasda ", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(getActivity(), MyOrderActivity.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    intent.putExtra("state",state);
+                    startActivity(intent);
+                    //Toast.makeText(getActivity(), "addssdasdasdasda ", Toast.LENGTH_SHORT).show();
+                    break;
 
-                case R.id.changed:break;
+                case R.id.changed:
+                    state="2";
+                    intent = new Intent(getActivity(), MyOrderActivity.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    intent.putExtra("state",state);
+                    startActivity(intent);
+                    break;
 
                 case R.id.change_password:
                     intent = new Intent(getActivity(), Change_Password.class);
