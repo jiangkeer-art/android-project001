@@ -5,16 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.MySqlHelper;
 import com.sapphireStar.dao.PlaneTicketDao;
 import com.sapphireStar.entity.PlaneTicket;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PlaneTicketDaoImpl implements PlaneTicketDao {
+public class PlaneTicketDaoImpl extends MySqlHelper implements PlaneTicketDao {
     private SQLiteDatabase db;
     public PlaneTicketDaoImpl(SQLiteDatabase sdb){
         db = sdb;
@@ -44,5 +46,21 @@ public class PlaneTicketDaoImpl implements PlaneTicketDao {
         }
         cursor.close();
         return list;
+    }
+
+    @Override
+    public int modifyState(String plane_ticket_number, String takeoff_time) throws SQLException {
+        getDatabase();
+
+        String sql = "update plane_ticket set state = 2 where plane_ticket_number = ? and takeoff_time = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,plane_ticket_number);
+        preparedStatement.setString(2,takeoff_time);
+        if(preparedStatement.executeUpdate()==0){
+            closeDatabase();
+            return 1;
+        }
+        closeDatabase();
+        return 0;
     }
 }
