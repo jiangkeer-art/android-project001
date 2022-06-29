@@ -2,6 +2,7 @@ package com.sapphireStar.dao.impl;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
 import com.sapphireStar.android_project.DataBase.MySqlHelper;
@@ -20,8 +21,9 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         db = sdb;
     }
     @Override
-    public List<Object[]> getMyOrderByPhone(String phone) throws SQLException {
+    public List<Object[]> getMyOrderByPhone(String phone,String state) throws SQLException {
         Object[] objects = null;
+        String test_state = "",planeTicket="";
         getDatabase();
 
         String sql = "select * from my_order where phone = ?";
@@ -29,6 +31,10 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         preparedStatement.setString(1,phone);
         cursor = preparedStatement.executeQuery();
 
+//        if(!cursor.next()) {
+//            closeDatabase();
+//            return null;
+//        }
 
         List<MyOrder> orderList = new ArrayList<MyOrder>();
         List<Object[]> list = new ArrayList<Object[]>();
@@ -42,11 +48,17 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
             myOrder.setOrder_number(cursor.getInt("order_number"));
             myOrder.setPhone(cursor.getString("phone"));
             myOrder.setPlane_ticket_number(cursor.getInt("plane_ticket_number"));
-            myOrder.setState(cursor.getString("state"));
-            objects = flightDao.GetFlightsByPT(String.valueOf(myOrder.getPlane_ticket_number()));
-            list.add(objects);
+            test_state = cursor.getString("state");
+            Log.d("sqlllll", myOrder.getPhone()+" "+myOrder.getPlane_ticket_number());
+            if(test_state.equals(state)){
+                myOrder.setState(cursor.getString("state"));
+                Log.d("sqllll", myOrder.getPhone()+" "+myOrder.getPlane_ticket_number());
+                planeTicket=String.valueOf(myOrder.getPlane_ticket_number());
+                objects = flightDao.GetFlightsByPT(planeTicket);
+                list.add(objects);
+            }
         }
-
+        Log.d("sqlll",String.valueOf(list.size()));
         closeDatabase();
         return list;
     }
@@ -61,7 +73,7 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
     }
 
     @Override
-    public void removeMyOrder(int plane_ticket_number, String phone, int order_number) throws SQLException {
+    public void removeMyOrder(int plane_ticket_number, String phone) throws SQLException {
         getDatabase();
         String sql = "delete from my_order where phone = " +phone +" and plane_ticket_number = " + plane_ticket_number;
         preparedStatement = connection.prepareStatement(sql);
