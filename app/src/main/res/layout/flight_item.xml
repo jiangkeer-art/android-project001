@@ -100,21 +100,25 @@
             android:textSize="20sp"
             android:id="@+id/price"
             android:layout_marginLeft="290dp"/>
-        <ImageButton
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/price"
+            android:layout_below="@id/grey_view1"
             android:id="@+id/order"
-            android:layout_marginLeft="300dp"
-            android:background="@drawable/unselected"/>
+            android:layout_marginLeft="270dp"
+            android:background="@android:color/transparent"
+            android:text="订"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp" />
+
         <View
             android:id="@+id/grey_view2"
             android:layout_width="match_parent"
             android:layout_height="2px"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="120dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:background="#000000" />
         <TextView
             android:layout_width="wrap_content"
