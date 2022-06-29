@@ -93,27 +93,31 @@ public class SearchActivity extends AppCompatActivity {
         Object[] objects;
         //Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
-        for(int i=0;i<list.size();i++) {
-            Log.d("testtest", String.valueOf(list.size()));
-            objects = list.get(i);
-            Flight flight = objectMapper.convertValue(objects[0], Flight.class);
-            flightList.add(flight);
-            PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
-            planeTicketList.add(planeTicket);
-        }
+        if (list==null){
+            Toast.makeText(this, "未找到符合条件的航班", Toast.LENGTH_LONG).show();
+        }else{
+            for(int i=0;i<list.size();i++) {
+                Log.d("testtest", String.valueOf(list.size()));
+                objects = list.get(i);
+                Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+                flightList.add(flight);
+                PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
+                planeTicketList.add(planeTicket);
+            }
 
-        MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
-        if(myAttention.getMyAttention(phone)==null){
-            myAttentionsPlaneTicketList=null;
-        }
-        else{
-            List<Object[]> list1 = myAttention.getMyAttention(phone);
-            Object[] objects1;
-            PlaneTicket myAttentionPlaneTicket;
-            for(int i=0;i<list1.size();i++) {
-                objects1 = list1.get(i);
-                myAttentionPlaneTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
-                myAttentionsPlaneTicketList.add(myAttentionPlaneTicket);
+            MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+            if(myAttention.getMyAttention(phone)==null){
+                myAttentionsPlaneTicketList=null;
+            }
+            else{
+                List<Object[]> list1 = myAttention.getMyAttention(phone);
+                Object[] objects1;
+                PlaneTicket myAttentionPlaneTicket;
+                for(int i=0;i<list1.size();i++) {
+                    objects1 = list1.get(i);
+                    myAttentionPlaneTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
+                    myAttentionsPlaneTicketList.add(myAttentionPlaneTicket);
+                }
             }
         }
 

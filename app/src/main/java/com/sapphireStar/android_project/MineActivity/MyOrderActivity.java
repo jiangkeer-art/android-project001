@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyOrderDao;
@@ -24,10 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrderActivity extends AppCompatActivity {
-    public String phone="",state = "";
+    public String phone="",state = "",id="";
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
     public List<PlaneTicket> myOrder = new ArrayList<>();
+    private ImageButton back_to_mine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +47,24 @@ public class MyOrderActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         MyOrderAdapter adapter = new MyOrderAdapter(flightList,planeTicketList, MyOrderActivity.this,myOrder,phone,state);
         recyclerView.setAdapter(adapter);
+        back_to_mine = findViewById(R.id.back_to_mine);
+        back_to_mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(MyOrderActivity.this, FunctionActivity.class);
+                intent.putExtra("phone",phone);
+                intent.putExtra("id",id);
+                intent.putExtra("frag",1);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initOrder() throws SQLException {
         //Toast.makeText(MyOrderActivity.this, " fgjfjjhghjghjgjh", Toast.LENGTH_SHORT).show();
         phone = getIntent().getStringExtra("phone");
+        id = getIntent().getStringExtra("id");
         state = getIntent().getStringExtra("state");
         //Log.d("testTTTMyA",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
