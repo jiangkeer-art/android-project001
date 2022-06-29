@@ -31,6 +31,7 @@ public class MyAttentionDaoImpl extends MySqlHelper implements MyAttentionDao {
         preparedStatement = connection.prepareStatement(sql);
         cursor = preparedStatement.executeQuery(sql);
         if(!cursor.next()) {
+            closeDatabase();
             return null;
         }
         FlightDao flightDao = new FlightDaoImpl(db);

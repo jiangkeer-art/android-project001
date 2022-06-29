@@ -35,7 +35,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     private List<PlaneTicket> mPlaneTicket;
     private Context mContext;
     private List<PlaneTicket> mmyAttentions;
-    private String mPhone="";
+    private String mPhone;
 
     public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone){
         mContext=context;
@@ -131,7 +131,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.removeMyAttention(planeTicket,mPhone);
+                        myAttention.removeMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -143,7 +143,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.addMyAttention(planeTicket,mPhone);
+                        myAttention.addMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
