@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface PlaneTicketDao {
     List<PlaneTicket> getPlaneTicketByFlight(String flight);
-    int modifyState(String plane_ticket_number,String takeoff_time) throws SQLException;
+
 }
