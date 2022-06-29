@@ -81,17 +81,17 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         closeDatabase();
     }
     @Override
-    public int modifyState(String plane_ticket_number, String takeoff_time) throws SQLException {
+    public int modifyState(String order_number) throws SQLException {
         getDatabase();
 
-        String sql = "update plane_ticket set state = 2 where plane_ticket_number = ? and takeoff_time = ?";
+        String sql = "update my_order set state = 2 where order_number = ?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, plane_ticket_number);
-        preparedStatement.setString(2, takeoff_time);
+        preparedStatement.setString(1, order_number);
         if (preparedStatement.executeUpdate() == 0) {
             closeDatabase();
             return 1;
         }
+
         closeDatabase();
         return 0;
     }

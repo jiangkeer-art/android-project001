@@ -174,7 +174,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 String ticket_number_string = String.valueOf(ticket_number);
                 Date takeoff_time=planeTicket.getTakeoff_time();
                 String takeoff_time_string = planeTicket.getTakeoff_time().toString();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     takeoff_time = (Date)format.parse(takeoff_time_string);
                 } catch (ParseException e) {
@@ -202,7 +202,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 }
                 else if(mState.equals("0")){
                     try {
-                        myOrderDao.modifyState(ticket_number_string,takeoff_time_string);
+                        myOrderDao.modifyState(ticket_number_string);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
