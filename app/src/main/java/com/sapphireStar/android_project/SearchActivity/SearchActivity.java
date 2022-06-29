@@ -66,20 +66,23 @@ public class SearchActivity extends AppCompatActivity {
         is_direct = Integer.valueOf(direct).intValue();
         is_share = Integer.valueOf(share).intValue();
         is_domestic = Integer.valueOf(domestic).intValue();
-        Log.d("test",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
+        Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
         List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
-        Log.d("test", String.valueOf(list.size()));
-        Object[] objects = list.get(0);
-        Log.d("test", objects[0].getClass().getSimpleName());
+        Object[] objects;
+        //Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
-        Flight flight = objectMapper.convertValue(objects[0], Flight.class);
-        flightList.add(flight);
-        PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
-        planeTicketList.add(planeTicket);
+        for(int i=0;i<list.size();i++) {
+            Log.d("testtest", String.valueOf(list.size()));
+            objects = list.get(i);
+            Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+            flightList.add(flight);
+            PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
+            planeTicketList.add(planeTicket);
+        }
 
         MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
         if(myAttention.getMyAttention(phone)==null){

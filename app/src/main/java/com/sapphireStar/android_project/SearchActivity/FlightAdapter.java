@@ -112,16 +112,18 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
         holder.is_bus.setText(planeTicket.getShipping_space());
         holder.price.setText("¥:"+planeTicket.getPrice());
 
-
-        for(int i=0;i<mmyAttentions.size();i++){
-            if(planeTicket==mmyAttentions.get(i)){
-                holder.is_attentiond=1;
-                holder.attention.setImageResource(R.drawable.shoucang2);
+        if(mmyAttentions!=null) {
+            for (int i = 0; i < mmyAttentions.size(); i++) {
+                if (planeTicket == mmyAttentions.get(i)) {
+                    holder.is_attentiond = 1;
+                    holder.attention.setImageResource(R.drawable.shoucang2);
+                }
             }
         }
 
 
         holder.attention.setOnClickListener(new View.OnClickListener() {
+            int ticket_number=planeTicket.getPlane_ticket_number();
             @Override
             public void onClick(View v) {
                 if(holder.is_attentiond==1){
@@ -131,7 +133,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.removeMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
+
+                        myAttention.removeMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -143,7 +146,8 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                     MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
                     try {
-                        myAttention.addMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
+
+                        myAttention.addMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -155,6 +159,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
+        Log.d("testtestetst",String.valueOf(mFlightList.size()));
         return mFlightList.size();
     }
 

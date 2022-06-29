@@ -25,7 +25,7 @@ import com.sapphireStar.android_project.SearchActivity.SearchActivity;
 
 public class MineFragment extends Fragment {
 
-    public Button exit;
+    public Button exit,attention;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
     private TextView id,username;
     public String phone="",ID="",userName="";
@@ -39,6 +39,7 @@ public class MineFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
         id = view.findViewById(R.id.id);
+        attention = view.findViewById(R.id.attention);
         username= view.findViewById(R.id.username);
         exit = view.findViewById(R.id.exit);
         complete = view.findViewById(R.id.complete);
@@ -55,6 +56,7 @@ public class MineFragment extends Fragment {
         change_password.setOnClickListener(onClick);
         change_phone.setOnClickListener(onClick);
         real_confirm.setOnClickListener(onClick);
+        attention.setOnClickListener(onClick);
 
         ID = getActivity().getIntent().getStringExtra("id");
         phone = getActivity().getIntent().getStringExtra("phone");
@@ -110,6 +112,9 @@ public class MineFragment extends Fragment {
                     });
                     dialog.setNegativeButton("取消",null);
                     dialog.show();
+                    break;
+                case R.id.attention:
+
                     break;
             }
         }
