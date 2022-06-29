@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 public class MySqlHelper {
     private static final String CLS = "com.mysql.jdbc.Driver";
-    private static final String URL ="jdbc:mysql://rm-bp1x97blp036xip86bo.mysql.rds.aliyuncs.com:3306/sapphire_star?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
+    private static final String URL ="jdbc:mysql://rm-bp1x97blp036xip86bo.mysql.rds.aliyuncs.com:3306/sapphire_star?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true";
     private static final String USER ="guanosine";
     private static final String PASSWORD ="123456s!";
     public static Connection connection;

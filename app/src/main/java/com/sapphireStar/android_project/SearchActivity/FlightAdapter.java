@@ -1,27 +1,48 @@
 package com.sapphireStar.android_project.SearchActivity;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
+import com.sapphireStar.dao.MyAttentionDao;
+import com.sapphireStar.dao.PlaneTicketDao;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
+import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyAttention;
+import com.sapphireStar.entity.PlaneTicket;
+import com.sapphireStar.util.CommonDB;
 
 import org.w3c.dom.Text;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
 public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder> {
 
     private List<Flight> mFlightList;
+    private List<PlaneTicket> mPlaneTicket;
+    private Context mContext;
+    private List<PlaneTicket> mmyAttentions;
+    private String mPhone;
 
-    public FlightAdapter(List<Flight> flightList){
+    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone){
+        mContext=context;
         mFlightList=flightList;
+        mPlaneTicket=planeTicket;
+        mmyAttentions=myAttentions;
+        mPhone=phone;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,7 +54,11 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Flight flight = mFlightList.get(position);
-        holder.flight_number.setText(flight.getFlight_number());
+        PlaneTicket planeTicket = mPlaneTicket.get(position);
+
+
+
+        holder.flight_number.setText(flight.getFlight_number()+"航班号");
         holder.air_company.setText(flight.getAirline_company());
         String takeoff_time_string = flight.getTakeoff_time().toString();
         char[] time = takeoff_time_string.toCharArray();
@@ -83,6 +108,49 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
         holder.punctuality_rate.setText(String.valueOf((int)flight.getPunctuality_rate())+"%准点率");
         holder.time_period.setText("共计"+flight.getTime_period()+"分钟");
+
+        holder.is_bus.setText(planeTicket.getShipping_space());
+        holder.price.setText("¥:"+planeTicket.getPrice());
+
+
+        for(int i=0;i<mmyAttentions.size();i++){
+            if(planeTicket==mmyAttentions.get(i)){
+                holder.is_attentiond=1;
+                holder.attention.setImageResource(R.drawable.shoucang2);
+            }
+        }
+
+
+        holder.attention.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.is_attentiond==1){
+                    holder.attention.setImageResource(R.drawable.shoucang);
+                    holder.is_attentiond=0;
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    try {
+                        myAttention.removeMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+                    holder.attention.setImageResource(R.drawable.shoucang2);
+                    holder.is_attentiond=1;
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    try {
+                        myAttention.addMyAttention(planeTicket.getPlane_ticket_number(),mPhone);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
     }
 
     @Override
@@ -91,7 +159,9 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period;
+        public TextView flight_number,air_company,takeoff_time,departure_terminal,landing_terminal,landing_time,is_direct,is_share,food,punctuality_rate,time_period,is_bus,price;
+        public ImageButton attention,order;
+        public int is_attentiond=0;
         public ViewHolder(View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);
@@ -105,6 +175,10 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             food = itemView.findViewById(R.id.food);
             punctuality_rate = itemView.findViewById(R.id.punctuality_rate);
             time_period = itemView.findViewById(R.id.time_period);
+            is_bus = itemView.findViewById(R.id.is_bus);
+            price = itemView.findViewById(R.id.price);
+            attention = itemView.findViewById(R.id.attention);
+            order = itemView.findViewById(R.id.order);
         }
     }
 }

@@ -27,6 +27,12 @@
             android:name=".MineActivity.Change_Password"
             android:exported="false" />
         <activity
+            android:name=".MineActivity.Change_Phone"
+            android:exported="false" />
+        <activity
+            android:name=".MineActivity.Identity_Confirm"
+            android:exported="false" />
+        <activity
             android:name="com.sapphireStar.android_project.Register.RegisterActivity"
             android:exported="false" />
         <activity
