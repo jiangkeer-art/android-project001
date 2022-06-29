@@ -63,7 +63,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                 if (planeTicket.getPlane_ticket_number() == planeTicket1.getPlane_ticket_number()) {
                     holder.is_attentiond = 1;
                     holder.attention.setImageResource(R.drawable.shoucang2);
-                    holder.flight_number.setText(flight.getFlight_number() + "航班号");
+                    holder.flight_number.setText(flight.getFlight_number() + "航班");
                     holder.air_company.setText(flight.getAirline_company());
                     String takeoff_time_string = flight.getTakeoff_time().toString();
                     char[] time = takeoff_time_string.toCharArray();
@@ -103,7 +103,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                     if (flight.getIs_share() == 1) {
                         holder.is_share.setText("共享航班");
                     } else
-                        holder.is_share.setText("私密航班");
+                        holder.is_share.setText("非共享航班");
                     if (flight.getFood() == 1) {
                         holder.food.setText("有餐食");
                     } else
@@ -113,7 +113,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                     holder.time_period.setText("共计" + flight.getTime_period() + "分钟");
 
                     holder.is_bus.setText(planeTicket.getShipping_space());
-                    holder.price.setText("¥:" + planeTicket.getPrice());
+                    holder.price.setText("¥" + planeTicket.getPrice());
 
 
                     holder.attention.setOnClickListener(new View.OnClickListener() {
