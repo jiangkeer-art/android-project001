@@ -63,6 +63,7 @@
                 android:background="@android:color/transparent"
                 android:text="关注航班"
                 android:textColor="@color/black"
+                android:id="@+id/attention"
                 android:textSize="20sp" />
         </RelativeLayout>
 

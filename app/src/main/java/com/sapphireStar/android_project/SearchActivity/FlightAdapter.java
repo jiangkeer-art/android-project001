@@ -159,6 +159,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
+        Log.d("testtestetst",String.valueOf(mFlightList.size()));
         return mFlightList.size();
     }
 
