@@ -35,7 +35,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     private List<PlaneTicket> mPlaneTicket;
     private Context mContext;
     private List<PlaneTicket> mmyAttentions;
-    private String mPhone="";
+    private String mPhone;
 
     public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone){
         mContext=context;

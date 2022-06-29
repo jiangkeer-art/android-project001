@@ -2,10 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD:app/build/intermediates/packaged_res/debug/layout/activity_change_password.xml
-    tools:context=".MineActivity.Change_Password"
-=======
->>>>>>> 9ab7748189a27820adb024191229a1cfb942e668:app/src/main/res/layout/activity_change_identity.xml
     android:background="@drawable/allcreek"
     android:orientation="vertical">
 
@@ -28,11 +24,7 @@
             android:layout_width="340dp"
             android:layout_height="70dp"
             android:gravity="center_vertical"
-<<<<<<< HEAD:app/build/intermediates/packaged_res/debug/layout/activity_change_password.xml
-            android:text="           修改密码"
-=======
             android:text="            实名认证"
->>>>>>> 9ab7748189a27820adb024191229a1cfb942e668:app/src/main/res/layout/activity_change_identity.xml
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold"/>
