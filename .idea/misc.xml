@@ -6,6 +6,8 @@
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_identity.xml" value="0.12335359675785208" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_password.xml" value="0.12952898550724637" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_phone.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_search.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/flight_item.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.12545289855072464" />
         <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
         <entry key="..\:/Project/Android/android-project001/app/src/main/res/layout/activity_sign_in.xml" value="0.5536458333333333" />
@@ -33,7 +35,7 @@
         <entry key="..\:/android-project001/app/src/main/res/layout/allcreek.xml" value="0.2536231884057971" />
         <entry key="..\:/android-project001/app/src/main/res/layout/bottom.xml" value="0.27355072463768115" />
         <entry key="..\:/android-project001/app/src/main/res/layout/deleline.xml" value="0.2536231884057971" />
-        <entry key="..\:/android-project001/app/src/main/res/layout/flight_item.xml" value="0.264" />
+        <entry key="..\:/android-project001/app/src/main/res/layout/flight_item.xml" value="0.1" />
         <entry key="..\:/android-project001/app/src/main/res/layout/fragment_mine.xml" value="0.2" />
         <entry key="..\:/android-project001/app/src/main/res/layout/fragment_search.xml" value="0.264" />
         <entry key="..\:/android-project001/app/src/main/res/layout/order_item.xml" value="0.1" />

@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
@@ -29,11 +33,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
-    public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="",phone="";
+    public String takeoff_time="",takeoff_city="",landing_city="",eco="",bus="",direct="",share="",domestic="",phone="",id="";
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0;
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
     public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
+    private ImageButton back_to_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,18 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter = new FlightAdapter(flightList,planeTicketList,SearchActivity.this,myAttentionsPlaneTicketList,phone);
         recyclerView.setAdapter(adapter);
+        back_to_search = findViewById(R.id.back_to_search);
+        back_to_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(SearchActivity.this, FunctionActivity.class);
+                intent.putExtra("phone",phone);
+                intent.putExtra("id",id);
+                intent.putExtra("frag",0);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initFlight() throws SQLException {
@@ -56,6 +73,7 @@ public class SearchActivity extends AppCompatActivity {
         takeoff_time = getIntent().getStringExtra("takeoff_time");
         landing_city = getIntent().getStringExtra("landing_city");
         phone = getIntent().getStringExtra("phone");
+        id = getIntent().getStringExtra("id");
         eco = getIntent().getStringExtra("is_eco");
         bus = getIntent().getStringExtra("is_bus");
         direct = getIntent().getStringExtra("is_direct");
