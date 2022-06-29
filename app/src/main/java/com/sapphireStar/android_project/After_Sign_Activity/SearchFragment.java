@@ -51,7 +51,7 @@ public class SearchFragment extends Fragment{
     private String str_place;
     private int year,month,day_of_month;
     private Calendar mCalendar;
-    public String phone="";
+    public String phone="",id="";
 
     //城市选择底部上滑窗口
     private View city_selection;
@@ -172,7 +172,9 @@ public class SearchFragment extends Fragment{
                     intent.putExtra("is_share",share);
                     intent.putExtra("is_domestic",domestic);
                     phone = getActivity().getIntent().getStringExtra("phone");
+                    id = getActivity().getIntent().getStringExtra("id");
                     intent.putExtra("phone",phone);
+                    intent.putExtra("id",id);
                     //Toast.makeText(getActivity(), takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     break;
