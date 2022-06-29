@@ -44,14 +44,14 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
             IDF = "%";
         }
         else{
-            IDF = "1";
+            IDF = "0";
         }
         String ISH;
         if(is_share == 0){
             ISH = "%";
         }
         else{
-            ISH = "1";
+            ISH = "0";
         }
         if(dateFind.equals("")){
             dateFind = "%";
