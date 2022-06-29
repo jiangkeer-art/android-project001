@@ -112,7 +112,7 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
 
     @Override
     public Object Login(String phone, String password) throws SQLException {
-        String sql = "select * from `user` where phone = " + phone + " and password = " + password;
+        String sql = "select * from `user` where phone = '" + phone + "' and password = '" + password + "'";
         Log.d("test", sql);
         getDatabase();
         preparedStatement = connection.prepareStatement(sql);
