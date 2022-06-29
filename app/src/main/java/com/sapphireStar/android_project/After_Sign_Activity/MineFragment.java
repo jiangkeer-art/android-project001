@@ -19,6 +19,7 @@ import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.MineActivity.Change_Phone;
 import com.sapphireStar.android_project.MineActivity.Identity_Confirm;
+import com.sapphireStar.android_project.MineActivity.MyAttention;
 import com.sapphireStar.android_project.OrderActivity.OrderActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.android_project.SearchActivity.SearchActivity;
@@ -114,7 +115,10 @@ public class MineFragment extends Fragment {
                     dialog.show();
                     break;
                 case R.id.attention:
-
+                    intent = new Intent(getActivity(), MyAttention.class);
+                    intent.putExtra("phone",phone);
+                    intent.putExtra("id",ID);
+                    startActivity(intent);
                     break;
             }
         }
