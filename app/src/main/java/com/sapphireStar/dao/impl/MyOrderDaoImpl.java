@@ -69,7 +69,8 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
     @Override
     public void addMyOrder(int plane_ticket_number, String phone, int order_number,int state) throws SQLException {
         getDatabase();
-        String sql = "insert into my_order(order_number,phone,plane_ticket_number) values ("+ order_number +","+ phone +","+plane_ticket_number+","+state+")";
+        String sql = "insert into my_order(order_number,phone,plane_ticket_number,state) values ('"+ order_number +"','"+ phone +"',"+plane_ticket_number+","+state+")";
+        //String sql = "insert into my_order(order_number,phone,plane_ticket_number) values ("+ order_number +","+ phone +","+plane_ticket_number+","+state+")";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
         closeDatabase();
