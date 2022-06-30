@@ -43,7 +43,7 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         //Cursor cursor = db.query("My_Order",new String[]{"*"},"phone = " + phone,null,null,null,null);
         MyOrder myOrder = null;
         while(cursor.next()){
-            objects = new Object[2];
+            objects = new Object[3];
             myOrder = new MyOrder();
             myOrder.setOrder_number(cursor.getInt("order_number"));
             myOrder.setPhone(cursor.getString("phone"));
@@ -54,7 +54,10 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
                 myOrder.setState(cursor.getString("state"));
                 Log.d("sqllll", myOrder.getPhone()+" "+myOrder.getPlane_ticket_number());
                 planeTicket=String.valueOf(myOrder.getPlane_ticket_number());
-                objects = flightDao.GetFlightsByPT(planeTicket);
+                Object[] o = flightDao.GetFlightsByPT(planeTicket);
+                objects[0] = o[0];
+                objects[1] = o[1];
+                objects[2] = myOrder;
                 list.add(objects);
             }
         }
