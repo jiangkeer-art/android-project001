@@ -23,7 +23,10 @@ import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHolder>{
@@ -56,7 +59,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         Flight flight = mFlightList.get(position);
         PlaneTicket planeTicket = mPlaneTicket.get(position);
 
-        holder.flight_number.setText(flight.getFlight_number()+"航班号");
+        holder.flight_number.setText(flight.getFlight_number()+"航班");
         holder.air_company.setText(flight.getAirline_company());
         String takeoff_time_string = flight.getTakeoff_time().toString();
         char[] time = takeoff_time_string.toCharArray();
@@ -98,7 +101,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             holder.is_share.setText("共享航班");
         }
         else
-            holder.is_share.setText("私密航班");
+            holder.is_share.setText("非共享航班");
         if(flight.getFood()==1){
             holder.food.setText("有餐食");
         }else
@@ -108,7 +111,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         holder.time_period.setText("共计"+flight.getTime_period()+"分钟");
 
         holder.is_bus.setText(planeTicket.getShipping_space());
-        holder.price.setText("¥:"+planeTicket.getPrice());
+        holder.price.setText("¥"+planeTicket.getPrice());
 
         if(mmyAttentions!=null) {
             //Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
@@ -168,6 +171,16 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 int ticket_number=planeTicket.getPlane_ticket_number();
+                String ticket_number_string = String.valueOf(ticket_number);
+                Date takeoff_time=planeTicket.getTakeoff_time();
+                String takeoff_time_string = planeTicket.getTakeoff_time().toString();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    takeoff_time = (Date)format.parse(takeoff_time_string);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                takeoff_time_string = takeoff_time.toString();
                 CommonDB db = new CommonDB();
                 SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
                 MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
@@ -188,7 +201,11 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                     }
                 }
                 else if(mState.equals("0")){
-
+                    try {
+                        myOrderDao.modifyState(ticket_number_string);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

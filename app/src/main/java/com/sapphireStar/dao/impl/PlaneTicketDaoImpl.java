@@ -5,16 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.sapphireStar.android_project.DataBase.DataBaseHelper;
+import com.sapphireStar.android_project.DataBase.MySqlHelper;
 import com.sapphireStar.dao.PlaneTicketDao;
 import com.sapphireStar.entity.PlaneTicket;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PlaneTicketDaoImpl implements PlaneTicketDao {
+public class PlaneTicketDaoImpl extends MySqlHelper implements PlaneTicketDao {
     private SQLiteDatabase db;
     public PlaneTicketDaoImpl(SQLiteDatabase sdb){
         db = sdb;

@@ -84,17 +84,33 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
 //                " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
 //                " and Plane_Ticket.shipping_space like " + "'" + shipping_space + "'",null,null,null,null);
         getDatabase();
-        String sql = "SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
-                "FROM Flight,Plane_Ticket " +
-                "WHERE Flight.takeoff_time like '"+ dateFind +"'"+
-                " and landing_city = '" + landing_city + "'" +
-                " and takeoff_city = '"+ takeoff_city +"'" +
-                " and is_domestic = "+ is_domestic +"" +
-                " and is_share like '" + ISH + "'" +
-                " and is_direct_flight like '" + IDF + "'" +
-                " and Flight.flight_number = Plane_Ticket.flight_number" +
-                " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
-                " and Plane_Ticket.shipping_space like '" + shipping_space + "'";
+        String sql = null;
+        if(dateFind.equals("%")){
+            sql = "SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
+                    "FROM Flight,Plane_Ticket " +
+                    "WHERE Flight.takeoff_time like '"+ dateFind +"'"+
+                    " and landing_city = '" + landing_city + "'" +
+                    " and takeoff_city = '"+ takeoff_city +"'" +
+                    " and is_domestic = "+ is_domestic +"" +
+                    " and is_share like '" + ISH + "'" +
+                    " and is_direct_flight like '" + IDF + "'" +
+                    " and Flight.flight_number = Plane_Ticket.flight_number" +
+                    " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
+                    " and Plane_Ticket.shipping_space like '" + shipping_space + "'";
+        }
+        else{
+            sql = "SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
+                    "FROM Flight,Plane_Ticket " +
+                    "WHERE DATEDIFF(Flight.takeoff_time,'"+ dateFind +"') = 0 "+
+                    " and landing_city = '" + landing_city + "'" +
+                    " and takeoff_city = '"+ takeoff_city +"'" +
+                    " and is_domestic = "+ is_domestic +"" +
+                    " and is_share like '" + ISH + "'" +
+                    " and is_direct_flight like '" + IDF + "'" +
+                    " and Flight.flight_number = Plane_Ticket.flight_number" +
+                    " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
+                    " and Plane_Ticket.shipping_space like '" + shipping_space + "'";
+        }
         preparedStatement = connection.prepareStatement(sql);
 //        preparedStatement.setString(1,dateFind);
 //        preparedStatement.setString(2,landing_city);
