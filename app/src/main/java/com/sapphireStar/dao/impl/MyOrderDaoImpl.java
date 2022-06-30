@@ -80,6 +80,7 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         preparedStatement.execute();
         closeDatabase();
     }
+
     @Override
     public int modifyState(String order_number) throws SQLException {
         getDatabase();
