@@ -29,10 +29,26 @@
             android:textSize="30dp"
             android:textStyle="bold"/>
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycle_view_search"
-        android:background="#D7E6E6"/>
+        android:orientation="vertical"
+        android:background="#D7E6E6">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycle_view_search"
+            android:background="#D7E6E6">
+        </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/float_btn"
+            android:layout_margin="20dp"
+            android:layout_gravity="bottom|left"
+            android:src="@drawable/ic_float_btn"
+            app:elevation="8dp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

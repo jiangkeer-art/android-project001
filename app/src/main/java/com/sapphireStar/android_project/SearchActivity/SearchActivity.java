@@ -8,12 +8,17 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.MineActivity.Change_Password;
 import com.sapphireStar.android_project.R;
@@ -39,12 +44,21 @@ public class SearchActivity extends AppCompatActivity {
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
     public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
     private ImageButton back_to_search;
+    private FloatingActionButton float_btn;
+    //选择筛选条件底部上滑窗口
+    private View filter;
+    private BottomSheetDialog bottomSheetDialog;
+    private ConditionViewGroup shareGroup,directGroup,sortGroup,seatGroup;
+    private TextView confirm;
+
+    private  final ArrayList<String> sharetext = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         try {
+            initdata();
             initFlight();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,6 +68,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter = new FlightAdapter(flightList,planeTicketList,SearchActivity.this,myAttentionsPlaneTicketList,phone);
         recyclerView.setAdapter(adapter);
+
         back_to_search = findViewById(R.id.back_to_search);
         back_to_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +81,112 @@ public class SearchActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //为选择筛选条件弹窗绑定布局
+        filter = LayoutInflater.from(this).inflate(R.layout.filter,null);
+        bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(filter);
+
+        final ArrayList<String> sharetext = new ArrayList<>();
+        sharetext.add("隐藏共享航班");
+        sharetext.add("显示共享航班");
+        shareGroup = filter.findViewById(R.id.shareGroup);
+        shareGroup.addItemViews(sharetext, ConditionViewGroup.TEV_MODE);
+        shareGroup.chooseItemStyle(0);
+        shareGroup.setGroupClickListener(new ConditionViewGroup.OnGroupItemClickListener() {
+            @Override
+            public void onGroupItemClick(int item) {
+                if (sharetext.get(item).toString().equals("隐藏共享航班")){
+                    is_share = 0;
+                }else{
+                    is_share = 1;
+                }
+            }
+        });
+
+        final ArrayList<String> directtext = new ArrayList<>();
+        directtext.add("仅看直飞航班");
+        directtext.add("显示经停航班");
+        directGroup = filter.findViewById(R.id.directGroup);
+        directGroup.addItemViews(directtext, ConditionViewGroup.TEV_MODE);
+        directGroup.chooseItemStyle(0);
+        directGroup.setGroupClickListener(new ConditionViewGroup.OnGroupItemClickListener() {
+            @Override
+            public void onGroupItemClick(int item) {
+                if (directtext.get(item).toString().equals("仅看直飞航班")){
+                    is_direct = 1;
+                }else{
+                    is_direct = 0;
+                }
+            }
+        });
+
+        final ArrayList<String> sorttext = new ArrayList<>();
+        sorttext.add("按价格升序");
+        sorttext.add("按价格降序");
+        sortGroup = filter.findViewById(R.id.sortGroup);
+        sortGroup.addItemViews(sorttext, ConditionViewGroup.TEV_MODE);
+        sortGroup.chooseItemStyle(0);
+        sortGroup.setGroupClickListener(new ConditionViewGroup.OnGroupItemClickListener() {
+            @Override
+            public void onGroupItemClick(int item) {
+                if (sorttext.get(item).toString().equals("按价格升序")){
+
+                }else{
+
+                }
+            }
+        });
+
+        final ArrayList<String> seattext = new ArrayList<>();
+        seattext.add("只看经济舱");
+        seattext.add("只看头等舱");
+        seattext.add("无舱位需求");
+        seatGroup = filter.findViewById(R.id.seatGroup);
+        seatGroup.addItemViews(seattext, ConditionViewGroup.TEV_MODE);
+        seatGroup.chooseItemStyle(0);
+        seatGroup.setGroupClickListener(new ConditionViewGroup.OnGroupItemClickListener() {
+            @Override
+            public void onGroupItemClick(int item) {
+                if (seattext.get(item).toString().equals("只看经济舱")){
+                    is_eco = 1;
+                    is_bus = 0;
+                }else if (seattext.get(item).toString().equals("只看头等舱")){
+                    is_eco = 0;
+                    is_bus = 1;
+                }else{
+                    is_eco = 0;
+                    is_bus = 0;
+                }
+            }
+        });
+
+
+        float_btn = findViewById(R.id.float_btn);
+        float_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.show();
+            }
+        });
+
+        //根据筛选条件更新数据集
+        confirm = filter.findViewById(R.id.yes);
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    initFlight();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
-    private void initFlight() throws SQLException {
+    private void initdata(){
         takeoff_city = getIntent().getStringExtra("takeoff_city");
         takeoff_time = getIntent().getStringExtra("takeoff_time");
         landing_city = getIntent().getStringExtra("landing_city");
@@ -84,8 +202,12 @@ public class SearchActivity extends AppCompatActivity {
         is_direct = Integer.valueOf(direct).intValue();
         is_share = Integer.valueOf(share).intValue();
         is_domestic = Integer.valueOf(domestic).intValue();
-        Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
+    }
 
+    private void initFlight() throws SQLException {
+        flightList.clear();
+        planeTicketList.clear();
+        Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
         FlightDao flightDao = new FlightDaoImpl(sqlite);
