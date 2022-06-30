@@ -107,16 +107,20 @@ public class MainActivity extends AppCompatActivity {
             Intent intent;
             switch(v.getId()){
                 case R.id.quick_register:
+                    //点击注册按钮
                     intent=new Intent(MainActivity.this, RegisterActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.forget_password:break;
 
                 case R.id.sing_in:
+                    //点击登录按钮
                     EditText editText1 = (EditText) findViewById(R.id.username);
                     EditText editText2 = (EditText) findViewById(R.id.password);
+                    //获取用户名和密码，
                     username = editText1.getText().toString();
                     password = editText2.getText().toString();
+                    //进入数据库进行查询
                     CommonDB db = new CommonDB();
                     SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
                     AdministratorDao administratorDao = new AdministratorDaoImpl(sqlite);

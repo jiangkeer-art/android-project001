@@ -41,16 +41,22 @@ public class MyOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order2);
+
+        //获取订单数据
         try {
             initOrder();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //设置adapter
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MyOrderActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         MyOrderAdapter adapter = new MyOrderAdapter(flightList,planeTicketList, MyOrderActivity.this,myOrder,phone,state,myAttentionsPlaneTicketList);
         recyclerView.setAdapter(adapter);
+
+        //设置返回按钮
         back_to_mine = findViewById(R.id.back_to_mine);
         back_to_mine.setOnClickListener(new View.OnClickListener() {
             @Override
