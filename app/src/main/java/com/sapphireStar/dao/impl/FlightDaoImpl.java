@@ -246,4 +246,16 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         rs.close();
         return objects;
     }
+
+    @Override
+    public void removeFlight(String flight_number) throws SQLException {
+        getDatabase();
+
+        String sql = "delete * from flight where flight_number = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,flight_number);
+        preparedStatement.execute();
+
+        closeDatabase();
+    }
 }
