@@ -184,6 +184,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             });
         }
         else if(is_admm.equals("1")){
+            holder.order.setText("删");
             holder.order.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
