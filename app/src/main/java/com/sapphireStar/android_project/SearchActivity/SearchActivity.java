@@ -55,6 +55,7 @@ public class SearchActivity extends AppCompatActivity {
     private BottomSheetDialog bottomSheetDialog;
     private ConditionViewGroup shareGroup,directGroup,sortGroup,seatGroup;
     private TextView confirm;
+    private String is_adm = "";
 
     private  final ArrayList<String> sharetext = new ArrayList<>();
 
@@ -177,9 +178,9 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter;
         if(is_sort==0) {
-            adapter = new FlightAdapter(flightList, planeTicketList, SearchActivity.this, myAttentionsPlaneTicketList, phone);
+            adapter = new FlightAdapter(flightList, planeTicketList, SearchActivity.this, myAttentionsPlaneTicketList, phone,is_adm);
         }else{
-            adapter = new FlightAdapter(flightListSort, planeTicketListSort, SearchActivity.this, myAttentionsPlaneTicketList, phone);
+            adapter = new FlightAdapter(flightListSort, planeTicketListSort, SearchActivity.this, myAttentionsPlaneTicketList, phone,is_adm);
         }
         recyclerView.setAdapter(adapter);
 
@@ -215,6 +216,7 @@ public class SearchActivity extends AppCompatActivity {
         is_direct = Integer.valueOf(direct).intValue();
         is_share = Integer.valueOf(share).intValue();
         is_domestic = Integer.valueOf(domestic).intValue();
+        is_adm = getIntent().getStringExtra("adm");
     }
 
     private void initFlight() throws SQLException {

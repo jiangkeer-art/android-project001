@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.MineActivity.MyAttention;
 import com.sapphireStar.android_project.R;
+import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
 import com.sapphireStar.dao.PlaneTicketDao;
+import com.sapphireStar.dao.impl.FlightDaoImpl;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
@@ -41,13 +43,15 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
     private Context mContext;
     private List<PlaneTicket> mmyAttentions;
     private String mPhone;
+    private String is_admm;
 
-    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone){
+    public FlightAdapter(List<Flight> flightList,List<PlaneTicket> planeTicket,Context context,List<PlaneTicket> myAttentions,String phone,String is_adm){
         mContext=context;
         mFlightList=flightList;
         mPlaneTicket=planeTicket;
         mmyAttentions=myAttentions;
         mPhone=phone;
+        is_admm=is_adm;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -161,22 +165,40 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             }
         });
 
-        holder.order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int ticket_number=planeTicket.getPlane_ticket_number();
-                int order_number = (int) ((Math.random() * 9 + 1) * Math.pow(10, 5));
-                CommonDB db = new CommonDB();
-                SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
-                try {
-                    myOrderDao.addMyOrder(ticket_number,mPhone,order_number,0);
-                    Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+        if(is_admm.equals("0")) {
+            holder.order.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int ticket_number = planeTicket.getPlane_ticket_number();
+                    int order_number = (int) ((Math.random() * 9 + 1) * Math.pow(10, 5));
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
+                    MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
+                    try {
+                        myOrderDao.addMyOrder(ticket_number, mPhone, order_number, 0);
+                        Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
+        else if(is_admm.equals("1")){
+            holder.order.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CommonDB db = new CommonDB();
+                    SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
+                    FlightDao flightDao = new FlightDaoImpl(sqlite);
+                    try {
+                        flightDao.removeFlight(flight.getFlight_number());
+                        Toast.makeText(mContext, "delete succession", Toast.LENGTH_SHORT).show();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
     @Override

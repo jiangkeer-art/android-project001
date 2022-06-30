@@ -146,8 +146,11 @@ public class MainActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             id = user_info.getId();
+                            String is_administrator="1";
                             intent.putExtra("id",id);
                             intent.putExtra("Administrator",(Administrator)obj);
+                            intent.putExtra("adm",is_administrator);
+
                         }
                         else {
                             NormalUser user_info = null;
@@ -157,8 +160,10 @@ public class MainActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             id = user_info.getId();
+                            String is_administrator="0";
                             intent.putExtra("id",id);
                             intent.putExtra("NormalUser",(NormalUser)obj);
+                            intent.putExtra("administrator",is_administrator);
                         }
                         startActivity(intent);
                         break;
