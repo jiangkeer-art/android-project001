@@ -19,12 +19,14 @@ import com.sapphireStar.dao.MyOrderDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,16 +36,18 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     private List<Flight> mFlightList;
     private List<PlaneTicket> mPlaneTicket;
     private Context mContext;
-    private List<PlaneTicket> mmyAttentions;
+    private List<MyOrder> myOrder;
     private String mPhone,mState;
+    public List<PlaneTicket> myAttentionsPlaneTicketList;
 
-    public MyOrderAdapter(List<Flight> flightList, List<PlaneTicket> planeTicket, Context context, List<PlaneTicket> myAttentions, String phone,String state){
+    public MyOrderAdapter(List<Flight> flightList, List<PlaneTicket> planeTicket, Context context, List<MyOrder> myOrders, String phone,String state,List<PlaneTicket> myAttentionsPlaneTicketLists){
         mContext=context;
         mFlightList=flightList;
         mPlaneTicket=planeTicket;
-        mmyAttentions=myAttentions;
+        myOrder=myOrders;
         mPhone=phone;
         mState=state;
+        myAttentionsPlaneTicketList=myAttentionsPlaneTicketLists;
     }
 
     @NonNull
@@ -58,6 +62,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Flight flight = mFlightList.get(position);
         PlaneTicket planeTicket = mPlaneTicket.get(position);
+        MyOrder order = myOrder.get(position);
 
         holder.flight_number.setText(flight.getFlight_number()+"航班");
         holder.air_company.setText(flight.getAirline_company());
@@ -113,11 +118,11 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         holder.is_bus.setText(planeTicket.getShipping_space());
         holder.price.setText("¥"+planeTicket.getPrice());
 
-        if(mmyAttentions!=null) {
+        if(myAttentionsPlaneTicketList!=null) {
             //Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
             PlaneTicket planeTicket1;
-            for (int i = 0; i < mmyAttentions.size(); i++) {
-                planeTicket1=mmyAttentions.get(i);
+            for (int i = 0; i < myAttentionsPlaneTicketList.size(); i++) {
+                planeTicket1=myAttentionsPlaneTicketList.get(i);
                 if (planeTicket.getPlane_ticket_number() == planeTicket1.getPlane_ticket_number()) {
                     holder.is_attentiond = 1;
                     holder.attention.setImageResource(R.drawable.shoucang2);
@@ -202,7 +207,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 }
                 else if(mState.equals("0")){
                     try {
-                        myOrderDao.modifyState(ticket_number_string);
+                        myOrderDao.modifyState(String.valueOf(order.getOrder_number()));
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -221,7 +226,6 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         public ImageButton attention;
         public Button order;
         public int is_attentiond=0;
-        public String testState="";
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             flight_number = itemView.findViewById(R.id.flight_number);

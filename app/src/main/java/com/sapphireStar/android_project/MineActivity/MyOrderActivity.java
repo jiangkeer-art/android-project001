@@ -16,10 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
+import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
 import com.sapphireStar.dao.impl.FlightDaoImpl;
+import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
+import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
 import com.sapphireStar.util.CommonDB;
 
@@ -31,8 +34,9 @@ public class MyOrderActivity extends AppCompatActivity {
     public String phone="",state = "",id="";
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
-    public List<PlaneTicket> myOrder = new ArrayList<>();
+    public List<MyOrder> myOrder = new ArrayList<>();
     private ImageButton back_to_mine;
+    public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +49,7 @@ public class MyOrderActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MyOrderActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-        MyOrderAdapter adapter = new MyOrderAdapter(flightList,planeTicketList, MyOrderActivity.this,myOrder,phone,state);
+        MyOrderAdapter adapter = new MyOrderAdapter(flightList,planeTicketList, MyOrderActivity.this,myOrder,phone,state,myAttentionsPlaneTicketList);
         recyclerView.setAdapter(adapter);
         back_to_mine = findViewById(R.id.back_to_mine);
         back_to_mine.setOnClickListener(new View.OnClickListener() {
@@ -84,13 +88,30 @@ public class MyOrderActivity extends AppCompatActivity {
             Object[] objects1;
             PlaneTicket myOrderTicket;
             Flight flight;
+            MyOrder order;
             for(int i=0;i<list1.size();i++) {
                 objects1 = list1.get(i);
                 myOrderTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
                 flight = objectMapper.convertValue(objects1[0],Flight.class);
+                order = objectMapper.convertValue(objects1[2],MyOrder.class);
                 flightList.add(flight);
                 planeTicketList.add(myOrderTicket);
-                myOrder.add(myOrderTicket);
+                myOrder.add(order);
+            }
+        }
+
+        MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+        if(myAttention.getMyAttention(phone)==null){
+            myAttentionsPlaneTicketList=null;
+        }
+        else{
+            List<Object[]> list2 = myAttention.getMyAttention(phone);
+            Object[] objects1;
+            PlaneTicket myAttentionPlaneTicket;
+            for(int i=0;i<list2.size();i++) {
+                objects1 = list2.get(i);
+                myAttentionPlaneTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
+                myAttentionsPlaneTicketList.add(myAttentionPlaneTicket);
             }
         }
     }
