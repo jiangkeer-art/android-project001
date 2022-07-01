@@ -100,8 +100,11 @@ public class MainActivity extends AppCompatActivity {
                     intent=new Intent(MainActivity.this, RegisterActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.forget_password:break;
-
+                case R.id.forget_password:
+                    //点击忘记密码按钮
+                    intent=new Intent(MainActivity.this, ForgetPassword.class);
+                    startActivity(intent);
+                    break;
                 case R.id.sing_in:
                     //点击登录按钮
                     EditText editText1 = (EditText) findViewById(R.id.username);

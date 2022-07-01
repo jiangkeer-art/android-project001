@@ -9,6 +9,8 @@
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_identity.xml" value="0.12335359675785208" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_password.xml" value="0.12952898550724637" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_change_phone.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_forget_password.xml" value="0.25364583333333335" />
+        <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_my_attention.xml" value="0.20208333333333334" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_order2.xml" value="0.1875" />
         <entry key="..\:/AndroidStudioProject/android-project001/app/src/main/res/layout/activity_search.xml" value="0.264" />
@@ -57,7 +59,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
