@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
     public List<PlaneTicket> planeTicketListSort = new ArrayList<>();
     public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
     private ImageButton back_to_search;
-    private FloatingActionButton float_btn;
+    private TextView float_btn;
     //选择筛选条件底部上滑窗口
     private View filter;
     private BottomSheetDialog bottomSheetDialog;
