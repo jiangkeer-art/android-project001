@@ -148,7 +148,7 @@ public class SearchFragment extends Fragment{
 
 
     private class OnClick implements View.OnClickListener{
-
+        public String is_adm="";
         @Override
         public void onClick(View v) {
             Intent intent;
@@ -173,6 +173,8 @@ public class SearchFragment extends Fragment{
                     intent.putExtra("is_domestic",domestic);
                     phone = getActivity().getIntent().getStringExtra("phone");
                     id = getActivity().getIntent().getStringExtra("id");
+                    is_adm = getActivity().getIntent().getStringExtra("adm");
+                    intent.putExtra("adm",is_adm);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",id);
                     //Toast.makeText(getActivity(), takeoff_city+landing_city+takeoff_time+ eco+bus+direct+share+domestic, Toast.LENGTH_SHORT).show();
@@ -197,6 +199,8 @@ public class SearchFragment extends Fragment{
                     landing_cityy = place22.getText().toString();
                     takeoff_timee = day11.getText().toString();
                     intent = new Intent(getActivity(), SearchActivity.class);
+                    is_adm = getActivity().getIntent().getStringExtra("adm");
+                    intent.putExtra("adm",is_adm);
                     intent.putExtra("takeoff_city",takeoff_cityy);
                     intent.putExtra("landing_city",landing_cityy);
                     intent.putExtra("takeoff_time",takeoff_timee);

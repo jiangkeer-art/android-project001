@@ -39,16 +39,19 @@ public class MyAttention extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_attention);
+        //首先获取数据
         try {
             initAttention();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //获取布局文件中的recycleView控件并设置adapter
         RecyclerView recyclerView = findViewById(R.id.recycle_view_search);
         LinearLayoutManager layoutManager = new LinearLayoutManager(MyAttention.this);
         recyclerView.setLayoutManager(layoutManager);
         MyAttentionAdapter adapter = new MyAttentionAdapter(flightList,planeTicketList,MyAttention.this,myAttentionsPlaneTicketList,phone);
         recyclerView.setAdapter(adapter);
+        //返回按钮
         back_to_mine = findViewById(R.id.back_to_mine);
         back_to_mine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +65,19 @@ public class MyAttention extends AppCompatActivity {
             }
         });
     }
+
     private void initAttention() throws SQLException {
+        //获取当前用户信息
         phone = getIntent().getStringExtra("phone");
         id = getIntent().getStringExtra("id");
         //Log.d("testTTTMyA",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
+        //连接数据库
         CommonDB db = new CommonDB();
         SQLiteDatabase sqlite = db.getSqliteObject(MyAttention.this,"FlightDataBase.db");
         ObjectMapper objectMapper = new ObjectMapper();
 
+        //获取MyAttention数据并分别添加到相应的List中
         MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
         if(myAttention.getMyAttention(phone)==null){
             myAttentionsPlaneTicketList=null;

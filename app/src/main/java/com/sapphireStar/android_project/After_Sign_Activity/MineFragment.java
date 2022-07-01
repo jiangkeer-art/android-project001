@@ -39,6 +39,7 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine,container,false);
+        //添加点击事件监听
         id = view.findViewById(R.id.id);
         attention = view.findViewById(R.id.attention);
         username= view.findViewById(R.id.username);
@@ -58,7 +59,7 @@ public class MineFragment extends Fragment {
         change_phone.setOnClickListener(onClick);
         real_confirm.setOnClickListener(onClick);
         attention.setOnClickListener(onClick);
-
+        //获取从登录界面传来的ID和手机号并显示
         ID = getActivity().getIntent().getStringExtra("id");
         phone = getActivity().getIntent().getStringExtra("phone");
         userName = "用户名："+phone;
@@ -68,6 +69,7 @@ public class MineFragment extends Fragment {
         return view;
     }
 
+    //点击事件
     private class OnClick implements View.OnClickListener{
 
         @Override
@@ -75,6 +77,7 @@ public class MineFragment extends Fragment {
             Intent intent;
             switch (v.getId()){
                 case R.id.complete:
+                    //已完成按钮的点击事件
                     state="1";
                     intent = new Intent(getActivity(), MyOrderActivity.class);
                     intent.putExtra("phone",phone);
@@ -84,6 +87,7 @@ public class MineFragment extends Fragment {
                     break;
 
                 case R.id.incomplete:
+                    //未完成按钮的点击事件
                     state="0";
                     //Toast.makeText(getActivity(), "addssdasdasdasda ", Toast.LENGTH_SHORT).show();
                     intent = new Intent(getActivity(), MyOrderActivity.class);
@@ -95,6 +99,7 @@ public class MineFragment extends Fragment {
                     break;
 
                 case R.id.changed:
+                    //退改签按钮的点击事件
                     state="2";
                     intent = new Intent(getActivity(), MyOrderActivity.class);
                     intent.putExtra("phone",phone);
@@ -104,12 +109,14 @@ public class MineFragment extends Fragment {
                     break;
 
                 case R.id.change_password:
+                    //修改密码按钮
                     intent = new Intent(getActivity(), Change_Password.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
                     startActivity(intent);
                     break;
                 case R.id.change_phone:
+                    //修改账号按钮
                     intent = new Intent(getActivity(), Change_Phone.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
@@ -117,6 +124,7 @@ public class MineFragment extends Fragment {
                     break;
 
                 case R.id.identity_confirm:
+                    //添加实名信息按钮
                     intent = new Intent(getActivity(), Identity_Confirm.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
@@ -124,6 +132,7 @@ public class MineFragment extends Fragment {
                     break;
 
                 case R.id.exit:
+                    //注销账号按钮
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setTitle("确定要退出当前账号吗？");
                     dialog.setCancelable(false);
@@ -138,6 +147,7 @@ public class MineFragment extends Fragment {
                     dialog.show();
                     break;
                 case R.id.attention:
+                    //我的收藏按钮
                     intent = new Intent(getActivity(), MyAttention.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
