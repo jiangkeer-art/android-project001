@@ -257,6 +257,7 @@ public class SearchActivity extends AppCompatActivity {
         if (list==null){
             Toast.makeText(this, "未找到符合条件的航班", Toast.LENGTH_LONG).show();
         }else{
+            //排序
             if(is_sort==1) {
                 for (int i = 0; i < list.size(); i++) {
                     objects = list.get(i);
