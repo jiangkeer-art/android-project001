@@ -253,6 +253,27 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+        Collections.sort(list,new Comparator<Object[]>(){
+            @Override
+            public int compare(Object[] objects1,Object[] objects2){
+                ObjectMapper objectMapper = new ObjectMapper();
+                PlaneTicket planeTicketSort2,planeTicketSort3;
+                planeTicketSort2 = objectMapper.convertValue(objects1[1], PlaneTicket.class);
+                planeTicketSort3 = objectMapper.convertValue(objects2[1], PlaneTicket.class);
+                int price1,price2;
+                price1 = planeTicketSort2.getPrice();
+                price2 = planeTicketSort3.getPrice();
+                int diff = price2-price1;
+                if (diff > 0) {
+                    return 1;
+                }
+                else if(diff < 0){
+                    return -1;
+                }
+                return 0;
+            }
+        });
+
         Object[] objects;
         ObjectMapper objectMapper = new ObjectMapper();
         if (list==null){
