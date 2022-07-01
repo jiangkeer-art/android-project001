@@ -231,7 +231,7 @@ public class SearchActivity extends AppCompatActivity {
 
         //获取航班信息
         List<Object[]> list=new ArrayList<>();
-        if(flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share)!=null){
+        if (flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share)!=null){
             list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
         }
         List<Object[]> list2=list;
