@@ -6,6 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface PlaneTicketDao {
-    List<PlaneTicket> getPlaneTicketByFlight(String flight) throws SQLException;
+    List<PlaneTicket> getPlaneTicketByFlight(String flight_number) throws SQLException;
 
 }

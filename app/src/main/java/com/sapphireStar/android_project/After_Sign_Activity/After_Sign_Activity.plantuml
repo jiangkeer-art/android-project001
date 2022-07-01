@@ -1,0 +1,154 @@
+@startuml
+
+title __AFTER_SIGN_ACTIVITY's Class Diagram__\n
+
+  namespace com.sapphireStar.android_project {
+    namespace After_Sign_Activity {
+      class com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity {
+          ~ fm : FragmentManager
+          - frag : int
+          - mine_btn : LinearLayout
+          - mine_ibt : ImageButton
+          - mine_tab : Fragment
+          - mine_text : TextView
+          - schedule_btn : LinearLayout
+          - schedule_ibt : ImageButton
+          - schedule_tab : Fragment
+          - schedule_text : TextView
+          + onClick()
+          + onCreate()
+          # onRestart()
+          # onStop()
+          - initEvents()
+          - initFragment()
+          - initViews()
+          - resetImgs()
+          - selectTab()
+      }
+    }
+  }
+  
+
+  namespace com.sapphireStar.android_project {
+    namespace After_Sign_Activity {
+      class com.sapphireStar.android_project.After_Sign_Activity.MineFragment {
+          + ID : String
+          + attention : Button
+          + change_password : ImageButton
+          + change_phone : ImageButton
+          + changed : ImageButton
+          + complete : ImageButton
+          + exit : Button
+          + phone : String
+          + real_confirm : ImageButton
+          + state : String
+          + uncomplete : ImageButton
+          + userName : String
+          - id : TextView
+          - username : TextView
+          + onCreate()
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.sapphireStar.android_project {
+    namespace After_Sign_Activity {
+      class com.sapphireStar.android_project.After_Sign_Activity.MineFragment.OnClick {
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.sapphireStar.android_project {
+    namespace After_Sign_Activity {
+      class com.sapphireStar.android_project.After_Sign_Activity.SearchFragment {
+          + bus : String
+          + buss : String
+          + day : TextView
+          + day11 : EditText
+          + direct : String
+          + directt : String
+          + domestic : String
+          + domesticc : String
+          + eco : String
+          + ecoo : String
+          + id : String
+          + is_bus : RadioButton
+          + is_buss : RadioButton
+          + is_direct : CheckBox
+          + is_directt : CheckBox
+          + is_eco : RadioButton
+          + is_ecoo : RadioButton
+          + is_share : CheckBox
+          + is_sharee : CheckBox
+          + landing_city : String
+          + landing_cityy : String
+          + phone : String
+          + place1 : TextView
+          + place11 : EditText
+          + place2 : TextView
+          + place22 : EditText
+          + search_button : Button
+          + search_buttonn : Button
+          + share : String
+          + sharee : String
+          + takeoff_city : String
+          + takeoff_cityy : String
+          + takeoff_time : String
+          + takeoff_timee : String
+          - beijing : Button
+          - bottomSheetDialog : BottomSheetDialog
+          - changchun : Button
+          - chengdu : Button
+          - chongqing : Button
+          - city_selection : View
+          - dalian : Button
+          - day_of_month : int
+          - jixi : Button
+          - mCalendar : Calendar
+          - month : int
+          - place1_selection : Integer
+          - place2_selection : Integer
+          - shijiazhuang : Button
+          - str_place : String
+          - tianjin : Button
+          - xian : Button
+          - year : int
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.sapphireStar.android_project {
+    namespace After_Sign_Activity {
+      class com.sapphireStar.android_project.After_Sign_Activity.SearchFragment.OnClick {
+          + is_adm : String
+          + onClick()
+      }
+    }
+  }
+  
+
+  com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity .up.|> android.view.View.OnClickListener
+  com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity -up-|> androidx.fragment.app.FragmentActivity
+  com.sapphireStar.android_project.After_Sign_Activity.MineFragment -up-|> androidx.fragment.app.Fragment
+  com.sapphireStar.android_project.After_Sign_Activity.MineFragment +-down- com.sapphireStar.android_project.After_Sign_Activity.MineFragment.OnClick
+  com.sapphireStar.android_project.After_Sign_Activity.MineFragment.OnClick .up.|> android.view.View.OnClickListener
+  com.sapphireStar.android_project.After_Sign_Activity.SearchFragment -up-|> androidx.fragment.app.Fragment
+  com.sapphireStar.android_project.After_Sign_Activity.SearchFragment o-- com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity : functionActivity
+  com.sapphireStar.android_project.After_Sign_Activity.SearchFragment +-down- com.sapphireStar.android_project.After_Sign_Activity.SearchFragment.OnClick
+  com.sapphireStar.android_project.After_Sign_Activity.SearchFragment.OnClick .up.|> android.view.View.OnClickListener
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

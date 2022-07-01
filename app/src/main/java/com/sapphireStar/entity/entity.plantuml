@@ -1,0 +1,206 @@
+@startuml
+
+title __ENTITY's Class Diagram__\n
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.Administrator {
+        - id : String
+        - phone : String
+        {static} - serialVersionUID : long
+        + Administrator()
+        + Administrator()
+        + equals()
+        + getId()
+        + getPhone()
+        + hashCode()
+        + setId()
+        + setPhone()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.Flight {
+        - airline_company : String
+        - departure_terminal : String
+        - flight_number : String
+        - food : int
+        - is_direct_flight : int
+        - is_domestic : int
+        - is_share : int
+        - landing_city : String
+        - landing_terminal : String
+        - punctuality_rate : double
+        {static} - serialVersionUID : long
+        - takeoff_city : String
+        - takeoff_time : Date
+        - time_period : String
+        - transit_city : String
+        + Flight()
+        + Flight()
+        + equals()
+        + getAirline_company()
+        + getDeparture_terminal()
+        + getFlight_number()
+        + getFood()
+        + getIs_direct_flight()
+        + getIs_domestic()
+        + getIs_share()
+        + getLanding_city()
+        + getLanding_terminal()
+        + getPunctuality_rate()
+        + getTakeoff_city()
+        + getTakeoff_time()
+        + getTime_period()
+        + getTransit_city()
+        + hashCode()
+        + setAirline_company()
+        + setDeparture_terminal()
+        + setFlight_number()
+        + setFood()
+        + setIs_direct_flight()
+        + setIs_domestic()
+        + setIs_share()
+        + setLanding_city()
+        + setLanding_terminal()
+        + setPunctuality_rate()
+        + setTakeoff_city()
+        + setTakeoff_time()
+        + setTime_period()
+        + setTransit_city()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.MyAttention {
+        - phone : String
+        - plane_ticket_number : int
+        {static} - serialVersionUID : long
+        + MyAttention()
+        + MyAttention()
+        + equals()
+        + getPhone()
+        + getPlane_ticket_number()
+        + hashCode()
+        + setPhone()
+        + setPlane_ticket_number()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.MyOrder {
+        - order_number : int
+        - phone : String
+        - plane_ticket_number : int
+        {static} - serialVersionUID : long
+        - state : String
+        + MyOrder()
+        + MyOrder()
+        + equals()
+        + getOrder_number()
+        + getPhone()
+        + getPlane_ticket_number()
+        + getState()
+        + hashCode()
+        + setOrder_number()
+        + setPhone()
+        + setPlane_ticket_number()
+        + setState()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.NormalUser {
+        - id : String
+        - idNumber : String
+        - name : String
+        - phone : String
+        {static} - serialVersionUID : long
+        + NormalUser()
+        + NormalUser()
+        + equals()
+        + getId()
+        + getIdNumber()
+        + getName()
+        + getPhone()
+        + hashCode()
+        + isName()
+        + setId()
+        + setIdNumber()
+        + setName()
+        + setPhone()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.PlaneTicket {
+        - flight_number : String
+        - plane_ticket_number : int
+        - price : int
+        {static} - serialVersionUID : long
+        - shipping_space : String
+        - state : String
+        - takeoff_time : Date
+        + PlaneTicket()
+        + PlaneTicket()
+        + equals()
+        + getFlight_number()
+        + getPlane_ticket_number()
+        + getPrice()
+        + getShipping_space()
+        + getState()
+        + getTakeoff_time()
+        + hashCode()
+        + setFlight_number()
+        + setPlane_ticket_number()
+        + setPrice()
+        + setShipping_space()
+        + setState()
+        + setTakeoff_time()
+        + toString()
+    }
+  }
+  
+
+  namespace com.sapphireStar.entity {
+    class com.sapphireStar.entity.User {
+        - password : String
+        - phone : String
+        + User()
+        + User()
+        + equals()
+        + getPassword()
+        + getPhone()
+        + hashCode()
+        + setPassword()
+        + setPhone()
+        + toString()
+    }
+  }
+  
+
+  com.sapphireStar.entity.Administrator .up.|> java.io.Serializable
+  com.sapphireStar.entity.Flight .up.|> java.io.Serializable
+  com.sapphireStar.entity.MyAttention .up.|> java.io.Serializable
+  com.sapphireStar.entity.MyOrder .up.|> java.io.Serializable
+  com.sapphireStar.entity.NormalUser .up.|> java.io.Serializable
+  com.sapphireStar.entity.PlaneTicket .up.|> java.io.Serializable
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

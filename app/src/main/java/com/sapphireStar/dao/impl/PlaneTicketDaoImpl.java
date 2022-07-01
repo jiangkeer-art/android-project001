@@ -16,12 +16,12 @@ import java.util.List;
 
 public class PlaneTicketDaoImpl extends MySqlHelper implements PlaneTicketDao {
     @Override
-    public List<PlaneTicket> getPlaneTicketByFlight(String flight) throws SQLException {
+    public List<PlaneTicket> getPlaneTicketByFlight(String flight_number) throws SQLException {
         getDatabase();
         List<PlaneTicket> list = new ArrayList<PlaneTicket>();
         String sql = "select * from Plane_Ticket where flight_number = ?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,flight);
+        preparedStatement.setString(1,flight_number);
         cursor = preparedStatement.executeQuery();
         PlaneTicket planeTicket = null;
         if(!cursor.next()){

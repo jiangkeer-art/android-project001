@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/allcreek"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:background="@drawable/cheek"
+        >
+        <ImageButton
+            android:layout_marginLeft="1dp"
+            android:id="@+id/back_to_mine"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="70dp"
+            android:gravity="center_vertical"
+            android:text="            实名认证"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/cheek"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:text="姓名："
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入姓名"
+            android:id="@+id/name"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:background="@drawable/deleline"
+            />
+    </LinearLayout>
+
+    <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/cheek"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:text="身份证号："
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入身份证号"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/id_number"
+            android:background="@drawable/deleline"
+            />
+    </LinearLayout>
+
+    <LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/cheek"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:text="密码："
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:id="@+id/password"
+            android:background="@drawable/deleline"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:id="@+id/confirm"
+        android:backgroundTint="#00a0ff"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="30dp"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
