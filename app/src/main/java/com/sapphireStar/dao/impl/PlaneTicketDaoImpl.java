@@ -2,10 +2,8 @@ package com.sapphireStar.dao.impl;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.sapphireStar.android_project.DataBase.DataBaseHelper;
-import com.sapphireStar.android_project.DataBase.MySqlHelper;
+import com.sapphireStar.util.MySqlHelper;
 import com.sapphireStar.dao.PlaneTicketDao;
 import com.sapphireStar.entity.PlaneTicket;
 
@@ -17,21 +15,25 @@ import java.util.Date;
 import java.util.List;
 
 public class PlaneTicketDaoImpl extends MySqlHelper implements PlaneTicketDao {
-    private SQLiteDatabase db;
-    public PlaneTicketDaoImpl(SQLiteDatabase sdb){
-        db = sdb;
-    }
     @Override
-    public List<PlaneTicket> getPlaneTicketByFlight(String flight) {
+    public List<PlaneTicket> getPlaneTicketByFlight(String flight) throws SQLException {
+        getDatabase();
         List<PlaneTicket> list = new ArrayList<PlaneTicket>();
-        Cursor cursor = db.query("Plane_Ticket",new String[]{"*"},"flight_number = "+ "'"+flight+"'",null,null,null,null);
+        String sql = "select * from Plane_Ticket where flight_number = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,flight);
+        cursor = preparedStatement.executeQuery();
         PlaneTicket planeTicket = null;
-        while(cursor.moveToNext()){
+        if(!cursor.next()){
+            return null;
+        }
+        cursor.beforeFirst();
+        while(cursor.next()){
             planeTicket = new PlaneTicket();
-            planeTicket.setPlane_ticket_number(cursor.getInt(0));
-            planeTicket.setFlight_number(cursor.getString(1));
+            planeTicket.setPlane_ticket_number(cursor.getInt("plane_ticket_number"));
+            planeTicket.setFlight_number(cursor.getString("flight_number"));
             Date date = null;
-            String str = cursor.getString(2);
+            String str = cursor.getString("takeoff_time");
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
                 date = (Date)format.parse(str);
@@ -39,12 +41,12 @@ public class PlaneTicketDaoImpl extends MySqlHelper implements PlaneTicketDao {
                 e.printStackTrace();
             }
             planeTicket.setTakeoff_time(date);
-            planeTicket.setPrice(cursor.getInt(3));
-            planeTicket.setShipping_space(cursor.getString(4));
-            planeTicket.setState(cursor.getString(5));
+            planeTicket.setPrice(cursor.getInt("price"));
+            planeTicket.setShipping_space(cursor.getString("shipping_space"));
+            planeTicket.setState(cursor.getString("state"));
             list.add(planeTicket);
         }
-        cursor.close();
+        closeDatabase();
         return list;
     }
 }

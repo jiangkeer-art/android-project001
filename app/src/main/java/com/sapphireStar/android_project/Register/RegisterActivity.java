@@ -18,7 +18,6 @@ import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.NormalUser;
 import com.sapphireStar.entity.User;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 
@@ -76,9 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 } else {
                                     if (editText6.getText().length() == 18) {
                                         if (checkBox.isChecked() == true) {
-                                            CommonDB db = new CommonDB();
-                                            SQLiteDatabase sqlite = db.getSqliteObject(RegisterActivity.this,"FlightDataBase.db");
-                                            NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                                            NormalUserDao normalUserDao = new NormalUserDaoImpl();
 
                                             User user = new User();
                                             user.setPhone(editText1.getText().toString());

@@ -1,14 +1,11 @@
 package com.sapphireStar.dao.impl;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.sapphireStar.android_project.DataBase.DataBaseHelper;
-import com.sapphireStar.android_project.DataBase.MySqlHelper;
+import com.sapphireStar.util.MySqlHelper;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyOrderDao;
-import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyOrder;
 
 import java.sql.SQLException;
@@ -16,10 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
-    private SQLiteDatabase db;
-    public MyOrderDaoImpl(SQLiteDatabase sdb){
-        db = sdb;
-    }
     @Override
     public List<Object[]> getMyOrderByPhone(String phone,String state) throws SQLException {
         Object[] objects = null;
@@ -31,16 +24,11 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
         preparedStatement.setString(1,phone);
         cursor = preparedStatement.executeQuery();
 
-//        if(!cursor.next()) {
-//            closeDatabase();
-//            return null;
-//        }
 
         List<MyOrder> orderList = new ArrayList<MyOrder>();
         List<Object[]> list = new ArrayList<Object[]>();
-        FlightDao flightDao = new FlightDaoImpl(db);
+        FlightDao flightDao = new FlightDaoImpl();
 
-        //Cursor cursor = db.query("My_Order",new String[]{"*"},"phone = " + phone,null,null,null,null);
         MyOrder myOrder = null;
         while(cursor.next()){
             objects = new Object[3];
@@ -49,10 +37,8 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
             myOrder.setPhone(cursor.getString("phone"));
             myOrder.setPlane_ticket_number(cursor.getInt("plane_ticket_number"));
             test_state = cursor.getString("state");
-            Log.d("sqlllll", myOrder.getPhone()+" "+myOrder.getPlane_ticket_number());
             if(test_state.equals(state)){
                 myOrder.setState(cursor.getString("state"));
-                Log.d("sqllll", myOrder.getPhone()+" "+myOrder.getPlane_ticket_number());
                 planeTicket=String.valueOf(myOrder.getPlane_ticket_number());
                 Object[] o = flightDao.GetFlightsByPT(planeTicket);
                 objects[0] = o[0];
@@ -61,7 +47,6 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
                 list.add(objects);
             }
         }
-        Log.d("sqlll",String.valueOf(list.size()));
         closeDatabase();
         return list;
     }
@@ -70,7 +55,6 @@ public class MyOrderDaoImpl  extends MySqlHelper implements MyOrderDao {
     public void addMyOrder(int plane_ticket_number, String phone, int order_number,int state) throws SQLException {
         getDatabase();
         String sql = "insert into my_order(order_number,phone,plane_ticket_number,state) values ('"+ order_number +"','"+ phone +"',"+plane_ticket_number+","+state+")";
-        //String sql = "insert into my_order(order_number,phone,plane_ticket_number) values ("+ order_number +","+ phone +","+plane_ticket_number+","+state+")";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
         closeDatabase();

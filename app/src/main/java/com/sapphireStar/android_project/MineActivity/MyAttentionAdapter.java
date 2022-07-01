@@ -21,7 +21,6 @@ import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -128,9 +127,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                             if (holder.is_attentiond == 1) {
                                 holder.attention.setImageResource(R.drawable.shoucang);
                                 holder.is_attentiond = 0;
-                                CommonDB db = new CommonDB();
-                                SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                                MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                                MyAttentionDao myAttention = new MyAttentionDaoImpl();
                                 try {
                                     myAttention.removeMyAttention(ticket_number, mPhone);
                                 } catch (SQLException e) {
@@ -139,9 +136,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                             } else {
                                 holder.attention.setImageResource(R.drawable.shoucang2);
                                 holder.is_attentiond = 1;
-                                CommonDB db = new CommonDB();
-                                SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                                MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                                MyAttentionDao myAttention = new MyAttentionDaoImpl();
                                 try {
                                     myAttention.addMyAttention(ticket_number, mPhone);
                                 } catch (SQLException e) {
@@ -157,9 +152,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                         public void onClick(View v) {
                             int ticket_number = planeTicket.getPlane_ticket_number();
                             int order_number = (int) ((Math.random() * 9 + 1) * Math.pow(10, 5));
-                            CommonDB db = new CommonDB();
-                            SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                            MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
+                            MyOrderDao myOrderDao = new MyOrderDaoImpl();
                             try {
                                 myOrderDao.addMyOrder(ticket_number, mPhone, order_number, 0);
                                 Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();

@@ -31,7 +31,6 @@ import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyAttention;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -225,9 +224,7 @@ public class SearchActivity extends AppCompatActivity {
         flightList.clear();
         planeTicketList.clear();
         //Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
-        CommonDB db = new CommonDB();
-        SQLiteDatabase sqlite = db.getSqliteObject(SearchActivity.this,"FlightDataBase.db");
-        FlightDao flightDao = new FlightDaoImpl(sqlite);
+        FlightDao flightDao = new FlightDaoImpl();
 
         //获取航班信息
         List<Object[]> list = flightDao.GetFlights(takeoff_time,takeoff_city,landing_city,is_domestic,is_direct,is_eco,is_bus,is_share);
@@ -256,13 +253,11 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         Object[] objects;
-        //Log.d("test", objects[0].getClass().getSimpleName());
         ObjectMapper objectMapper = new ObjectMapper();
         if (list==null){
             Toast.makeText(this, "未找到符合条件的航班", Toast.LENGTH_LONG).show();
         }else{
             for(int i=0;i<list.size();i++) {
-                //Log.d("testtest", String.valueOf(list.size()));
                 objects = list.get(i);
                 Flight flight = objectMapper.convertValue(objects[0], Flight.class);
                 flightList.add(flight);
@@ -271,7 +266,6 @@ public class SearchActivity extends AppCompatActivity {
             }
 
             for(int i=0;i<list.size();i++) {
-                //Log.d("testtest", String.valueOf(list.size()));
                 objects = list2.get(i);
                 Flight flight = objectMapper.convertValue(objects[0], Flight.class);
                 flightListSort.add(flight);
@@ -281,7 +275,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
             //获取关注列表
-            MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+            MyAttentionDao myAttention = new MyAttentionDaoImpl();
             if(myAttention.getMyAttention(phone)==null){
                 myAttentionsPlaneTicketList=null;
             }

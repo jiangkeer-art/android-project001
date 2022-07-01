@@ -19,7 +19,6 @@ import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.NormalUser;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 
@@ -68,9 +67,7 @@ public class Change_Password extends AppCompatActivity {
                     oldPassword = password1.getText().toString();
                     newPassword = password2.getText().toString();
                     reNewPassword = password3.getText().toString();
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(Change_Password.this,"FlightDataBase.db");
-                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl();
                     try {
                         normalUserDao.modifyPassword(phone,newPassword,reNewPassword,oldPassword);
                     } catch (SQLException e) {

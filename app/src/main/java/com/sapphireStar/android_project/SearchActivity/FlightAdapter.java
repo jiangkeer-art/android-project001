@@ -1,9 +1,6 @@
 package com.sapphireStar.android_project.SearchActivity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,23 +11,16 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sapphireStar.android_project.BeginActivity.MainActivity;
-import com.sapphireStar.android_project.MineActivity.MyAttention;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
-import com.sapphireStar.dao.PlaneTicketDao;
 import com.sapphireStar.dao.impl.FlightDaoImpl;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
-import com.sapphireStar.dao.impl.PlaneTicketDaoImpl;
 import com.sapphireStar.entity.Flight;
-import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
-import org.w3c.dom.Text;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -141,9 +131,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                 if(holder.is_attentiond==1){
                     holder.attention.setImageResource(R.drawable.shoucang);
                     holder.is_attentiond=0;
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl();
                     try {
                         myAttention.removeMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
@@ -153,9 +141,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                 else{
                     holder.attention.setImageResource(R.drawable.shoucang2);
                     holder.is_attentiond=1;
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl();
                     try {
                         myAttention.addMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
@@ -171,9 +157,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                 public void onClick(View v) {
                     int ticket_number = planeTicket.getPlane_ticket_number();
                     int order_number = (int) ((Math.random() * 9 + 1) * Math.pow(10, 5));
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                    MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
+                    MyOrderDao myOrderDao = new MyOrderDaoImpl();
                     try {
                         myOrderDao.addMyOrder(ticket_number, mPhone, order_number, 0);
                         Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
@@ -188,9 +172,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
             holder.order.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                    FlightDao flightDao = new FlightDaoImpl(sqlite);
+                    FlightDao flightDao = new FlightDaoImpl();
                     try {
                         flightDao.removeFlight(flight.getFlight_number());
                         Toast.makeText(mContext, "delete succession", Toast.LENGTH_SHORT).show();

@@ -21,7 +21,6 @@ import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -138,9 +137,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 if(holder.is_attentiond==1){
                     holder.attention.setImageResource(R.drawable.shoucang);
                     holder.is_attentiond=0;
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl();
                     try {
                         myAttention.removeMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
@@ -150,9 +147,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 else{
                     holder.attention.setImageResource(R.drawable.shoucang2);
                     holder.is_attentiond=1;
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                    MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                    MyAttentionDao myAttention = new MyAttentionDaoImpl();
                     try {
                         myAttention.addMyAttention(ticket_number,mPhone);
                     } catch (SQLException e) {
@@ -186,9 +181,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                     e.printStackTrace();
                 }
                 takeoff_time_string = takeoff_time.toString();
-                CommonDB db = new CommonDB();
-                SQLiteDatabase sqlite = db.getSqliteObject(mContext,"FlightDataBase.db");
-                MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
+                MyOrderDao myOrderDao = new MyOrderDaoImpl();
                 if(mState.equals("2")) {
                     try {
                         myOrderDao.removeMyOrder(ticket_number, mPhone);

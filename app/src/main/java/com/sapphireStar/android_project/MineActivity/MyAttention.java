@@ -22,7 +22,6 @@ import com.sapphireStar.dao.impl.FlightDaoImpl;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -72,13 +71,10 @@ public class MyAttention extends AppCompatActivity {
         id = getIntent().getStringExtra("id");
         //Log.d("testTTTMyA",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
-        //连接数据库
-        CommonDB db = new CommonDB();
-        SQLiteDatabase sqlite = db.getSqliteObject(MyAttention.this,"FlightDataBase.db");
         ObjectMapper objectMapper = new ObjectMapper();
 
         //获取MyAttention数据并分别添加到相应的List中
-        MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+        MyAttentionDao myAttention = new MyAttentionDaoImpl();
         if(myAttention.getMyAttention(phone)==null){
             myAttentionsPlaneTicketList=null;
         }
@@ -89,7 +85,7 @@ public class MyAttention extends AppCompatActivity {
             for(int i=0;i<list1.size();i++) {
                 objects1 = list1.get(i);
                 myAttentionPlaneTicket = objectMapper.convertValue(objects1[1], PlaneTicket.class);
-                FlightDao flightDao = new FlightDaoImpl(sqlite);
+                FlightDao flightDao = new FlightDaoImpl();
                 int planeTicketNumber = myAttentionPlaneTicket.getPlane_ticket_number();
                 Object[] objects = flightDao.GetFlightsByPT(String.valueOf(planeTicketNumber));
                 Flight flight = objectMapper.convertValue(objects[0], Flight.class);

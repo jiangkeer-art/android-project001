@@ -24,7 +24,6 @@ import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyOrder;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -72,25 +71,23 @@ public class MyOrderActivity extends AppCompatActivity {
     }
 
     private void initOrder() throws SQLException {
-        //Toast.makeText(MyOrderActivity.this, " fgjfjjhghjghjgjh", Toast.LENGTH_SHORT).show();
+
         phone = getIntent().getStringExtra("phone");
         id = getIntent().getStringExtra("id");
         state = getIntent().getStringExtra("state");
-        //Log.d("testTTTMyA",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
-        CommonDB db = new CommonDB();
-        SQLiteDatabase sqlite = db.getSqliteObject(MyOrderActivity.this,"FlightDataBase.db");
+
         ObjectMapper objectMapper = new ObjectMapper();
 
-        MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
-        //Log.d("sqlll",phone + " "+state);
+        MyOrderDao myOrderDao = new MyOrderDaoImpl();
+
         List<Object[]> list1 = myOrderDao.getMyOrderByPhone(phone,state);
         if(list1.size()==0){
-            //Toast.makeText(MyOrderActivity.this, " succession", Toast.LENGTH_SHORT).show();
+
             myOrder=null;
         }
         else{
-            //Toast.makeText(MyOrderActivity.this, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
+
             Object[] objects1;
             PlaneTicket myOrderTicket;
             Flight flight;
@@ -106,7 +103,7 @@ public class MyOrderActivity extends AppCompatActivity {
             }
         }
 
-        MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+        MyAttentionDao myAttention = new MyAttentionDaoImpl();
         if(myAttention.getMyAttention(phone)==null){
             myAttentionsPlaneTicketList=null;
         }

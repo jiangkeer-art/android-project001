@@ -16,7 +16,6 @@ import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 
@@ -62,9 +61,7 @@ public class Identity_Confirm extends AppCompatActivity {
                     Name = name.getText().toString();
                     idNumber = id_number.getText().toString();
                     Password = password.getText().toString();
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(Identity_Confirm.this,"FlightDataBase.db");
-                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl();
                     try {
                         normalUserDao.modifyIdNumber(phone,Password,idNumber,Name);
                     } catch (SQLException e) {
