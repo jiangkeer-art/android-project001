@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 public class Change_Phone extends AppCompatActivity {
 
-    public String phone="",ID="";
+    public String phone="",ID="",adm="";
     public EditText new_phone,password;
     public Button confirm;
     public String newPhone="",Password="";
@@ -38,6 +38,7 @@ public class Change_Phone extends AppCompatActivity {
         confirm = findViewById(R.id.confirm);
         phone = getIntent().getStringExtra("phone");
         ID = getIntent().getStringExtra("id");
+        adm = getIntent().getStringExtra("adm");
         Change_Phone.OnClick onClick = new Change_Phone.OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
@@ -54,6 +55,7 @@ public class Change_Phone extends AppCompatActivity {
                     intent = new Intent(Change_Phone.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("frag",1);
                     startActivity(intent);
                     break;

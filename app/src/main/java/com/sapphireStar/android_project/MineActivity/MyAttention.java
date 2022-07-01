@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyAttention extends AppCompatActivity {
-    public String phone="",id="";
+    public String phone="",id="",adm="";
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
     public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
@@ -59,6 +59,7 @@ public class MyAttention extends AppCompatActivity {
                 intent = new Intent(MyAttention.this, FunctionActivity.class);
                 intent.putExtra("phone",phone);
                 intent.putExtra("id",id);
+                intent.putExtra("adm",adm);
                 intent.putExtra("frag",1);
                 startActivity(intent);
             }
@@ -69,6 +70,7 @@ public class MyAttention extends AppCompatActivity {
         //获取当前用户信息
         phone = getIntent().getStringExtra("phone");
         id = getIntent().getStringExtra("id");
+        adm = getIntent().getStringExtra("adm");
         //Log.d("testTTTMyA",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
 
         ObjectMapper objectMapper = new ObjectMapper();

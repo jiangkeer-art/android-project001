@@ -29,7 +29,7 @@ public class MineFragment extends Fragment {
     public Button exit,attention;
     public ImageButton complete,uncomplete,changed,change_password,change_phone,real_confirm;
     private TextView id,username;
-    public String phone="",ID="",userName="",state="";
+    public String phone="",ID="",adm="",userName="",state="";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +60,7 @@ public class MineFragment extends Fragment {
         real_confirm.setOnClickListener(onClick);
         attention.setOnClickListener(onClick);
         //获取从登录界面传来的ID和手机号并显示
+        adm = getActivity().getIntent().getStringExtra("adm");
         ID = getActivity().getIntent().getStringExtra("id");
         phone = getActivity().getIntent().getStringExtra("phone");
         userName = "用户名："+phone;
@@ -82,6 +83,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), MyOrderActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("state",state);
                     startActivity(intent);
                     break;
@@ -93,6 +95,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), MyOrderActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("state",state);
                     startActivity(intent);
                     //Toast.makeText(getActivity(), "addssdasdasdasda ", Toast.LENGTH_SHORT).show();
@@ -104,6 +107,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), MyOrderActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("state",state);
                     startActivity(intent);
                     break;
@@ -113,6 +117,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), Change_Password.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     startActivity(intent);
                     break;
                 case R.id.change_phone:
@@ -120,6 +125,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), Change_Phone.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     startActivity(intent);
                     break;
 
@@ -128,6 +134,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), Identity_Confirm.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     startActivity(intent);
                     break;
 
@@ -151,6 +158,7 @@ public class MineFragment extends Fragment {
                     intent = new Intent(getActivity(), MyAttention.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     startActivity(intent);
                     break;
             }

@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyOrderActivity extends AppCompatActivity {
-    public String phone="",state = "",id="";
+    public String phone="",state = "",id="",adm="";
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
     public List<MyOrder> myOrder = new ArrayList<>();
@@ -64,6 +64,7 @@ public class MyOrderActivity extends AppCompatActivity {
                 intent = new Intent(MyOrderActivity.this, FunctionActivity.class);
                 intent.putExtra("phone",phone);
                 intent.putExtra("id",id);
+                intent.putExtra("adm",adm);
                 intent.putExtra("frag",1);
                 startActivity(intent);
             }
@@ -74,6 +75,7 @@ public class MyOrderActivity extends AppCompatActivity {
 
         phone = getIntent().getStringExtra("phone");
         id = getIntent().getStringExtra("id");
+        adm = getIntent().getStringExtra("adm");
         state = getIntent().getStringExtra("state");
 
 

@@ -36,7 +36,7 @@ public class ConditionViewGroup<X extends TextView> extends ViewGroup {
     private int textModePaddingBottom = 25;
 
     //正常样式
-    private float itemTextSize = 12;
+    private float itemTextSize = 17;
     private int itemBGResNor = R.drawable.conditions_item_btn_normal;
     private int itemTextColorNor = Color.parseColor("#000000");
 

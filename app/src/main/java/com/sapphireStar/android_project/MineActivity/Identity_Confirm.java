@@ -21,7 +21,7 @@ import java.sql.SQLException;
 
 public class Identity_Confirm extends AppCompatActivity {
 
-    public String phone="",ID="";
+    public String phone="",ID="",adm="";
     public EditText name,id_number,password;
     public Button confirm;
     public String Name="",idNumber="",Password="";
@@ -38,6 +38,7 @@ public class Identity_Confirm extends AppCompatActivity {
         confirm = findViewById(R.id.confirm);
         phone = getIntent().getStringExtra("phone");
         ID = getIntent().getStringExtra("id");
+        adm = getIntent().getStringExtra("adm");
         Identity_Confirm.OnClick onClick = new Identity_Confirm.OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
@@ -54,6 +55,7 @@ public class Identity_Confirm extends AppCompatActivity {
                     intent = new Intent(Identity_Confirm.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("frag",1);
                     startActivity(intent);
                     break;
@@ -70,6 +72,7 @@ public class Identity_Confirm extends AppCompatActivity {
                     intent = new Intent(Identity_Confirm.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
+                    intent.putExtra("adm",adm);
                     intent.putExtra("frag",1);
                     startActivity(intent);
                     break;
