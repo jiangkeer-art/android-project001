@@ -181,38 +181,38 @@
                         android:layout_height="match_parent" >
 
                         <LinearLayout
-                            android:id="@+id/placee"
+                            android:id="@+id/placeF"
                             android:layout_width="match_parent"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:gravity="center_vertical"
                             android:layout_height="match_parent" >
 
-                            <EditText
-                                android:layout_width="90dp"
-                                android:layout_height="wrap_content"
-                                android:textSize="40dp"
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
+                                android:textSize="40sp"
                                 android:layout_marginLeft="20dp"
-                                android:layout_marginRight="30dp"
-                                android:id="@+id/place11"
+                                android:layout_marginRight="20dp"
+                                android:id="@+id/place1F"
                                 android:textStyle="bold"
-                                android:text="厦门"
-                                android:background="@drawable/deleline"/>
+                                android:text="大连"
+                                android:textColor="@color/black"/>
 
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="30dp"
                                 android:background="@drawable/direct" />
 
-                            <EditText
-                                android:layout_width="90dp"
-                                android:layout_height="wrap_content"
-                                android:text="巴黎"
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
+                                android:text="巴黎11"
                                 android:textStyle="bold"
                                 android:layout_marginLeft="30dp"
-                                android:id="@+id/place22"
+                                android:id="@+id/place2F"
                                 android:textSize="40dp"
-                                android:background="@drawable/deleline"/>
+                                android:textColor="@color/black"/>
                         </LinearLayout>
                         <View
                             android:layout_marginTop="5sp"
@@ -223,21 +223,21 @@
                             android:background="#4A000000">
                         </View>
                         <LinearLayout
-                            android:id="@+id/dayy"
                             android:layout_width="match_parent"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_height="match_parent" >
-                            <EditText
+
+                            <TextView
                                 android:layout_marginTop="30dp"
-                                android:id="@+id/day11"
+                                android:id="@+id/dayF"
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
                                 android:layout_marginLeft="20dp"
-                                android:textSize="30dp"
-                                android:textStyle="bold"
-                                android:text="X月X日(今天)      "
-                                android:background="@drawable/deleline"/>
+                                android:textSize="30sp"
+                                android:gravity="bottom"
+                                android:textColor="#80000000"
+                                android:text="点击选择出发日期" />
 
                         </LinearLayout>
                         <View
@@ -259,13 +259,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="15dp">
                                 <RadioButton
-                                    android:id="@+id/is_ecoo"
+                                    android:id="@+id/is_ecoF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="经济舱"
                                     android:textSize="13sp"/>
                                 <RadioButton
-                                    android:id="@+id/is_buss"
+                                    android:id="@+id/is_busF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="公务/头等舱"
@@ -273,21 +273,21 @@
                             </RadioGroup>
 
                             <CheckBox
-                                android:id="@+id/is_directt"
+                                android:id="@+id/is_directF"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
                                 android:text="仅看直飞"
-                                android:textSize="13sp"/>
+                                android:textSize="13sp"
+                                android:layout_marginLeft="5dp"/>
                             <CheckBox
-                                android:id="@+id/is_sharee"
+                                android:id="@+id/is_shareF"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="隐藏共享"
                                 android:textSize="13sp"/>
                         </LinearLayout>
                         <Button
-                            android:id="@+id/search_buttonn"
+                            android:id="@+id/search_buttonF"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

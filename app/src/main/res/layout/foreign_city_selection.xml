@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="城市选择"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/大连F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="大连"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/巴黎F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="巴黎"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/伦敦F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="伦敦"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/纽约F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="纽约"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/成都F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="成都"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/重庆F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="重庆"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/东京F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="东京"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/天津F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="天津"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/西安F"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="西安"
+                android:backgroundTint="#12000000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

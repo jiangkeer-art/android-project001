@@ -160,7 +160,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     MyOrderDao myOrderDao = new MyOrderDaoImpl();
                     try {
                         myOrderDao.addMyOrder(ticket_number, mPhone, order_number, 0);
-                        Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "预订成功", Toast.LENGTH_LONG).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -175,7 +175,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.ViewHolder
                     FlightDao flightDao = new FlightDaoImpl();
                     try {
                         flightDao.removeFlight(flight.getFlight_number());
-                        Toast.makeText(mContext, "delete succession", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "删除成功", Toast.LENGTH_LONG).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

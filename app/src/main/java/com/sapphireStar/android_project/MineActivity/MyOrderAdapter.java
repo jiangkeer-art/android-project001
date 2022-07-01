@@ -185,7 +185,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 if(mState.equals("2")) {
                     try {
                         myOrderDao.removeMyOrder(ticket_number, mPhone);
-                        Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "删除成功", Toast.LENGTH_LONG).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -193,7 +193,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 else if(mState.equals("1")){
                     try {
                         myOrderDao.removeMyOrder(ticket_number, mPhone);
-                        Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "删除成功", Toast.LENGTH_LONG).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -201,6 +201,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
                 else if(mState.equals("0")){
                     try {
                         myOrderDao.modifyState(String.valueOf(order.getOrder_number()));
+                        Toast.makeText(mContext, "退款成功", Toast.LENGTH_LONG).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
