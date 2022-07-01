@@ -39,13 +39,6 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         String sql = "insert into `user`(phone,password,is_administrators) values ("+user.getPhone()+","+ user.getPassword()+",0 ) ";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
-
-        //        ContentValues valueUser = new ContentValues();
-//
-//        valueUser.put("phone",user.getPhone());
-//        valueUser.put("password",user.getPassword());
-//        valueUser.put("is_administrators","0"); //1为管理员，0为普通用户
-//        db.insert("User",null,valueUser);
         closeDatabase();
         return 0;
     }
@@ -55,12 +48,6 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         getDatabase();
         String sql = "insert into normal_user(phone,id,`name`,id_number) values " +
                 "("+normalUser.getPhone()+",'"+ normalUser.getId()+ "','"+ normalUser.getName()+"',"+normalUser.getIdNumber()+" ) ";
-//        ContentValues valueNormal_User=new ContentValues();
-//        valueNormal_User.put("phone",normalUser.getPhone());
-//        valueNormal_User.put("id",normalUser.getId());
-//        valueNormal_User.put("name",normalUser.getName());
-//        valueNormal_User.put("id_number",normalUser.getIdNumber());
-//        db.insert("Normal_User",null,valueNormal_User);
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
         closeDatabase();
@@ -83,19 +70,6 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
                 }
             }
         }
-//        if(cursor.moveToFirst()){
-//            do{
-//                if(phone.equals(cursor.getString(0))){
-//                    if(oldPassword.equals(cursor.getString(1))){
-//                        if(newPassword.equals(reNewPassword)){
-//                            ContentValues values = new ContentValues();
-//                            values.put("password",newPassword);
-//                            db.update("User",values,"phone="+phone,null);
-//                        }
-//                    }
-//                }
-//            }while(cursor.moveToNext());
-//        }
         closeDatabase();
         return 0;
     }
@@ -103,11 +77,9 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
     @Override
     public Object Login(String phone, String password) throws SQLException {
         String sql = "select * from `user` where phone = '" + phone + "' and password = '" + password + "'";
-        Log.d("test", sql);
         getDatabase();
         preparedStatement = connection.prepareStatement(sql);
         cursor = preparedStatement.executeQuery(sql);
-        //Cursor cursor = db.query("User",new String[]{"*"},"phone = " + "'" + phone + "'" + " and password = " + "'" + password + "'",null,null,null,null);
         if(!cursor.next()){
             return null;
         }
@@ -147,6 +119,25 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         }
         closeDatabase();
 
+        return 0;
+    }
+
+    @Override
+    public int forgetPassword(String phone, String password, String rePassword) throws SQLException {
+        getDatabase();
+        String sql = "select * from user where phone = " + phone;
+        preparedStatement = connection.prepareStatement(sql);
+        cursor = preparedStatement.executeQuery();
+        cursor.next();
+            if(password.equals(rePassword)){
+                String update = "update `user` set password = "+ password + " where phone = "+ phone;
+                if(preparedStatement.executeUpdate(update)<1){
+                    //受影响的行数为0，表示未更新成功，表单数据有误
+                    return 1;
+                }
+            }
+
+        closeDatabase();
         return 0;
     }
 }
