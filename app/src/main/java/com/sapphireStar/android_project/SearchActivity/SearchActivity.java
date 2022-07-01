@@ -79,6 +79,7 @@ public class SearchActivity extends AppCompatActivity {
                 intent = new Intent(SearchActivity.this, FunctionActivity.class);
                 intent.putExtra("phone",phone);
                 intent.putExtra("id",id);
+                intent.putExtra("adm",is_adm);
                 intent.putExtra("frag",0);
                 startActivity(intent);
             }
@@ -91,8 +92,8 @@ public class SearchActivity extends AppCompatActivity {
         bottomSheetDialog.setContentView(filter);
 
         final ArrayList<String> sharetext = new ArrayList<>();
-        sharetext.add("隐藏共享航班");
         sharetext.add("显示共享航班");
+        sharetext.add("隐藏共享航班");
         shareGroup = filter.findViewById(R.id.shareGroup);
         shareGroup.addItemViews(sharetext, ConditionViewGroup.TEV_MODE);
         shareGroup.chooseItemStyle(0);
@@ -108,8 +109,8 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         final ArrayList<String> directtext = new ArrayList<>();
-        directtext.add("仅看直飞航班");
         directtext.add("显示经停航班");
+        directtext.add("仅看直飞航班");
         directGroup = filter.findViewById(R.id.directGroup);
         directGroup.addItemViews(directtext, ConditionViewGroup.TEV_MODE);
         directGroup.chooseItemStyle(0);
@@ -125,8 +126,8 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         final ArrayList<String> sorttext = new ArrayList<>();
-        sorttext.add("按价格升序");
         sorttext.add("按价格降序");
+        sorttext.add("按价格升序");
         sortGroup = filter.findViewById(R.id.sortGroup);
         sortGroup.addItemViews(sorttext, ConditionViewGroup.TEV_MODE);
         sortGroup.chooseItemStyle(0);
@@ -142,9 +143,9 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         final ArrayList<String> seattext = new ArrayList<>();
+        seattext.add("无舱位需求");
         seattext.add("只看经济舱");
         seattext.add("只看头等舱");
-        seattext.add("无舱位需求");
         seatGroup = filter.findViewById(R.id.seatGroup);
         seatGroup.addItemViews(seattext, ConditionViewGroup.TEV_MODE);
         seatGroup.chooseItemStyle(0);
@@ -195,6 +196,7 @@ public class SearchActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 adapter.notifyDataSetChanged();
+                bottomSheetDialog.hide();
             }
         });
     }
@@ -224,7 +226,7 @@ public class SearchActivity extends AppCompatActivity {
         //初始化符合条件的航班信息
         flightList.clear();
         planeTicketList.clear();
-        //Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
+        Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
         FlightDao flightDao = new FlightDaoImpl();
 
         //获取航班信息
