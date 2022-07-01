@@ -45,8 +45,6 @@ public class SearchActivity extends AppCompatActivity {
     public int is_eco=0,is_bus=0,is_direct=0,is_share=0,is_domestic=0,is_sort=0;
     public List<Flight> flightList = new ArrayList<>();
     public List<PlaneTicket> planeTicketList = new ArrayList<>();
-    public List<Flight> flightListSort = new ArrayList<>();
-    public List<PlaneTicket> planeTicketListSort = new ArrayList<>();
     public List<PlaneTicket> myAttentionsPlaneTicketList = new ArrayList<>();
     private ImageButton back_to_search;
     private TextView float_btn;
@@ -178,11 +176,7 @@ public class SearchActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         FlightAdapter adapter;
-        if(is_sort==0) {
-            adapter = new FlightAdapter(flightList, planeTicketList, SearchActivity.this, myAttentionsPlaneTicketList, phone,is_adm);
-        }else{
-            adapter = new FlightAdapter(flightListSort, planeTicketListSort, SearchActivity.this, myAttentionsPlaneTicketList, phone,is_adm);
-        }
+        adapter = new FlightAdapter(flightList, planeTicketList, SearchActivity.this, myAttentionsPlaneTicketList, phone,is_adm);
         recyclerView.setAdapter(adapter);
 
         //根据筛选条件更新数据集
@@ -226,7 +220,7 @@ public class SearchActivity extends AppCompatActivity {
         //初始化符合条件的航班信息
         flightList.clear();
         planeTicketList.clear();
-        Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
+        //Log.d("testTTT",takeoff_time+takeoff_city+landing_city+is_domestic+is_direct+is_eco+is_bus+is_share );
         FlightDao flightDao = new FlightDaoImpl();
 
         //获取航班信息
@@ -237,27 +231,6 @@ public class SearchActivity extends AppCompatActivity {
         List<Object[]> list2=list;
 
         //排序
-        Collections.sort(list2,new Comparator<Object[]>(){
-            @Override
-            public int compare(Object[] objects1,Object[] objects2){
-                ObjectMapper objectMapper = new ObjectMapper();
-                PlaneTicket planeTicketSort2,planeTicketSort3;
-                planeTicketSort2 = objectMapper.convertValue(objects1[1], PlaneTicket.class);
-                planeTicketSort3 = objectMapper.convertValue(objects2[1], PlaneTicket.class);
-                int price1,price2;
-                price1 = planeTicketSort2.getPrice();
-                price2 = planeTicketSort3.getPrice();
-                int diff = price1-price2;
-                if (diff > 0) {
-                    return 1;
-                }
-                else if(diff < 0){
-                    return -1;
-                }
-                return 0;
-            }
-        });
-
         Collections.sort(list,new Comparator<Object[]>(){
             @Override
             public int compare(Object[] objects1,Object[] objects2){
@@ -284,20 +257,23 @@ public class SearchActivity extends AppCompatActivity {
         if (list==null){
             Toast.makeText(this, "未找到符合条件的航班", Toast.LENGTH_LONG).show();
         }else{
-            for(int i=0;i<list.size();i++) {
-                objects = list.get(i);
-                Flight flight = objectMapper.convertValue(objects[0], Flight.class);
-                flightList.add(flight);
-                PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
-                planeTicketList.add(planeTicket);
+            if(is_sort==1) {
+                for (int i = 0; i < list.size(); i++) {
+                    objects = list.get(i);
+                    Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+                    flightList.add(flight);
+                    PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
+                    planeTicketList.add(planeTicket);
+                }
             }
-
-            for(int i=0;i<list.size();i++) {
-                objects = list2.get(i);
-                Flight flight = objectMapper.convertValue(objects[0], Flight.class);
-                flightListSort.add(flight);
-                PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
-                planeTicketListSort.add(planeTicket);
+            else {
+                for (int i = list.size()-1; i >=0; i--) {
+                    objects = list.get(i);
+                    Flight flight = objectMapper.convertValue(objects[0], Flight.class);
+                    flightList.add(flight);
+                    PlaneTicket planeTicket = objectMapper.convertValue(objects[1], PlaneTicket.class);
+                    planeTicketList.add(planeTicket);
+                }
             }
 
 
