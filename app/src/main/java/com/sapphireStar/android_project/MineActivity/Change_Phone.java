@@ -17,7 +17,6 @@ import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 
@@ -61,9 +60,7 @@ public class Change_Phone extends AppCompatActivity {
                 case R.id.confirm:
                     newPhone = new_phone.getText().toString();
                     Password = password.getText().toString();
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(Change_Phone.this,"FlightDataBase.db");
-                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl();
                     try {
                         normalUserDao.modifyPhone(phone,newPhone,Password);
                     } catch (SQLException e) {

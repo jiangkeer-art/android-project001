@@ -21,7 +21,6 @@ import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.PlaneTicket;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -55,12 +54,15 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
         Flight flight = mFlightList.get(position);
         PlaneTicket planeTicket = mPlaneTicket.get(position);
 
+        //用来查找我的关注列表是否为空
         if(mmyAttentions!=null) {
             //Toast.makeText(mContext, "addssdasdasdasda succession", Toast.LENGTH_SHORT).show();
             PlaneTicket planeTicket1;
             for (int i = 0; i < mmyAttentions.size(); i++) {
                 planeTicket1 = mmyAttentions.get(i);
+                //如果两者一样就证明当前的planeTicket为用户收藏的航班
                 if (planeTicket.getPlane_ticket_number() == planeTicket1.getPlane_ticket_number()) {
+                    //设置各个控件的显示内容
                     holder.is_attentiond = 1;
                     holder.attention.setImageResource(R.drawable.shoucang2);
                     holder.flight_number.setText(flight.getFlight_number() + "航班");
@@ -73,6 +75,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                     holder.departure_terminal.setText(flight.getDeparture_terminal());
                     holder.landing_terminal.setText(flight.getLanding_terminal());
 
+                    //时间转换
                     String ssm, all;
                     StringBuffer h = new StringBuffer();
                     StringBuffer m = new StringBuffer();
@@ -115,7 +118,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                     holder.is_bus.setText(planeTicket.getShipping_space());
                     holder.price.setText("¥" + planeTicket.getPrice());
 
-
+                    //当点击收藏按钮时可以取消收藏或者从新添加收藏
                     holder.attention.setOnClickListener(new View.OnClickListener() {
                         int ticket_number = planeTicket.getPlane_ticket_number();
 
@@ -124,9 +127,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                             if (holder.is_attentiond == 1) {
                                 holder.attention.setImageResource(R.drawable.shoucang);
                                 holder.is_attentiond = 0;
-                                CommonDB db = new CommonDB();
-                                SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                                MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                                MyAttentionDao myAttention = new MyAttentionDaoImpl();
                                 try {
                                     myAttention.removeMyAttention(ticket_number, mPhone);
                                 } catch (SQLException e) {
@@ -135,9 +136,7 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                             } else {
                                 holder.attention.setImageResource(R.drawable.shoucang2);
                                 holder.is_attentiond = 1;
-                                CommonDB db = new CommonDB();
-                                SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                                MyAttentionDao myAttention = new MyAttentionDaoImpl(sqlite);
+                                MyAttentionDao myAttention = new MyAttentionDaoImpl();
                                 try {
                                     myAttention.addMyAttention(ticket_number, mPhone);
                                 } catch (SQLException e) {
@@ -147,14 +146,13 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
                         }
                     });
 
+                    //设置订票按钮的点击事件
                     holder.order.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             int ticket_number = planeTicket.getPlane_ticket_number();
                             int order_number = (int) ((Math.random() * 9 + 1) * Math.pow(10, 5));
-                            CommonDB db = new CommonDB();
-                            SQLiteDatabase sqlite = db.getSqliteObject(mContext, "FlightDataBase.db");
-                            MyOrderDao myOrderDao = new MyOrderDaoImpl(sqlite);
+                            MyOrderDao myOrderDao = new MyOrderDaoImpl();
                             try {
                                 myOrderDao.addMyOrder(ticket_number, mPhone, order_number, 0);
                                 Toast.makeText(mContext, "add succession", Toast.LENGTH_SHORT).show();
@@ -179,6 +177,8 @@ public class MyAttentionAdapter extends RecyclerView.Adapter<MyAttentionAdapter.
         public int is_attentiond=0;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            //设置各个控件
             flight_number = itemView.findViewById(R.id.flight_number);
             air_company = itemView.findViewById(R.id.air_company);
             takeoff_time = itemView.findViewById(R.id.takeoff_time);

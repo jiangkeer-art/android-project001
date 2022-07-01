@@ -1,10 +1,9 @@
 package com.sapphireStar.dao.impl;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.sapphireStar.android_project.DataBase.MySqlHelper;
+import com.sapphireStar.util.MySqlHelper;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.PlaneTicket;
@@ -18,10 +17,6 @@ import java.util.Date;
 import java.util.List;
 
 public class FlightDaoImpl extends MySqlHelper implements FlightDao {
-    private SQLiteDatabase db;
-    public FlightDaoImpl(SQLiteDatabase sdb){
-        db = sdb;
-    }
 
     @Override
     public List<Object[]> GetFlights(String dateFind, String takeoff_city, String landing_city,int is_domestic,int is_direct_flight,int is_eco,int is_business,int is_share) throws SQLException {
@@ -56,33 +51,7 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         if(dateFind.equals("")){
             dateFind = "%";
         }
-//        Cursor cursor = db.query("Flight,Plane_Ticket",new String[]{"Flight.flight_number"
-//        ,"Flight.is_domestic"
-//        ,"Flight.takeoff_city"
-//        ,"Flight.landing_city"
-//        ,"Flight.transit_city"
-//        ,"Flight.takeoff_time"
-//        ,"Flight.punctuality_rate"
-//        ,"Flight.is_direct_flight"
-//        ,"Flight.is_share"
-//        ,"Flight.time_period"
-//        ,"Flight.airline_company"
-//        ,"Flight.food"
-//        ,"Flight.departure_terminal"
-//        ,"Flight.landing_terminal"
-//        ,"Plane_Ticket.plane_ticket_number"
-//        ,"Plane_Ticket.price"
-//        ,"Plane_Ticket.shipping_space"
-//        ,"Plane_Ticket.state"}
-//                ,"Flight.takeoff_time like " + "'"+ dateFind + "'"+
-//                " and landing_city = " + "'" + landing_city + "'" +
-//                " and takeoff_city = " + "'" + takeoff_city + "'" +
-//                " and is_domestic = " + is_domestic +
-//                " and is_share like " + "'" + ISH + "'" +
-//                " and is_direct_flight like " + "'" + IDF + "'" +
-//                " and Flight.flight_number = Plane_Ticket.flight_number" +
-//                " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
-//                " and Plane_Ticket.shipping_space like " + "'" + shipping_space + "'",null,null,null,null);
+
         getDatabase();
         String sql = null;
         if(dateFind.equals("%")){
@@ -112,27 +81,9 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
                     " and Plane_Ticket.shipping_space like '" + shipping_space + "'";
         }
         preparedStatement = connection.prepareStatement(sql);
-//        preparedStatement.setString(1,dateFind);
-//        preparedStatement.setString(2,landing_city);
-//        preparedStatement.setString(3,takeoff_city);
-//        preparedStatement.setString(4,String.valueOf(is_domestic));
-//        preparedStatement.setString(5,ISH);
-//        preparedStatement.setString(6,IDF);
-//        preparedStatement.setString(7,shipping_space);
+
         Log.d("sql", sql);
         cursor = preparedStatement.executeQuery();
-//        Cursor cursor = db.rawQuery("SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
-//                        "FROM Flight,Plane_Ticket " +
-//                        "WHERE Flight.takeoff_time like ?"+
-//                        " and landing_city = ?" +
-//                        " and takeoff_city = ?" +
-//                        " and is_domestic = ?" +
-//                        " and is_share like ?" +
-//                        " and is_direct_flight like ?" +
-//                        " and Flight.flight_number = Plane_Ticket.flight_number" +
-//                        " and Flight.takeoff_time = Plane_Ticket.takeoff_time" +
-//                        " and Plane_Ticket.shipping_space like ?"
-//                ,new String[]{"%"+dateFind+"%",landing_city,takeoff_city,String.valueOf(is_domestic),ISH,IDF,shipping_space});
         if(!cursor.next()){
             return null;
         }
@@ -194,12 +145,6 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,plane_ticket_number);
         rs = preparedStatement.executeQuery();
-//        Cursor cursor = db.rawQuery("SELECT Flight.flight_number, Flight.is_domestic, Flight.takeoff_city, Flight.landing_city, Flight.transit_city, Flight.takeoff_time, Flight.punctuality_rate, Flight.is_direct_flight, Flight.is_share, Flight.time_period, Flight.airline_company, Flight.food, Flight.departure_terminal, Flight.landing_terminal, Plane_Ticket.plane_ticket_number, Plane_Ticket.price, Plane_Ticket.shipping_space, Plane_Ticket.state " +
-//                        "FROM Flight,Plane_Ticket " +
-//                        "WHERE Plane_Ticket.plane_ticket_number = ?" +
-//                        " and Flight.flight_number = Plane_Ticket.flight_number" +
-//                        " and Flight.takeoff_time = Plane_Ticket.takeoff_time"
-//                ,new String[]{plane_ticket_number});
         Flight flight = null;
         PlaneTicket planeTicket = null;
         if(!rs.next()){
@@ -245,5 +190,17 @@ public class FlightDaoImpl extends MySqlHelper implements FlightDao {
 
         rs.close();
         return objects;
+    }
+
+    @Override
+    public void removeFlight(String flight_number) throws SQLException {
+        getDatabase();
+
+        String sql = "delete from flight where flight_number = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,flight_number);
+        preparedStatement.execute();
+
+        closeDatabase();
     }
 }

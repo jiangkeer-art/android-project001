@@ -26,8 +26,6 @@ import com.sapphireStar.dao.impl.AdministratorDaoImpl;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.Administrator;
 import com.sapphireStar.entity.NormalUser;
-import com.sapphireStar.util.CommonDB;
-import com.sapphireStar.util.InsertTestData;
 
 import java.sql.SQLException;
 
@@ -47,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        //创建数据库并向其中添加数据
-        //CommonDB db = new CommonDB();
-        //SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
-//        int version = db.getVersionControl();
-//        //Toast.makeText(MainActivity.this, String.valueOf(version), Toast.LENGTH_SHORT).show();
-//        if(version==1){
-//            new InsertTestData(sqlite);
-//            //Toast.makeText(MainActivity.this, version, Toast.LENGTH_SHORT).show();
-//        }
 
         //对布局界面按钮添加监听事件
         quick_register = findViewById(R.id.quick_register);
@@ -107,20 +96,22 @@ public class MainActivity extends AppCompatActivity {
             Intent intent;
             switch(v.getId()){
                 case R.id.quick_register:
+                    //点击注册按钮
                     intent=new Intent(MainActivity.this, RegisterActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.forget_password:break;
 
                 case R.id.sing_in:
+                    //点击登录按钮
                     EditText editText1 = (EditText) findViewById(R.id.username);
                     EditText editText2 = (EditText) findViewById(R.id.password);
+                    //获取用户名和密码，
                     username = editText1.getText().toString();
                     password = editText2.getText().toString();
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(MainActivity.this,"FlightDataBase.db");
-                    AdministratorDao administratorDao = new AdministratorDaoImpl(sqlite);
-                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    //进入数据库进行查询
+                    AdministratorDao administratorDao = new AdministratorDaoImpl();
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl();
                     Object obj = null;
                     try {
                         obj = normalUserDao.Login(username,password);
@@ -142,8 +133,11 @@ public class MainActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             id = user_info.getId();
+                            String is_administrator="1";
                             intent.putExtra("id",id);
                             intent.putExtra("Administrator",(Administrator)obj);
+                            intent.putExtra("adm",is_administrator);
+
                         }
                         else {
                             NormalUser user_info = null;
@@ -153,33 +147,14 @@ public class MainActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             id = user_info.getId();
+                            String is_administrator="0";
                             intent.putExtra("id",id);
                             intent.putExtra("NormalUser",(NormalUser)obj);
+                            intent.putExtra("adm",is_administrator);
                         }
                         startActivity(intent);
                         break;
                     }
-//                    Cursor cursor = sqlite.query("User",null,null,null,null,null,null);
-//                    if(cursor.moveToFirst()){
-//                        do{
-//                            UserName = cursor.getString(cursor.getColumnIndex("phone"));
-//                            if(UserName.equals(username)){
-//                                Password = cursor.getString(cursor.getColumnIndex("password"));
-//                                if(Password.equals(password)){
-//                                    Toast.makeText(MainActivity.this, "Sing in Succeeded", Toast.LENGTH_SHORT).show();
-//                                    intent=new Intent(MainActivity.this, FunctionActivity.class);
-//                                    intent.putExtra("phone",UserName);
-//                                    startActivity(intent);
-//                                    a=1;
-//                                    break;
-//                                }
-//                            }
-//                        }while(cursor.moveToNext());
-//                        if(a==0){
-//                            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    cursor.close();
                     break;
             }
         }

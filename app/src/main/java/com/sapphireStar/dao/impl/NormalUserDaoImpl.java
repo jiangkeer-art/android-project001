@@ -1,14 +1,9 @@
 package com.sapphireStar.dao.impl;
 
-import static android.icu.text.MessagePattern.ArgType.SELECT;
-
-import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.sapphireStar.android_project.DataBase.DataBaseHelper;
-import com.sapphireStar.android_project.DataBase.MySqlHelper;
+import com.sapphireStar.util.MySqlHelper;
 import com.sapphireStar.dao.AdministratorDao;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.entity.NormalUser;
@@ -17,11 +12,6 @@ import com.sapphireStar.entity.User;
 import java.sql.SQLException;
 
 public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
-    private SQLiteDatabase db;
-    //private ContentValues values;
-    public NormalUserDaoImpl(SQLiteDatabase sdb){
-        db = sdb;
-    }
 
     @Override
     public NormalUser getUserByPhone(String phone) throws SQLException {
@@ -124,7 +114,7 @@ public class NormalUserDaoImpl extends MySqlHelper implements NormalUserDao  {
         cursor.beforeFirst();
         cursor.next();
         if(cursor.getInt("is_administrators") == 1){
-            AdministratorDao administratorDao = new AdministratorDaoImpl(db);
+            AdministratorDao administratorDao = new AdministratorDaoImpl();
             return administratorDao.getAdministratorByPhone(phone);
         }
         closeDatabase();

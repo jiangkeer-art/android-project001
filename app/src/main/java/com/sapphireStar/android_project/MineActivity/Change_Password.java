@@ -19,7 +19,6 @@ import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
 import com.sapphireStar.entity.NormalUser;
-import com.sapphireStar.util.CommonDB;
 
 import java.sql.SQLException;
 
@@ -34,6 +33,7 @@ public class Change_Password extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //添加点击事件监听
         setContentView(R.layout.activity_change_password);
         back_to_mine = findViewById(R.id.back_to_mine);
         password1 = findViewById(R.id.password1);
@@ -55,6 +55,7 @@ public class Change_Password extends AppCompatActivity {
             Intent intent;
             switch (v.getId()){
                 case R.id.back_to_mine:
+                    //返回按钮
                     intent = new Intent(Change_Password.this, FunctionActivity.class);
                     intent.putExtra("phone",phone);
                     intent.putExtra("id",ID);
@@ -62,12 +63,11 @@ public class Change_Password extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.confirm:
+                    //修改密码
                     oldPassword = password1.getText().toString();
                     newPassword = password2.getText().toString();
                     reNewPassword = password3.getText().toString();
-                    CommonDB db = new CommonDB();
-                    SQLiteDatabase sqlite = db.getSqliteObject(Change_Password.this,"FlightDataBase.db");
-                    NormalUserDao normalUserDao = new NormalUserDaoImpl(sqlite);
+                    NormalUserDao normalUserDao = new NormalUserDaoImpl();
                     try {
                         normalUserDao.modifyPassword(phone,newPassword,reNewPassword,oldPassword);
                     } catch (SQLException e) {

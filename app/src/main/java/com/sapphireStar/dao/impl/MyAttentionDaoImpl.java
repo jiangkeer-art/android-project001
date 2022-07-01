@@ -1,26 +1,17 @@
 package com.sapphireStar.dao.impl;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sapphireStar.android_project.DataBase.DataBaseHelper;
-import com.sapphireStar.android_project.DataBase.MySqlHelper;
+import com.sapphireStar.util.MySqlHelper;
 import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyAttentionDao;
-import com.sapphireStar.entity.Flight;
 import com.sapphireStar.entity.MyAttention;
-import com.sapphireStar.entity.PlaneTicket;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyAttentionDaoImpl extends MySqlHelper implements MyAttentionDao {
-    private SQLiteDatabase db;
-    //private ContentValues values;
-    public MyAttentionDaoImpl(SQLiteDatabase sdb){
-        db = sdb;
-    }
     @Override
     public List<Object[]> getMyAttention(String phone) throws SQLException {
         List<Object[]> list =new ArrayList<Object[]>();
@@ -34,7 +25,7 @@ public class MyAttentionDaoImpl extends MySqlHelper implements MyAttentionDao {
             closeDatabase();
             return null;
         }
-        FlightDao flightDao = new FlightDaoImpl(db);
+        FlightDao flightDao = new FlightDaoImpl();
         cursor.beforeFirst();
         while(cursor.next()){
             objects = new Object[2];
