@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                             String is_administrator="0";
                             intent.putExtra("id",id);
                             intent.putExtra("NormalUser",(NormalUser)obj);
-                            intent.putExtra("administrator",is_administrator);
+                            intent.putExtra("adm",is_administrator);
                         }
                         startActivity(intent);
                         break;
