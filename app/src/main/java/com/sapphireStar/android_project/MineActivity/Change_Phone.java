@@ -2,13 +2,11 @@ package com.sapphireStar.android_project.MineActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +37,7 @@ public class Change_Phone extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         ID = getIntent().getStringExtra("id");
         adm = getIntent().getStringExtra("adm");
-        Change_Phone.OnClick onClick = new Change_Phone.OnClick();
+        OnClick onClick = new OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
     }

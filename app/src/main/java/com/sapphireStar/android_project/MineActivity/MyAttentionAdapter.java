@@ -1,7 +1,6 @@
 package com.sapphireStar.android_project.MineActivity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sapphireStar.android_project.R;
-import com.sapphireStar.android_project.SearchActivity.FlightAdapter;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;

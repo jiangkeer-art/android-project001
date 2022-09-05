@@ -2,7 +2,6 @@ package com.sapphireStar.android_project.MineActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
-import com.sapphireStar.android_project.BeginActivity.MainActivity;
 import com.sapphireStar.android_project.R;
 import com.sapphireStar.dao.NormalUserDao;
 import com.sapphireStar.dao.impl.NormalUserDaoImpl;
@@ -39,7 +37,7 @@ public class Identity_Confirm extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         ID = getIntent().getStringExtra("id");
         adm = getIntent().getStringExtra("adm");
-        Identity_Confirm.OnClick onClick = new Identity_Confirm.OnClick();
+        OnClick onClick = new OnClick();
         confirm.setOnClickListener(onClick);
         back_to_mine.setOnClickListener(onClick);
     }

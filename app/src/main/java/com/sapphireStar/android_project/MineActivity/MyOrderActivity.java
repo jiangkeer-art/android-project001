@@ -1,24 +1,19 @@
 package com.sapphireStar.android_project.MineActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapphireStar.android_project.After_Sign_Activity.FunctionActivity;
 import com.sapphireStar.android_project.R;
-import com.sapphireStar.dao.FlightDao;
 import com.sapphireStar.dao.MyAttentionDao;
 import com.sapphireStar.dao.MyOrderDao;
-import com.sapphireStar.dao.impl.FlightDaoImpl;
 import com.sapphireStar.dao.impl.MyAttentionDaoImpl;
 import com.sapphireStar.dao.impl.MyOrderDaoImpl;
 import com.sapphireStar.entity.Flight;
